@@ -8,7 +8,7 @@
 <body>
 <link href="<?php echo base_url();?>static/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<button class="btn btn-lg btn-sucess">test</button>
+<button class="btn btn-lg btn-info">test</button>
 
 </body>
 </html>
