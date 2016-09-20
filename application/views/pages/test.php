@@ -6,7 +6,7 @@
 <head><title>bootstrap test</title>
 </head>
 <body>
-<link href="<?php echo base_url();?>dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo base_url();?>static/test.css" rel="stylesheet">
 
 <button class="btn btn-lg btn-sucess">test</button>
 

@@ -514,5 +514,5 @@ $config['proxy_ips'] = '';
 
 
 //pages url_suffix
-$config['base_url'] = 'application';
+$config['base_url'] = '';
 
