@@ -1,5 +1,6 @@
 <?php
-
+$url =  $_SERVER['PHP_SELF'];
+$arr = explode("/",$url);
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,13 +13,15 @@
 <script src="<?php echo base_url();?>static/devMS/js/index.js"></script>
 
 <div id="main">
-	<div id="top_bar"></div>
+	<div id="top_bar">
+		<label style="color:white;font-size:22px;margin-left:45px;">设备管理系统</label>
+	</div>
 	<div id="left_item">
 		<div class="setting_item">
-			<label class="setting_label menu_selected">设 备 查 询</label>
+			<label class="setting_label <?php if($arr[4]=='searchDevices'){echo 'menu_selected';} ?>">设 备 查 询</label>
 		</div>
 		<div class="setting_item">
-			<label class="setting_label">添 加 设 备</label>
+			<label class="setting_label <?php if($arr[4]=='addDevices'){echo 'menu_selected';} ?>">添 加 设 备</label>
 		</div>
 		<div class="setting_item">
 			<label class="setting_label">管 理 设 备</label>

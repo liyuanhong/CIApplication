@@ -18,9 +18,30 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
 	public function index(){
+		$host = $_SERVER['HTTP_HOST'];
+		$address = 'index.php/Welcome/searchDevices';
+		header("Location: $address"); 
+	}
+	 
+	public function searchDevices(){	
 		$this->load->helper('url');
-		//$this->load->view('welcome_message');
+		$this->load->view('index');
+	}
+	
+	public function addDevices(){
+		
+		
+		//获取主机地址
+		//echo $_SERVER['HTTP_HOST']."<br>";
+		//获取网络地址
+		$url =  $_SERVER['PHP_SELF']."<br>";
+		$arr = explode("/",$url);
+		//echo $arr[4];
+		//获取完整的网页地址
+		//echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$this->load->helper('url');
 		$this->load->view('index');
 	}
 }
