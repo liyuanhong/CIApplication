@@ -30,8 +30,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('index');
 	}
 	
-	public function addDevices(){
-		
+	public function addDevices(){	
 		
 		//获取主机地址
 		//echo $_SERVER['HTTP_HOST']."<br>";
@@ -41,6 +40,26 @@ class Welcome extends CI_Controller {
 		//echo $arr[4];
 		//获取完整的网页地址
 		//echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$this->load->helper('url');
+		$this->load->view('index');
+	}
+	
+	public function manDevices(){	
+		$this->load->helper('url');
+		$this->load->view('index');
+	}
+	
+	public function checkDevices(){	
+		$this->load->helper('url');
+		$this->load->view('index');
+	}
+	
+	public function logMan(){	
+		$this->load->helper('url');
+		$this->load->view('index');
+	}
+	
+	public function userMan(){	
 		$this->load->helper('url');
 		$this->load->view('index');
 	}
