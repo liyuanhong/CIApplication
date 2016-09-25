@@ -5,24 +5,30 @@
 }
 #search_area div:nth-child(1){
 	height:100%;
-	width:70%;
+	width:85%;
 	display:inherit;
 	float:left;
 }
 #search_area div:nth-child(2){
 	height:100%;
-	width:30%;
+	width:15%;
 	display:inherit;
 	float:left;
 	padding-top:20px;
 }
+
+#search_area table:nth-child(1){
+	_background-color:red;
+	margin-top:20px;
+	margin-left:20px;
+}
 .select_style{
-	width:200px;
+	width:60%;
 	height:35px;
 	margin-bottom:20px;
 }
 
 .label_style{
 	margin-bottom:20px;
-	margin-left:20px;
+	_margin-left:20px;
 }

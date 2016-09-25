@@ -10,9 +10,9 @@
 
 <div id="search_area">
 	<div>
-		<table _border="1" style="width:850px;height:100px">
+		<table _border="1" style="width:100%;height:100px">
 			<tr>
-				<td>
+				<td style="width:33%;">
 					<label class="label_style">平台：</label>
 					<select id="dev_plateform" class="select_style">
 						<option value="all">all</option>
@@ -20,7 +20,7 @@
 						<option value="ios">ios</option>
 					</select>
 				</td>
-				<td>
+				<td style="width:33%;">
 					<label class="label_style">品牌：</label>
 					<select id="dev_brand" class="select_style">
 						<option value="all">all</option>
@@ -30,7 +30,7 @@
 						<option value="魅族">魅族</option>
 					</select>
 				</td>
-				<td>
+				<td style="width:33%;">
 					<label class="label_style">系统版本：</label>
 					<select id="dev_plateform" class="select_style">
 						<option value="all">all</option>

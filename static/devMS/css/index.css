@@ -15,7 +15,24 @@ body {
 	height:50px;
 	background-color:_#3E5B76;
 	background-color:#1A4FA3;
-	padding-top:10px;
+	_padding-top:10px;
+}
+#top_bar div:nth-child(2){
+	display:inherit;
+	float:right;
+	_background-color:white;
+	width:200px;
+	height:100%;
+	margin-right:50px;
+}
+.login_label{
+	font-size:18px;
+	margin-top:13px;
+	color:black;
+	margin-left:20px;
+}
+.login_label:hover{
+	color:white;
 }
 
 #left_item{

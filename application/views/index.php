@@ -15,7 +15,12 @@ $arr = explode("/",$url);
 
 <div id="main">
 	<div id="top_bar">
-		<label style="color:white;font-size:22px;margin-left:45px;">设备管理系统</label>
+		<label style="color:white;font-size:22px;margin-left:45px;margin-top:10px;">设备管理系统</label>
+		<div>
+			<label id="login_lagel" class="login_label">登录</label>
+			<label style="color:white;margin-left:20px;">|</label>
+			<label id="register_label" class="login_label">注册</label>
+		</div>
 	</div>
 	<div id="left_item">
 		<div class="setting_item">
