@@ -1,12 +1,9 @@
 <?php
 $url =  $_SERVER['PHP_SELF'];
+//php中以/分割字符串
 $arr = explode("/",$url);
 ?>
-<!DOCTYPE html>
-<html>
-<head><title>bootstrap test</title>
-</head>
-<body>
+
 <link href="<?php echo base_url();?>static/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url();?>static/devMS/css/index.css" rel="stylesheet">
 
@@ -61,6 +58,3 @@ $arr = explode("/",$url);
 	</div>
 </div>
 
-</body>
-</html>
-</html>

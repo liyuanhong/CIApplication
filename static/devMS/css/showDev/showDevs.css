@@ -23,12 +23,18 @@
 	margin-left:20px;
 }
 .select_style{
-	width:60%;
+	width:50%;
 	height:35px;
 	margin-bottom:20px;
+	display:inherit;
 }
 
 .label_style{
 	margin-bottom:20px;
 	_margin-left:20px;
+}
+
+.dev_icon{
+	width:70px;
+	height:70px;
 }

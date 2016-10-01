@@ -14,7 +14,7 @@
 			<tr>
 				<td style="width:33%;">
 					<label class="label_style">平台：</label>
-					<select id="dev_plateform" class="select_style">
+					<select id="dev_plateform" class="select_style form-control">
 						<option value="all">all</option>
 						<option value="android">android</option>
 						<option value="ios">ios</option>
@@ -22,7 +22,7 @@
 				</td>
 				<td style="width:33%;">
 					<label class="label_style">品牌：</label>
-					<select id="dev_brand" class="select_style">
+					<select id="dev_brand" class="select_style form-control">
 						<option value="all">all</option>
 						<option value="三星">三星</option>
 						<option value="小米">小米</option>
@@ -32,7 +32,7 @@
 				</td>
 				<td style="width:33%;">
 					<label class="label_style">系统版本：</label>
-					<select id="dev_plateform" class="select_style">
+					<select id="dev_plateform" class="select_style form-control">
 						<option value="all">all</option>
 						<option value="android">4.4.4</option>
 						<option value="ios">4.4.2</option>
@@ -42,7 +42,7 @@
 			<tr>
 				<td>
 					<label class="label_style" class="label_style">状态：</label>
-					<select id="dev_plateform" class="select_style">
+					<select id="dev_plateform" class="select_style form-control">
 						<option value="all">all</option>
 						<option value="android">已借出设备</option>
 						<option value="ios">已分配设备</option>
@@ -55,7 +55,85 @@
 	<div>
 		<button class="btn btn-primary" style="width:100px;">查 询</button>
 	</div>
-
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>icon</th>
+					<th>设备名</th>
+					<th>型号</th>
+					<th>编号#</th>
+					<th>签借人</th>
+					<th>申请</th>
+					<th>所属</th>
+					<th>借出时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<img class="dev_icon"></img>
+					</td>
+					<td>华为荣耀3C</td>
+					<td>honor 3c</td>
+					<td>#03-0023</td>
+					<td>李磊</td>
+					<td>
+						<button class="btn btn-success">申 请</button>
+					</td>
+					<td>张明</td>
+					<td>2016-8-12 15:20:22</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<img class="dev_icon"></img>
+					</td>
+					<td>华为荣耀3C</td>
+					<td>honor 3c</td>
+					<td>#03-0023</td>
+					<td>李磊</td>
+					<td>
+						<button class="btn btn-success">申 请</button>
+					</td>
+					<td>张明</td>
+					<td>2016-8-12 15:20:22</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<img class="dev_icon"></img>
+					</td>
+					<td>华为荣耀3C</td>
+					<td>honor 3c</td>
+					<td>#03-0023</td>
+					<td>李磊</td>
+					<td>
+						<button class="btn btn-success">申 请</button>
+					</td>
+					<td>张明</td>
+					<td>2016-8-12 15:20:22</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<img class="dev_icon"></img>
+					</td>
+					<td>华为荣耀3C</td>
+					<td>honor 3c</td>
+					<td>#03-0023</td>
+					<td>李磊</td>
+					<td>
+						<button class="btn btn-success">申 请</button>
+					</td>
+					<td>张明</td>
+					<td>2016-8-12 15:20:22</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	
 </div>
 
