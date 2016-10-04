@@ -63,4 +63,10 @@ class Welcome extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->view('index');
 	}
+
+	public function server(){	
+		error_reporting(E_ALL | E_STRICT);
+		require('UploadHandler.php');
+		$upload_handler = new UploadHandler();
+	}
 }
