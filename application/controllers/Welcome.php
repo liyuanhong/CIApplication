@@ -64,13 +64,34 @@ class Welcome extends CI_Controller {
 		$this->load->view('index');
 	}
 
+    //上传文件和删除文件
 	public function server(){	
 		error_reporting(E_ALL | E_STRICT);
 		require('UploadHandler.php');
-		$upload_handler = new UploadHandler();
+		$param = $this->uri->segment(4);
+		$requestMethod = $_SERVER['REQUEST_METHOD'];
+
+		if(empty($param)){
+			$param = $this->uri->segment(3);
+			if(empty($param)){	
+				$img = $_GET["file"]; //获取上传的文件名
+				/** 调试用的代码，主要获取请求的url和文件名
+				$requestUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				$myfile = fopen("testfile.txt", "w");
+				fwrite($myfile, $requestUrl."\n");
+				fwrite($myfile, $img."aaa\n");
+				fclose($myfile);
+				*/
+				$upload_handler = new UploadHandler();
+			}else{
+				if($requestMethod == "GET"){
+					//$upload_handler = new UploadHandler();
+				}else if($requestMethod == "POST"){
+					$upload_handler = new UploadHandler();
+				}else if($requestMethod == "DELETE"){
+					$upload_handler = new UploadHandler();
+				}
+			}
+		}
 	}
-
-
-
-
 }
