@@ -44,7 +44,7 @@ class UploadHandler
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
-            'upload_url' => 'http://192.168.8.49/ci/files/',
+            'upload_url' => 'http://'.$_SERVER['HTTP_HOST'].'/ci/files/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
