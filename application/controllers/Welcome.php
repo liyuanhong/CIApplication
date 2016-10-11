@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 
 
+
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
@@ -82,13 +83,13 @@ class Welcome extends CI_Controller {
 				fwrite($myfile, $img."aaa\n");
 				fclose($myfile);
 				*/
-				$upload_handler = new UploadHandler();
+				$upload_handler = new UploadHandler();    //上传某张图片
 			}else{
 				if($requestMethod == "GET"){
-					//$upload_handler = new UploadHandler();
+					//$upload_handler = new UploadHandler();   //返回所有的图片
 				}else if($requestMethod == "POST"){
 					$upload_handler = new UploadHandler();
-				}else if($requestMethod == "DELETE"){
+				}else if($requestMethod == "DELETE"){       //删除特定图片
 					$upload_handler = new UploadHandler();
 				}
 			}

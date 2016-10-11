@@ -32,6 +32,16 @@
 					<label>所属：</label>
 					<input id="dev_who" class="input_style form-control"></input>
 				</td>
+				<td>
+					<label>品牌：</label>
+					<input id="dev_brand" class="input_style form-control"></input>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="label_style">系版本：</label>
+					<input id="dev_plateform" class="form-control input_style"</input>
+				</td>
 			</tr>
 			<tr>
 				<td colSpan="2">
@@ -46,14 +56,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td colSpan="3" style="background-color:#cccccc;">
-					<div class="container">
-					<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+				<td colSpan="3" style="background-color:#cccccc;padding:0px;">
+					<div class="container" style="padding-top:5px;">
+					<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" >
 					<!-- Redirect browsers with JavaScript disabled to the origin page -->
 					<noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
 					<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 					<div class="row fileupload-buttonbar">
-						<div class="col-lg-7">
+						<div class="col-lg-7" style="padding-top:0px">
 							<!-- The fileinput-button span is used to style the file input field as button -->
 							<span class="btn btn-success fileinput-button">
 								<input type="file" name="files[]" multiple>
@@ -75,17 +85,17 @@
 							<span class="fileupload-process"></span>
 						</div>
 						<!-- The global progress state -->
-						<div class="col-lg-5 fileupload-progress fade">
+						<!----<div class="col-lg-5 fileupload-progress fade">    ---->
 							<!-- The global progress bar -->
-							<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+							<!----<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
 								<div class="progress-bar progress-bar-success" style="width:0%;"></div>
-							</div>
+							</div>---->
 							<!-- The extended global progress state -->
-							<div class="progress-extended">&nbsp;</div>
+							<!----<div class="progress-extended">&nbsp;</div>
 						</div>
-					</div>
+					</div>---->
 					<!-- The table listing the files available for upload/download -->
-					<table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+					<table role="presentation" class="table table-striped" style="margin-top:40px;margin-bottom:5px;"><tbody class="files"></tbody></table>
 				</form>
 				<br>
 				
@@ -187,7 +197,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colSpan="3" _style="background-color:#cccccc;">				
+				<td colSpan="3" _style="background-color:#cccccc;padding:0px;">				
 					<button id="dev_add_but" type="button" class="btn btn-primary">添 加 设 备</button>
 				</td>
 			</tr>
