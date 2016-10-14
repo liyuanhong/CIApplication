@@ -1,2 +1,0 @@
-http://192.168.8.49/ci/index.php/Welcome/server/php/-----
-

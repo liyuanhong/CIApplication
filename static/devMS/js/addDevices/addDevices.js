@@ -6,7 +6,14 @@ $("#dev_add_but").click(function(event){
 	devWho = $("#dev_who").val();
 	devOther = $("#dev_other").val();
 	devComments = $("#comments").val();
-	alert(devComments);
+
+	host = window.location.host
+	url = host + "/ci/index.php/AddDevices/addDevices"
+	$.get("http://" + url,
+		function(data){
+			alert(data);
+			console.log(data);
+		});
 })
 
 $('#upload_pic').trigger('click'); 
