@@ -1,16 +1,23 @@
 #logManCtrl{
 	height:100px;
 	width:100%;
-	background-color:#70ef93;
+	background-color:#EEEEFF;
+	padding-left:30px;
+	padding-top:30px;
 }
 
 #logPanel{
 	height:auto;
 	width:100%;
-	background-color:#eafdef;
-	padding-left:10px;
-	padding-top:10px;
+	_background-color:#eafdef;
+	padding-left:30px;
+	padding-top:30px;
 }
 
 .laydate_bottom{height:35px;}
 #laydate_box{height:225px;}
+.laydate-icon{
+	width: 100px;
+    height: 35px;
+    display: inherit;
+}
