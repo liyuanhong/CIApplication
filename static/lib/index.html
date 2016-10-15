@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS日历控件特效代码layDate - JS代码网</title>
+<script src="laydate/laydate.js"></script>
+<style>
+html{background-color:#E3E3E3; font-size:14px; color:#000; font-family:'微软雅黑'}
+h2{line-height:30px; font-size:20px;}
+a,a:hover{ text-decoration:none;}
+pre{font-family:'微软雅黑'}
+.box{width:970px; padding:10px 20px; background-color:#fff; margin:10px auto;}
+.box a{padding-right:20px;}
+</style>
+</head>
+<body>
+<div style="width:970px; margin:10px auto;">
+    演示一：<input class="laydate-icon" onclick="laydate()"><br /><br />
+    演示二：<input class="laydate-icon" id="demo" value="2014-6-20发布日">
+</div>
+<div class="box">
+<pre>
+<strong>【注意事项】</strong>
+一、请千万勿移动laydate中的目录结构，它们具有完整的依赖体系。使用时，只需引入laydate/laydate.js即可。
+二、如果您的网站的js采用合并或模块加载，您需要打开laydate.js，修改path。
+</pre>
+</div>
+<script>
+;!function(){
+laydate({
+   elem: '#demo'
+})
+}();
+</script>
+</body>
+</html>
+<div style="display:none">
+	<script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6f798e51a1cd93937ee8293eece39b1a' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5718743'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D5718743%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>

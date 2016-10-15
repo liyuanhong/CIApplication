@@ -37,7 +37,8 @@ body {
 
 #left_item{
 	width:12%;
-	height:700px;
+	_height:700px;
+	height:100%;
 	float:left;
 	background-color:#F5F5F5;
 }

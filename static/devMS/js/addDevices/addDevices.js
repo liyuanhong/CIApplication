@@ -9,10 +9,9 @@ $("#dev_add_but").click(function(event){
 
 	host = window.location.host
 	url = host + "/ci/index.php/AddDevices/addDevices"
-	$.get("http://" + url,
+	$.get("http://" + url,{itface:"addDev",devName:devName,devModel:devModel,devNum:devNum,devPlateform:devPlateform,devWho:devWho,devOther:devOther,devComments:devComments},
 		function(data){
 			alert(data);
-			console.log(data);
 		});
 })
 
