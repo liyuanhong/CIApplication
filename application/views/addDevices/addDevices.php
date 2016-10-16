@@ -53,7 +53,7 @@ writeToLog($theTime,$who,$where,$doThings);
 				<td>
 					<label>平台：</label>
 					<select id="dev_plateform"  class="input_style form-control" style="margin-left:15px;">
-						<option value="all">android</option>
+						<option value="android">android</option>
 						<option value="ios">ios</option>
 					</select>
 				</td>
@@ -74,11 +74,10 @@ writeToLog($theTime,$who,$where,$doThings);
 				<td>
 					<label>分类：</label>
 					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;">
-						<option value="all">all</option>
-						<option value="phoneAPad" selected="selected">手机和平板</option>
-						<option value="phone">手机</option>
-						<option value="pad">平板</option>
-						<option value="other">其他</option>
+						<option value="手机和平板" selected="selected">手机和平板</option>
+						<option value="手机">手机</option>
+						<option value="平板">平板</option>
+						<option value="其他">其他</option>
 					</select>
 				</td>
 			</tr>

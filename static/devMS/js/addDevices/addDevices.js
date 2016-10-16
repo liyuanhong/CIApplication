@@ -12,23 +12,32 @@ $("#dev_add_but").click(function(event){
 	
 	uploadPics = getUploadPics();
 
+	if(devName == "" || devNum == ""){
+		alert("设备名和设备编号不能为空");
+	}else{
+		host = window.location.host;
+		url = host + "/ci/index.php/AddDevices/addDevices";
+		$.get("http://" + url,{devName:devName,devModel:devModel,devNum:devNum,devPlateform:devPlateform,devOwner:devOwner,devBrand:devBrand,devVersion:devVersion,devCategory:devCategory,devOther:devOther,devComments:devComments,uploadPics:uploadPics},
+			function(data){
+				if(data == "sucess"){
+					alert("设备添加成功！！！");
+					devName = $("#dev_name").val("");
+					devModel = $("#dev_model").val("");
+					devNum = $("#dev_num").val("");
+					devPlateform = $("#dev_plateform").val("android");
+					devOwner = $("#dev_owner").val("");
+					devBrand = $("#dev_brand").val("");
+					devVersion = $("#dev_version").val("");
+					devCategory = $("#dev_category").val("手机和平板");
+					devOther = $("#dev_other").val("");
+					devComments = $("#dev_comments").val("");
+				}else{
+					alert("设备添加失败！！！");
+				}
+				
+			});
+	}
 	
-	host = window.location.host
-	url = host + "/ci/index.php/AddDevices/addDevices"
-	$.get("http://" + url,{devName:devName,devModel:devModel,devNum:devNum,devPlateform:devPlateform,devOwner:devOwner,devBrand:devBrand,devVersion:devVersion,devCategory:devCategory,devOther:devOther,devComments:devComments,uploadPics:uploadPics},
-		function(data){
-			alert(data);
-			devName = $("#dev_name").val("");
-			devModel = $("#dev_model").val("");
-			devNum = $("#dev_num").val("");
-			devPlateform = $("#dev_plateform").val("");
-			devOwner = $("#dev_owner").val("");
-			devBrand = $("#dev_brand").val("");
-			devVersion = $("#dev_version").val("");
-			devCategory = $("#dev_category").val("");
-			devOther = $("#dev_other").val("");
-			devComments = $("#dev_comments").val("");
-		});
 })
 
 $('#upload_pic').trigger('click'); 

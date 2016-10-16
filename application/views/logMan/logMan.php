@@ -37,7 +37,7 @@ function getLineNumber($num){
 	
 $theTime = date('y-m-d h:i:s',time());
 $who = "李明";
-$where = "从"."192.168.8.51";
+$where = $where = "从".$_SERVER['HTTP_HOST'];
 $doThings = "访问了日志页面";
 writeToLog($theTime,$who,$where,$doThings);
 

@@ -24,22 +24,50 @@ class AddDevices extends CI_Controller {
 		
 		$uploadPics = $_GET['uploadPics'];
 		$imgs = explode("*",$uploadPics);
-		$img_conunt = count($imgs) - 1;
-		
+		$img_conunt = count($imgs);
+		$addTime = date('Y-m-d H:i:s',time());
+		//向数据库插入新设备
 		$data = array(
                 'device_name' => $devName,
-                'brand' => '小米',
-                'plateform' => 'android',
-                'version' => '6.0',
+                'model' => $devModel,
+				'theNum' => $devNum,
+                'plateform' => $devPlateform,
+				'brand' => $devBrand,
+                'version' => $devVersion,
+				'owner' => $devOwner,
+				'other' => $devOther,
 				'comments' => $devComments,
-				'owner' => $devWho
+				'category' => $devCategory,
+				'add_time' => $addTime,
             );
 		$this->db->insert('devices', $data);
+		
+		//查询插入设备的设备id
+		$this->db->where('device_name', $devName); 
+		$this->db->select('id');
+		$query = $this->db->get('devices');
+		$arr = $query->row_array();
+		$device_id = $arr['id'];
+		
+		//向数据库插入图片路径
+		if($img_conunt != 0){
+			for($i = 1;$i <= $img_conunt - 1;$i++){
+				$data_img = array(
+					'device_id' => $device_id,
+					'path' => $imgs[$i],
+				);
+				$this->db->insert('dev_imgs', $data_img);
+			}
+		}
+		
+		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
 		$who = "李明";
-		$where = "从"."192.168.8.51";
-		$doThings = "添加了设备".$devName.'-';
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "添加了设备：".$devName.'--编号：'.$devNum;
 		self::writeToLog($theTime,$who,$where,$doThings);
+		
+		echo "sucess";
 	}
 
 	public function queryDevices(){
