@@ -1,4 +1,33 @@
-<?php 
+<?php
+$requestMethod = $_SERVER['REQUEST_METHOD'];
+
+function addSpaceWho($str){
+	$len = mb_strlen($str,"UTF-8");
+	$len = 4 - $len;
+	for($i = 0;$i < $len*2;$i++){
+		$str = $str." ";
+	}
+	return $str;
+}
+
+function createLogStr($theTime,$who,$where,$doThings){
+	return $theTime." "."*".addSpaceWho($who)."*".$where." "."*".$doThings;
+}
+
+function writeToLog($theTime,$who,$where,$doThings){
+		$da = date('Y-m-d');
+		$theLog = createLogStr($theTime,$who,$where,$doThings);
+		$myfile = './logs/'.$da.'.txt';
+		$myfile = fopen($myfile, "a+");
+		fwrite($myfile, $theLog."\n");
+		fclose($myfile);
+	}
+	
+$theTime = date('y-m-d h:i:s',time());
+$who = "李明";
+$where = "从"."192.168.8.51";
+$doThings = "访问了添加设备页面";
+writeToLog($theTime,$who,$where,$doThings);
 
 ?>
 
@@ -22,7 +51,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label>属性：</label>
+					<label>平台：</label>
 					<select id="dev_plateform"  class="input_style form-control" style="margin-left:15px;">
 						<option value="all">android</option>
 						<option value="ios">ios</option>
@@ -30,7 +59,7 @@
 				</td>
 				<td>
 					<label>所属：</label>
-					<input id="dev_who" class="input_style form-control"></input>
+					<input id="dev_owner" class="input_style form-control"></input>
 				</td>
 				<td>
 					<label>品牌：</label>
@@ -40,7 +69,17 @@
 			<tr>
 				<td>
 					<label class="label_style">系版本：</label>
-					<input id="dev_plateform" class="form-control input_style"</input>
+					<input id="dev_version" class="form-control input_style"</input>
+				</td>
+				<<td>
+					<label>分类：</label>
+					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;">
+						<option value="all">all</option>
+						<option value="phoneAPad" selected="selected">手机和平板</option>
+						<option value="phone">手机</option>
+						<option value="pad">平板</option>
+						<option value="other">其他</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +91,7 @@
 			<tr>
 				<td colSpan="3">
 					<label style=";float:left;">备注：</label>
-					<textArea id="comments" class="input_style form-control" style="margin-left:20px;width:400px;height:150px;"></textArea>
+					<textArea id="dev_comments" class="input_style form-control" style="margin-left:20px;width:400px;height:150px;"></textArea>
 				</td>
 			</tr>
 			<tr>

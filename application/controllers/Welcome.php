@@ -58,6 +58,12 @@ class Welcome extends CI_Controller {
 	}
 	
 	public function logMan(){	
+	/**
+		$arg = $this->uri->segment(3);
+		$myfile = fopen("testfile.txt", "w");
+		fwrite($myfile, $arg."\n");
+		fclose($myfile);
+	*/
 		$this->load->view('index');
 	}
 	

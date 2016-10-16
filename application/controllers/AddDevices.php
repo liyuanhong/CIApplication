@@ -8,14 +8,22 @@ class AddDevices extends CI_Controller {
 		$this->load->database();
 	}
 
+	//向数据库添加设备
 	public function addDevices(){
+		:devCategory,devOther:devOther,devComments:devComments,uploadPics:uploadPics
 		$devName = $_GET['devName'];
 		$devModel = $_GET['devModel'];
 		$devNum = $_GET['devNum'];
 		$devPlateform = $_GET['devPlateform'];
-		$devWho = $_GET['devWho'];
+		$devOwner = $_GET['devOwner'];
+		$devBrand = $_GET['devBrand'];
+		$devVersion = $_GET['devVersion'];
+		$devCategory = $_GET['devCategory'];
 		$devOther = $_GET['devOther'];
 		$devComments = $_GET['devComments'];
+		
+		$uploadPics = $_GET['uploadPics'];
+		
 		$data = array(
                 'device_name' => $devName,
                 'brand' => '小米',
@@ -46,6 +54,7 @@ class AddDevices extends CI_Controller {
 		return $jresult;
 	}
 
+	//写入到日志文件
 	public function writeToLog($theTime,$who,$where,$doThings){
 		$da = date('Y-m-d');
 		$theLog = self::createLogStr($theTime,$who,$where,$doThings);
@@ -55,10 +64,12 @@ class AddDevices extends CI_Controller {
 		fclose($myfile);
 	}
 
+	//创建单条操作日志
 	public function createLogStr($theTime,$who,$where,$doThings){
 		return $theTime." "."*".self::addSpaceWho($who)."*".$where." "."*".$doThings;
 	}
 
+	//给用户名补齐空格
 	public function addSpaceWho($str){
 		$len = mb_strlen($str,"UTF-8");
 		$len = 4 - $len;
