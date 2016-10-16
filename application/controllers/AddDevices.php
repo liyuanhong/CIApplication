@@ -56,7 +56,7 @@ class AddDevices extends CI_Controller {
 	}
 
 	public function createLogStr($theTime,$who,$where,$doThings){
-		return $theTime." ".self::addSpaceWho($who).$where." ".$doThings;
+		return $theTime." "."*".self::addSpaceWho($who)."*".$where." "."*".$doThings;
 	}
 
 	public function addSpaceWho($str){

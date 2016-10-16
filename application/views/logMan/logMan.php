@@ -26,9 +26,17 @@ if($requestMethod == 'GET'){
 		$file = fopen($logfile , "r");
 		while(!feof($file)){
 			$txtLine = fgets($file);
-			//$arr = explode(" ",$txtLine);
-			//echo count($arr);
-			echo $txtLine.'<br/>';
+			if(strstr($txtLine,"*")){
+				$arr = explode("*",$txtLine);
+				//echo count($arr);
+				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[0].'</p></b>';
+				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[1].'</p></b>';
+				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[2].'</p></b>';
+				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[3].'</p></b><br/>';
+			}else{
+				echo '<b><p style="margin:0px;color:#428BCA;">'.$txtLine.'</p></b>';
+			}
+			
 		}
 		fclose($file);
 	}else{
@@ -44,9 +52,16 @@ if($requestMethod == 'GET'){
 		$file = fopen($logfile , "r");
 		while(!feof($file)){
 			$txtLine = fgets($file);
-			//$arr = explode(" ",$txtLine);
-			//echo count($arr);
-			echo $txtLine.'<br/>';
+			if(strstr($txtLine,"*")){
+				$arr = explode("*",$txtLine);
+				//echo count($arr);
+				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[0].'</p></b>';
+				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[1].'</p></b>';
+				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[2].'</p></b>';
+				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[3].'</p></b><br/>';
+			}else{
+				echo '<b><p style="margin:0px;color:#428BCA;">'.$txtLine.'</p></b>';
+			}
 		}
 		fclose($file);
 	}else{

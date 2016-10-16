@@ -81,33 +81,14 @@
 								<span>Delete</span>
 							</button>
 							<input type="checkbox" class="toggle">
-							<!-- The global file processing state -->
 							<span class="fileupload-process"></span>
 						</div>
-						<!-- The global progress state -->
-						<!----<div class="col-lg-5 fileupload-progress fade">    ---->
-							<!-- The global progress bar -->
-							<!----<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-								<div class="progress-bar progress-bar-success" style="width:0%;"></div>
-							</div>---->
-							<!-- The extended global progress state -->
-							<!----<div class="progress-extended">&nbsp;</div>
-						</div>
-					</div>---->
-					<!-- The table listing the files available for upload/download -->
 					<table role="presentation" class="table table-striped" style="margin-top:40px;margin-bottom:5px;"><tbody class="files"></tbody></table>
 				</form>
 				<br>
 				
 			</div>
-			<!-- The blueimp Gallery widget -->
-			<!--<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
-				<div class="slides"></div>
-				<h3 class="title"></h3>
-				<a class="play-pause"></a>
-				<ol class="indicator"></ol>
-			</div>-->
-				<!-- The template to display files available for upload -->
+			
 				<script id="template-upload" type="text/x-tmpl">
 				{% for (var i=0, file; file=o.files[i]; i++) { %}
 					<tr class="template-upload fade">
@@ -199,6 +180,7 @@
 			<tr>
 				<td colSpan="3" _style="background-color:#cccccc;padding:0px;">				
 					<button id="dev_add_but" type="button" class="btn btn-primary">添 加 设 备</button>
+					<button id="test" type="button" class="btn btn-primary">test</button>
 				</td>
 			</tr>
 		</table>	

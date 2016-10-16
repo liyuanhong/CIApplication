@@ -16,3 +16,16 @@ $("#dev_add_but").click(function(event){
 })
 
 $('#upload_pic').trigger('click'); 
+
+$("#test").click(function(event){
+	upImgs = $(".template-download").length;
+	if(upImgs == 0){
+		alert("请上传图片");
+	}else{
+		imgs = $(".name").length;
+		for(i=0;i < upImgs;i++){
+			//alert($(".name").eq(i).html());
+			alert($("[href$='.png']").eq(i*2).attr('download'));
+		}
+	}	
+})
