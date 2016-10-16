@@ -10,7 +10,6 @@ class AddDevices extends CI_Controller {
 
 	//向数据库添加设备
 	public function addDevices(){
-		:devCategory,devOther:devOther,devComments:devComments,uploadPics:uploadPics
 		$devName = $_GET['devName'];
 		$devModel = $_GET['devModel'];
 		$devNum = $_GET['devNum'];
@@ -22,7 +21,10 @@ class AddDevices extends CI_Controller {
 		$devOther = $_GET['devOther'];
 		$devComments = $_GET['devComments'];
 		
+		
 		$uploadPics = $_GET['uploadPics'];
+		$imgs = explode("*",$uploadPics);
+		$img_conunt = count($imgs) - 1;
 		
 		$data = array(
                 'device_name' => $devName,

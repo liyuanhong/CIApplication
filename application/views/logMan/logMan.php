@@ -21,13 +21,27 @@ function writeToLog($theTime,$who,$where,$doThings){
 		$myfile = fopen($myfile, "a+");
 		fwrite($myfile, $theLog."\n");
 		fclose($myfile);
+}
+
+function getLineNumber($num){
+	$lineNum = (string)$num;
+	$num = $lineNum;
+	$num_0 = 5 - strlen($lineNum);
+	for($i = 0;$i < $num_0;$i++){
+		$num = "0".$num;
 	}
+	return $num;
+	//return strlen((string)$num);
+	//return (string)$num;
+}
 	
 $theTime = date('y-m-d h:i:s',time());
 $who = "李明";
 $where = "从"."192.168.8.51";
 $doThings = "访问了日志页面";
 writeToLog($theTime,$who,$where,$doThings);
+
+
 
 ?>
 <link href="<?php echo base_url();?>static/devMS/css/logMan/logMan.css" rel="stylesheet">
@@ -82,15 +96,18 @@ if($requestMethod == 'GET'){
 	$logfile = './logs/'.$da.'.txt';
 	if(file_exists($logfile)){
 		$lines = getFileLines($logfile);
+		$l = 1;
 		for($i=$lines;$i > 0;$i--){
 			$txtLine = getLine($logfile, $i);
 			if(strstr($txtLine,"*")){
 				$arr = explode("*",$txtLine);
 				//echo count($arr);
+				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.getLineNumber($l)." -- ".'</p></b>';
 				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[0].'</p></b>';
 				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[1].'</p></b>';
 				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[2].'</p></b>';
 				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[3].'</p></b><br/>';
+				$l++;
 			}else{
 				echo '<b><p style="margin:0px;color:#428BCA;">'.$txtLine.'</p></b>';
 			}
@@ -126,15 +143,18 @@ if($requestMethod == 'GET'){
 	$logfile = './logs/'.$theDate.'.txt';
 	if(file_exists($logfile)){
 		$lines = getFileLines($logfile);
+		$l = 1;
 		for($i=$lines;$i > 0;$i--){
 			$txtLine = getLine($logfile, $i);
 			if(strstr($txtLine,"*")){
 				$arr = explode("*",$txtLine);
 				//echo count($arr);
+				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.getLineNumber($l)." -- ".'</p></b>';
 				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[0].'</p></b>';
 				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[1].'</p></b>';
 				echo '<b><p style="margin:0px;color:#428BCA;display:inline;">'.$arr[2].'</p></b>';
 				echo '<b><p style="margin:0px;_color:#428BCA;display:inline;">'.$arr[3].'</p></b><br/>';
+				$l++;
 			}else{
 				echo '<b><p style="margin:0px;color:#428BCA;">'.$txtLine.'</p></b>';
 			}

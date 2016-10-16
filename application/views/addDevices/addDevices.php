@@ -31,14 +31,14 @@ writeToLog($theTime,$who,$where,$doThings);
 
 ?>
 
-<link href="<?php echo base_url();?>static/devMS/css/addDevices/addDevices.css" rel="stylesheet">
+<link href="<?php echo base_url();?>static/devMS/css/addDevices/addDevices.css" rel="stylesheet"/>
 <div id="add_devices">
 	<div>
-		<table>
+	<table>
 			<tr>
 				<td>
 					<label>设备名：</label>
-					<input id="dev_name" class="form-control input_style"</input>
+					<input id="dev_name" class="form-control input_style"></input>
 				</td>
 				<td>
 					<label>型号：</label>
@@ -69,9 +69,9 @@ writeToLog($theTime,$who,$where,$doThings);
 			<tr>
 				<td>
 					<label class="label_style">系版本：</label>
-					<input id="dev_version" class="form-control input_style"</input>
+					<input id="dev_version" class="form-control input_style"></input>
 				</td>
-				<<td>
+				<td>
 					<label>分类：</label>
 					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;">
 						<option value="all">all</option>
@@ -206,11 +206,6 @@ writeToLog($theTime,$who,$where,$doThings);
 
 
 
-
-
-
-
-
 					<!--<label>照片：</label>
 					<button id="upload_pic" type="button" class="btn btn-sm btn-success" sytle="margin-left:10px;">上传图片</button>
 					<label id="dev_pic_path" style="margin-left:10px;position:absolute;padding-top:5px;">the picture path</label>-->
@@ -224,16 +219,11 @@ writeToLog($theTime,$who,$where,$doThings);
 			</tr>
 		</table>	
 	</div>
-		
 
 
-
-
-
+</div>
 
 <script src="<?php echo base_url();?>static/devMS/js/addDevices/addDevices.js"></script>
-
-
 
 
 <script src="<?php echo base_url();?>static/devMS/js/jquery-3.1.1.min.js"></script>
@@ -266,9 +256,3 @@ writeToLog($theTime,$who,$where,$doThings);
 <script src="<?php echo base_url();?>static/dist/js/jquery.fileupload-ui.js"></script>
 <!-- The main application script -->
 <script src="<?php echo base_url();?>static/dist/js/main.js"></script>
-	
-
-
-
-
-</div>
