@@ -35,10 +35,26 @@ function getLineNumber($num){
 	//return (string)$num;
 }
 	
+function getMemberFromIP() {
+      
+		$json = file_get_contents("http://check.yixia.com/check/index.php?fn=fetchuserlist");
+        $members = json_decode($json,true);
+        $ip = $_SERVER['REMOTE_ADDR'];
+        foreach ($members as $key => $val) {
+                if ($val['ip'] == $ip) {
+                        return $val['sname'];
+                }
+        }
+        return '';
+		//return "";
+}
+	
+	
 $theTime = date('y-m-d h:i:s',time());
-$who = "李明";
-$where = $where = "从".$_SERVER['HTTP_HOST'];
-$doThings = "访问了日志页面";
+//$who = "李明";
+$who = getMemberFromIP();
+$where = "从".$_SERVER["REMOTE_ADDR"];
+$doThings = "访问了添加设备页面";
 writeToLog($theTime,$who,$where,$doThings);
 
 
