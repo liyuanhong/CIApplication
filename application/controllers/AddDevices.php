@@ -1,4 +1,5 @@
 <?php
+require dirname(__FILE__)."/../libraries/CI_Log.php";
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AddDevices extends CI_Controller {
@@ -65,7 +66,7 @@ class AddDevices extends CI_Controller {
 		$who = "李明";
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "添加了设备：".$devName.'--编号：'.$devNum;
-		self::writeToLog($theTime,$who,$where,$doThings);
+		writeToLog($theTime,$who,$where,$doThings);
 		
 		echo "sucess";
 	}
@@ -84,29 +85,5 @@ class AddDevices extends CI_Controller {
 		return $jresult;
 	}
 
-	//写入到日志文件
-	public function writeToLog($theTime,$who,$where,$doThings){
-		$da = date('Y-m-d');
-		$theLog = self::createLogStr($theTime,$who,$where,$doThings);
-		$myfile = './logs/'.$da.'.txt';
-		$myfile = fopen($myfile, "a+");
-		fwrite($myfile, $theLog."\n");
-		fclose($myfile);
-	}
-
-	//创建单条操作日志
-	public function createLogStr($theTime,$who,$where,$doThings){
-		return $theTime." "."*".self::addSpaceWho($who)."*".$where." "."*".$doThings;
-	}
-
-	//给用户名补齐空格
-	public function addSpaceWho($str){
-		$len = mb_strlen($str,"UTF-8");
-		$len = 4 - $len;
-		for($i = 0;$i < $len*2;$i++){
-			$str = $str." ";
-		}
-		return $str;
-	}
 	
 }

@@ -48,9 +48,20 @@ $("#test").click(function(event){
 		alert("请上传图片");
 	}else{
 		imgs = $(".name").length;
+		p = 0;
+		j = 0;
 		for(i=0;i < upImgs;i++){
 			//alert($(".name").eq(i).html());
-			alert($("[href$='.png']").eq(i*2).attr('download'));
+			if(typeof($("[href$='.png']").eq(p*2).attr('download')) != "undefined"){
+				alert($("[href$='.png']").eq(p*2).attr('download'));
+				p++;
+			}else if(typeof($("[href$='.jpg']").eq(j*2).attr('download')) != "undefined"){
+				alert($("[href$='.jpg']").eq(j*2).attr('download'));
+				j++;
+			}else{
+				alert("请上传jpg或png格式的图片");
+			}
+			//alert($("[href$='.png']").eq(i*2).attr('download'));
 		}
 	}	
 })
@@ -62,9 +73,22 @@ function getUploadPics(){
 		return uploadPics;
 	}else{
 		imgs = $(".name").length;
+		p = 0;
+		j = 0;
+		
 		for(i=0;i < upImgs;i++){
 			//alert($(".name").eq(i).html());
-			uploadPics = uploadPics + "* " + $("[href$='.png']").eq(i*2).attr('download');
+			//拼接字符串
+			//uploadPics = uploadPics + "* " + $("[href$='.png']").eq(i*2).attr('download');
+			if(typeof($("[href$='.png']").eq(p*2).attr('download')) != "undefined"){
+				uploadPics = uploadPics + "* " + $("[href$='.png']").eq(p*2).attr('download');
+				p++;
+			}else if(typeof($("[href$='.jpg']").eq(j*2).attr('download')) != "undefined"){
+				uploadPics = uploadPics + "* " + $("[href$='.jpg']").eq(j*2).attr('download');
+				j++;
+			}else{
+				//alert("请上传jpg或png格式的图片");
+			}
 		}
 	}	
 	return uploadPics;
