@@ -6,6 +6,7 @@ class DevManageMod extends CI_Model {
     {
         // Call the CI_Model constructor
         parent::__construct();
+        $this->load->database();
     }
 	
 	public function getData(){
@@ -13,7 +14,8 @@ class DevManageMod extends CI_Model {
 		
 	}
 	
-	public function addDevice($devName,$devModel,$devNum,$devPlateform,$devBrand,$devVersion,$devOwner,$devOther,$devComments,$devCategory,$addTime){
+	public function addDevice($devName,$devModel,$devNum,$devPlateform,$devBrand,$devVersion,
+			$devOwner,$devOther,$devComments,$devCategory,$addTime,$img_conunt,$imgs){
 		//向数据库插入新设备
 		$data = array(
 				'device_name' => $devName,
@@ -49,4 +51,16 @@ class DevManageMod extends CI_Model {
 			}
 		}
 	}
+	
+	public function getDevInfo(){
+		//$this->db->select('id','device_name','model','theNum','owner','status','borrower','borrow_time');
+		$query = $this->db->get('dev_imgs');
+		$arr = $query->row_array();
+		$jresult = json_encode($arr);
+		return $jresult;
+		//return $arr;
+	}
 }
+
+
+

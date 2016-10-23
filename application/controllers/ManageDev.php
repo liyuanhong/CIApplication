@@ -1,4 +1,5 @@
 <?php
+require dirname(__FILE__)."/../libraries/CI_Log.php";
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ManageDev extends CI_Controller {
@@ -35,7 +36,8 @@ class ManageDev extends CI_Controller {
 		$img_conunt = count($imgs);
 		$addTime = date('Y-m-d H:i:s',time());
 		//向数据库插入新设备
-		
+		$this->DevManageMod->addDevice($devName,$devModel,$devNum,$devPlateform,$devBrand,$devVersion,$devOwner,
+				$devOther,$devComments,$devCategory,$addTime,$img_conunt,$imgs);
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
@@ -45,6 +47,11 @@ class ManageDev extends CI_Controller {
 		writeToLog($theTime,$who,$where,$doThings);
 		
 		echo "sucess";
+	}
+	
+	//设备查询
+	public function getDevInfo(){
+		echo $this->DevManageMod->getDevInfo();
 	}
 
 	//获取设备的所有信息

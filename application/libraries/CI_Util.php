@@ -12,7 +12,7 @@ function getMemberFromIP() {
 	}
 	return '';
 	*/
-	return "xuanxuan~";
+	return "honghong~";
 	
 }
 
