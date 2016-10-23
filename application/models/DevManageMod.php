@@ -45,6 +45,7 @@ class DevManageMod extends CI_Model {
 						'path' => $imgs[$i],
 				);
 				$this->db->insert('dev_imgs', $data_img);
+				
 			}
 		}
 	}
