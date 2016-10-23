@@ -53,8 +53,8 @@ class DevManageMod extends CI_Model {
 	}
 	
 	public function getDevInfo(){
-		//$this->db->select('id','device_name','model','theNum','owner','status','borrower','borrow_time');
-		$query = $this->db->get('dev_imgs');
+		$this->db->select('id','device_name','model','theNum','owner','status','borrower','borrow_time');
+		$query = $this->db->get('devices');
 		$arr = $query->row_array();
 		$jresult = json_encode($arr);
 		return $jresult;
