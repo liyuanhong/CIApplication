@@ -1,6 +1,6 @@
 <?php
 
-class DevManage extends CI_Model {
+class DevManageMod extends CI_Model {
 
     public function __construct()
     {

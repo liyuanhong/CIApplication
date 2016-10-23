@@ -21,6 +21,7 @@ $("#dev_add_but").click(function(event){
 			function(data){
 				if(data == "sucess"){
 					alert("设备添加成功！！！");
+					/*
 					devName = $("#dev_name").val("");
 					devModel = $("#dev_model").val("");
 					devNum = $("#dev_num").val("");
@@ -31,6 +32,11 @@ $("#dev_add_but").click(function(event){
 					devCategory = $("#dev_category").val("手机和平板");
 					devOther = $("#dev_other").val("");
 					devComments = $("#dev_comments").val("");
+					*/
+					//var host = window.location.host;
+					//var url = host + "/ci/index.php/Welcome/addDevices";
+					//window.location.href="http://" + url;
+					location.reload(); 
 				}else{
 					alert("设备添加失败！！！");
 				}
