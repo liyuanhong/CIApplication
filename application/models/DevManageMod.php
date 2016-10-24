@@ -58,7 +58,40 @@ class DevManageMod extends CI_Model {
 		$arr = $query->row_array();
 		$jresult = json_encode($arr);
 		return $jresult;
-		//return $arr;
+	}
+	
+	public function test1(){
+		//$this->db->select('id','device_name','model','theNum','owner','status','borrower','borrow_time');
+		//$query = $this->db->get('devices');
+		for($i = 0;$i < 10;$i++){
+			$query = $this->db->query("select id,device_name,model,theNum,owner,status,borrower,borrow_time from devices");
+		}
+		$arr = $query->row_array();
+		$jresult = json_encode($arr);
+		return $jresult;
+		
+	}
+	
+	public function test2(){
+		error_reporting(E_ALL & ~E_DEPRECATED);
+	
+		$con = mysql_connect('localhost','root','pass');
+		if (!$con){
+			die('Could not connect: ' . mysql_error());
+		}
+		mysql_select_db("devManageSYS", $con);
+	
+		mysql_query("SET NAMES UTF8");
+		mysql_query("SET CHARACTER SET UTF8");
+		mysql_query("SET CHARACTER_SET_RESULTS=UTF8");
+	
+		$result = mysql_query("SELECT * FROM devices");
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		return json_encode(array('result'=>$arr));
 	}
 }
 

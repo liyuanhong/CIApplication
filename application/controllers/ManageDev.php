@@ -13,8 +13,12 @@ class ManageDev extends CI_Controller {
         $this->load->model('DevManageMod');
     }
 	
-	public function test(){
-		echo $this->DevManage->getData();
+	public function test1(){
+		echo $this->DevManageMod->test1();
+	}
+	
+	public function test2(){
+		echo $this->DevManageMod->test2();
 	}
 
 	//向数据库添加设备
@@ -67,6 +71,5 @@ class ManageDev extends CI_Controller {
 		fwrite($myfile, $jresult);
 		fclose($myfile);
 		return $jresult;
-	}
-	
+	}	
 }
