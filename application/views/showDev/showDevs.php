@@ -3,6 +3,9 @@ require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+//获取查询的设备信息
+$datas = $this->DevManageMod->getDevInfo();
+
 	
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
@@ -82,51 +85,6 @@ writeToLog($theTime,$who,$where,$doThings);
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>
-						<img class="dev_icon"></img>
-					</td>
-					<td>华为荣耀3C</td>
-					<td>honor 3c</td>
-					<td>#03-0023</td>
-					<td>李磊</td>
-					<td>
-						<button class="btn btn-success">申 请</button>
-					</td>
-					<td>张明</td>
-					<td>2016-8-12 15:20:22</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>
-						<img class="dev_icon"></img>
-					</td>
-					<td>华为荣耀3C</td>
-					<td>honor 3c</td>
-					<td>#03-0023</td>
-					<td>李磊</td>
-					<td>
-						<button class="btn btn-success">申 请</button>
-					</td>
-					<td>张明</td>
-					<td>2016-8-12 15:20:22</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>
-						<img class="dev_icon"></img>
-					</td>
-					<td>华为荣耀3C</td>
-					<td>honor 3c</td>
-					<td>#03-0023</td>
-					<td>李磊</td>
-					<td>
-						<button class="btn btn-success">申 请</button>
-					</td>
-					<td>张明</td>
-					<td>2016-8-12 15:20:22</td>
-				</tr>
 				<tr>
 					<td>1</td>
 					<td>
