@@ -3,8 +3,12 @@ require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+//主机地址
+$host = $_SERVER['HTTP_HOST'];
+
 //获取查询的设备信息
 $datas = $this->DevManageMod->getDevInfo();
+//echo json_encode($datas);
 
 	
 $theTime = date('y-m-d h:i:s',time());
@@ -85,21 +89,22 @@ writeToLog($theTime,$who,$where,$doThings);
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>
-						<img class="dev_icon"></img>
-					</td>
-					<td>华为荣耀3C</td>
-					<td>honor 3c</td>
-					<td>#03-0023</td>
-					<td>李磊</td>
+			<?php 
+				$i = 1;
+				foreach ($datas as $row){
+					echo '<tr><td>'.$i.'</td><td><img class="dev_icon" src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img>';
+					echo '</td><td>'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>
+					<td>'.$row->owner.'</td>
 					<td>
 						<button class="btn btn-success">申 请</button>
 					</td>
-					<td>张明</td>
-					<td>2016-8-12 15:20:22</td>
-				</tr>
+					<td>'.$row->borrower.'</td>
+					<td>'.$row->borrow_time.'</td>
+					</tr>';
+					$i = $i + 1;
+				}
+			?>
+				
 			</tbody>
 		</table>
 	</div>

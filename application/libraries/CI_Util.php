@@ -11,6 +11,7 @@ function getMemberFromIP() {
 			}
 	}
 	return '';
+
 	*/
 	return "honghong~";
 	

@@ -55,7 +55,7 @@ class ManageDev extends CI_Controller {
 	
 	//设备查询
 	public function getDevInfo(){
-		echo $this->DevManageMod->getDevInfo();
+		echo json_encode($this->DevManageMod->getDevInfo());
 	}
 
 	//获取设备的所有信息
