@@ -72,4 +72,44 @@ class ManageDev extends CI_Controller {
 		fclose($myfile);
 		return $jresult;
 	}	
+	
+	//申请设备
+	public function applyForDev(){
+		$id = $_GET['id'];
+		$borrower = $_GET['borrower'];
+		$device_name = $_GET['device_name'];
+		
+		$this->DevManageMod->changeDevStatusToApplying($id,$borrower);
+		
+		//写入操作日志
+		$theTime = date('y-m-d h:i:s',time());
+		$who = "李明";
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "申请了设备设备：".$device_name;
+		writeToLog($theTime,$who,$where,$doThings);
+		
+		echo "scuess";
+	}
+	
+	//取消申请设备
+	public function cancleApplyForDev(){
+		$id = $_GET['id'];
+		$device_name = $_GET['device_name'];
+		
+		$this->DevManageMod->changeDevStatusToNone($id);
+		
+		//写入操作日志
+		$theTime = date('y-m-d h:i:s',time());
+		$who = "李明";
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "取消申请了设备设备：".$device_name;
+		writeToLog($theTime,$who,$where,$doThings);
+		
+		echo "scuess";
+	}
 }
+
+
+
+
+

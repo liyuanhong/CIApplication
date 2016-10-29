@@ -1,0 +1,50 @@
+
+/*--------------SLIDER----------------*/
+
+#slider {
+	width: 50%;
+	margin: 50px auto;
+}
+
+
+/*--------------CONTROLS--------------*/
+
+/*position controls*/
+.controls li {
+	top: 50%;
+	margin-top: -30px
+}
+
+.controls li:nth-child(1) {
+	left: 0;
+}
+
+.controls li:nth-child(2) {
+	right: 0;
+}
+
+
+/*------------PAGINATION------------*/
+
+/*style pagination*/
+.pagination li {
+	background-color: #ddd;
+}
+
+.pagination li.active {
+	background-color: #000;
+}
+
+
+/*-------------HELPERS----------------*/
+
+.responsive {
+	width: 100%;
+	height: auto;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}

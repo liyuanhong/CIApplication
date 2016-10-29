@@ -19,12 +19,9 @@ $doThings = "访问了设备查询页面";
 writeToLog($theTime,$who,$where,$doThings);
 
 ?>
-<!DOCTYPE html>
-<html>
-<head><title>bootstrap test</title>
-</head>
-<body>
+
 <link href="<?php echo base_url();?>static/devMS/css/showDev/showDevs.css" rel="stylesheet">
+
 
 <div id="search_area">
 	<div>
@@ -84,7 +81,7 @@ writeToLog($theTime,$who,$where,$doThings);
 					<th>编号#</th>
 					<th>签借人</th>
 					<th>申请</th>
-					<th>所属</th>
+					<th style="color:red;">所属</th>
 					<th>借出时间</th>
 				</tr>
 			</thead>
@@ -92,13 +89,21 @@ writeToLog($theTime,$who,$where,$doThings);
 			<?php 
 				$i = 1;
 				foreach ($datas as $row){
-					echo '<tr><td>'.$i.'</td><td><img class="dev_icon" src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img>';
-					echo '</td><td>'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>
-					<td>'.$row->owner.'</td>
-					<td>
-						<button class="btn btn-success">申 请</button>
-					</td>
-					<td>'.$row->borrower.'</td>
+					echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img>';
+					echo '</td><td id="label_'.$row->id.'">'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
+					if($row->status == 0){
+						echo '<td><input type="text" class="form-control" style="width:80px;" id="input_'.$row->id.'"></td>';
+						echo '<td><button class="btn btn-sm btn-success" onclick="applyFor()" id="'.$row->id.'">申 请</button></td>';
+					}else if($row->status == 1){
+						echo '<td>'.$row->borrower.'</td>';
+						echo '<td><button class="btn btn-sm btn-danger" onclick="cancleApplyFor()" id="'.$row->id.'">取 消</button></td>';
+					}else if($row->status == 2){
+						echo '<td>'.$row->borrower.'</td>';
+						echo '<td></td>';
+						
+					}
+					
+					echo '<td style="color:red;">'.$row->owner.'</td>
 					<td>'.$row->borrow_time.'</td>
 					</tr>';
 					$i = $i + 1;
@@ -111,6 +116,6 @@ writeToLog($theTime,$who,$where,$doThings);
 	
 </div>
 
-</body>
-</html>
-</html>
+<script src="<?php echo base_url();?>static/devMS/js/showDev/showDevs.js"></script>
+
+

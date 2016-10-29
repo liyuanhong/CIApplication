@@ -1,4 +1,4 @@
-//ÇÒ»»²Ëµ¥µÄ·½·¨
+//èœå•çš„åˆ‡æ¢
 function changeMenu(e){
 	e = e || window.event;
 		if(e.target.id == "searchDevices"){

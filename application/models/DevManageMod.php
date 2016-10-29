@@ -14,6 +14,7 @@ class DevManageMod extends CI_Model {
 		
 	}
 	
+	//向数据库添加新设备
 	public function addDevice($devName,$devModel,$devNum,$devPlateform,$devBrand,$devVersion,
 			$devOwner,$devOther,$devComments,$devCategory,$addTime,$img_conunt,$imgs){
 		//向数据库插入新设备
@@ -91,6 +92,26 @@ class DevManageMod extends CI_Model {
 		}
 		mysql_close($con);
 		return json_encode(array('result'=>$arr));
+	}
+	
+	//改变设备的状态为申请中
+	public function changeDevStatusToApplying($id,$borrower){
+		$data = array(
+			"status" => "1",
+			"borrower" => $borrower
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
+	}
+	
+	//改变设备的状态为可签借状态
+	public function changeDevStatusToNone($id){
+		$data = array(
+				"status" => "0",
+				"borrower" => ""
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
 	}
 }
 

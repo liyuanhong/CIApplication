@@ -1,3 +1,4 @@
+//以post方式请求哪一天的日志
 function post(URL, PARAMS) {
   var temp = document.createElement("form");
   temp.action = URL;
@@ -15,6 +16,7 @@ function post(URL, PARAMS) {
   return temp;
 }
 
+//查询日志按钮事件
 $("#search_log").click(function(event){
 	date_input = $("#date_input").val();
 	var host = window.location.host;

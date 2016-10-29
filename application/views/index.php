@@ -42,7 +42,11 @@ $arr = explode("/",$url);
 	<div id="right_content">
 		<?php 
 		if($arr[4]=='searchDevices'){
-			$this->load->view('showDev/showDevs');
+			if(count($arr) == 5){
+				$this->load->view('showDev/showDevs');
+			}else if(count($arr) == 6){
+				$this->load->view('showDev/showDevInfoPage');
+			}
 		}else if($arr[4]=='addDevices'){
 			$this->load->view('addDevices/addDevices');
 		}else if($arr[4]=='manDevices'){

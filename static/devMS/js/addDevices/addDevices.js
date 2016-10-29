@@ -1,3 +1,5 @@
+
+//请求添加设备
 $("#dev_add_but").click(function(event){
 	devName = $("#dev_name").val();
 	devModel = $("#dev_model").val();
