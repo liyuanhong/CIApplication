@@ -2,6 +2,12 @@
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
+
+//主机地址
+$host = $_SERVER['HTTP_HOST'];
+
+//获取没有盘点的设备
+$datas = $this->DevManageMod->getDevInfo();
 	
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
@@ -11,6 +17,9 @@ $doThings = "访问了设备盘点页面";
 writeToLog($theTime,$who,$where,$doThings);
 
 ?>
+
+<link href="<?php echo base_url();?>static/devMS/css/checkDevices/checkDevices.css" rel="stylesheet">
+
 <div style="text-align: center;padding-top:10px;">
 	<button type="button" class="btn btn-sm btn-primary" style="margin-right: 20px;">未盘点</button>
 	<button type="button" class="btn btn-sm btn-success" style="margin-right: 20px;">已盘点</button>
@@ -35,5 +44,21 @@ writeToLog($theTime,$who,$where,$doThings);
 					<th>重置</th>
 				</tr>
 			</thead>
+			<tbody>
+			<?php 
+			$i = 1;
+			foreach ($datas as $row){
+				echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img></td>';
+				echo '<td>'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
+				echo '<td>'.$row->borrower.'</td><td>'.$row->owner.'</td><td>'.$row->borrow_time.'</td>';
+				echo '<td><button type="button" class="btn btn-sm btn-success">确定</button></td>';
+				echo '<td><button type="button" class="btn btn-sm btn-warning">丢失</button></td>';
+				echo '<td><button type="button" class="btn btn-sm btn-danger">重置</button></td>';
+				
+				$i++;
+				
+			}
+			?>
+			</tbody>
 		</table>
 </div>
