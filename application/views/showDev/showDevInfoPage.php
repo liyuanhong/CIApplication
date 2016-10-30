@@ -21,7 +21,7 @@ writeToLog($theTime,$who,$where,$doThings);
 
 <link href="<?php echo base_url();?>static/devMS/css/showDev/showDevInfoPage.css" rel="stylesheet">
 
-<button type="button" class="btn btn-success btn-back" onclick="javascript:history.back(-1);">《返回</button>
+<button type="button" class="btn btn-sm btn-success btn-back" onclick="javascript:history.back(-1);">《返回</button>
 <div id="show_dev_inifo_page_div">
 	<table class="table table-bordered">
 		<tr class="info_table">
