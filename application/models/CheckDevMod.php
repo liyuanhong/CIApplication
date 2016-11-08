@@ -47,6 +47,12 @@ class CheckDevMod extends CI_Model {
 	//重置设备状态
 	function initializeDevs(){
 		
+		
+		$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
+				b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="0"';
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		return $arr;
 	}
 }
 
