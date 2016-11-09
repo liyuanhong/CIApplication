@@ -13,7 +13,7 @@ $theTime = date('y-m-d h:i:s',time());
 $who = getMemberFromIP();
 $where = "从".$_SERVER["REMOTE_ADDR"];
 
-if($id == "checkeded"){
+if($id == "no_checked"){
 	//获取没有盘点的设备
 	$datas = $this->CheckDevMod->getNoCheckDevs();
 	$doThings = "访问了设备盘点页面(未盘点)";
@@ -23,7 +23,7 @@ if($id == "checkeded"){
 	$datas = $this->CheckDevMod->getNoCheckDevs();
 	$doThings = "访问了设备盘点页面(未盘点)";
 	writeToLog($theTime,$who,$where,$doThings);
-}else if($id == "no_checked"){
+}else if($id == "checkeded"){
 	//获取已经盘点的设备
 	$datas = $this->CheckDevMod->getCheckedDevs();
 	$doThings = "访问了设备盘点页面(已盘点)";
@@ -40,7 +40,7 @@ if($id == "checkeded"){
 	writeToLog($theTime,$who,$where,$doThings);
 }else if($id == "initaillize"){
 	//初始化所有设备
-	$datas = $this->CheckDevMod->getLostDevs();
+	$datas = $this->CheckDevMod->initializeDevs();
 	$doThings = "点击了初始化设备按钮";
 	writeToLog($theTime,$who,$where,$doThings);
 }
@@ -54,8 +54,8 @@ if($id == "checkeded"){
 <script src="<?php echo base_url();?>static/devMS/js/checkDevices/checkDevices.js"></script>
 
 <div style="text-align: center;padding-top:10px;">
-	<button type="button" class="btn btn-sm btn-primary" style="margin-right: 20px;" id="checkeded" onclick="getNoCheckedDevs()">未盘点</button>
-	<button type="button" class="btn btn-sm btn-success" style="margin-right: 20px;" id="no_checked" onclick="getCheckedDevs()">已盘点</button>
+	<button type="button" class="btn btn-sm btn-primary" style="margin-right: 20px;" id="no_checked" onclick="getNoCheckedDevs()">未盘点</button>
+	<button type="button" class="btn btn-sm btn-success" style="margin-right: 20px;" id="checkeded" onclick="getCheckedDevs()">已盘点</button>
 	<button type="button" class="btn btn-sm btn-info" style="margin-right: 20px;" id="all_devs" onclick="getAllDevs()">所有</button>
 	<button type="button" class="btn btn-sm btn-warning" style="margin-right: 20px;" id="lost_devs" onclick="getLostDevs()">丢失</button>
 	<button type="button" class="btn btn-sm btn-danger" style="margin-right: 20px;" id="initaillize" onclick="initaillizeDevsStatus()">重置</button>
@@ -85,9 +85,9 @@ if($id == "checkeded"){
 				'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img></td>';
 				echo '<td>'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
 				echo '<td>'.$row->borrower.'</td><td>'.$row->owner.'</td><td>'.$row->borrow_time.'</td>';
-				echo '<td><button type="button" class="btn btn-sm btn-success">确定</button></td>';
-				echo '<td><button type="button" class="btn btn-sm btn-warning">丢失</button></td>';
-				echo '<td><button type="button" class="btn btn-sm btn-danger">重置</button></td>';
+				echo '<td><button type="button" class="btn btn-sm btn-success" onclick="confirmIsAt()" id="confirm1_'.$row->id.'">确定</button></td>';
+				echo '<td><button type="button" class="btn btn-sm btn-warning" onclick="confirmLost()" id="confirm2_'.$row->id.'">丢失</button></td>';
+				echo '<td><button type="button" class="btn btn-sm btn-danger" onclick="initaillizeTheDev()" id="confirm0_'.$row->id.'">重置</button></td>';
 				
 				$i++;
 				

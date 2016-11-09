@@ -29,7 +29,26 @@ class CheckDev extends CI_Controller {
 	
 	//重置设备状态
 	function initializeDevs(){
-		echo json_encode($this->CheckDevMod->initializeDevs());
+		echo $this->CheckDevMod->initializeDevs();
+	}
+	
+	//修改设备状态为已盘点
+	function setDevStatusToAt(){
+		$id = $_GET['id'];
+		echo $this->CheckDevMod->setDevStatusToAt($id);
+	}
+	
+	
+	//修改设备状态为丢失
+	function setDevStatusToLost(){
+		$id = $_GET['id'];
+		echo $this->CheckDevMod->setDevStatusToLost($id);
+	}
+	
+	//修改设备状态为初始状态
+	function setDevStatusToInitial(){
+		$id = $_GET['id'];
+		echo $this->CheckDevMod->setDevStatusToInitial($id);
 	}
 }
 ?>

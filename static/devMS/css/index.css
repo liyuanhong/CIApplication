@@ -70,7 +70,8 @@ body {
 
 #right_content{
 	width:88%;
-	height:700px;
+	_height:700px;
+	height:100%;
 	background-color:white;
 	display:inherit;
 	float: left;

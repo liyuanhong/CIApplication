@@ -19,46 +19,59 @@ $arr = explode("/",$url);
 			<label id="register_label" class="login_label">注册</label>
 		</div>
 	</div>
-	<div id="left_item">
-		<div class="setting_item">
-			<label id = "searchDevices" class="setting_label <?php if($arr[4]=='searchDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">设 备 查 询</label>
+	
+	<div style="width: 100%;height:100%;">
+		<div id="left_item">
+			<div class="setting_item">
+				<label id = "searchDevices" class="setting_label <?php if($arr[4]=='searchDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">设 备 查 询</label>
+			</div>
+			<div class="setting_item">
+				<label id = "addDevices" class="setting_label <?php if($arr[4]=='addDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">添 加 设 备</label>
+			</div>
+			<div class="setting_item">
+				<label id = "manDevices" class="setting_label <?php if($arr[4]=='manDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)" >管 理 设 备</label>
+			</div>
+			<div class="setting_item">
+				<label id = "checkDevices" class="setting_label <?php if($arr[4]=='checkDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">设 备 盘 点</label>
+			</div>
+			<div class="setting_item">
+				<label id = "logMan"class="setting_label <?php if($arr[4]=='logMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">日 志 管 理</label>
+			</div>
+			<div class="setting_item">
+				<label id = "userMan" class="setting_label <?php if($arr[4]=='userMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">用 户 管 理</label>
+			</div>
 		</div>
-		<div class="setting_item">
-			<label id = "addDevices" class="setting_label <?php if($arr[4]=='addDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">添 加 设 备</label>
-		</div>
-		<div class="setting_item">
-			<label id = "manDevices" class="setting_label <?php if($arr[4]=='manDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)" >管 理 设 备</label>
-		</div>
-		<div class="setting_item">
-			<label id = "checkDevices" class="setting_label <?php if($arr[4]=='checkDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">设 备 盘 点</label>
-		</div>
-		<div class="setting_item">
-			<label id = "logMan"class="setting_label <?php if($arr[4]=='logMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">日 志 管 理</label>
-		</div>
-		<div class="setting_item">
-			<label id = "userMan" class="setting_label <?php if($arr[4]=='userMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">用 户 管 理</label>
-		</div>
-	</div>
-	<div id="right_content">
-		<?php 
-		if($arr[4]=='searchDevices'){
-			if(count($arr) == 5){
-				$this->load->view('showDev/showDevs');
-			}else if(count($arr) == 6){
-				$this->load->view('showDev/showDevInfoPage');
+		<div id="right_content">
+			<?php 
+			if($arr[4]=='searchDevices'){
+				if(count($arr) == 5){
+					$this->load->view('showDev/showDevs');
+				}else if(count($arr) == 6){
+					$this->load->view('showDev/showDevInfoPage');
+				}
+			}else if($arr[4]=='addDevices'){
+				$this->load->view('addDevices/addDevices');
+			}else if($arr[4]=='manDevices'){
+				$this->load->view('manDevices/manDevices');
+			}else if($arr[4]=='checkDevices'){
+				if(count($arr) == 5){
+					$this->load->view('checkDevices/checkDevices');
+				}else if(count($arr) == 6){
+					if($arr[5] == "checkeded" || $arr[5] == "no_checked" || $arr[5] == "all_devs" || $arr[5] == "lost_devs" || $arr[5] == "initaillize"){
+						$this->load->view('checkDevices/checkDevices');
+					}else{
+						$this->load->view('checkDevices/showDevInfoPage');
+					}
+					//$this->load->view('checkDevices/showDevInfoPage');
+				}
+				//$this->load->view('checkDevices/checkDevices');
+			}else if($arr[4]=='logMan'){
+				$this->load->view('logMan/logMan');
+			}else if($arr[4]=='userMan'){
+				$this->load->view('userMan/userMan');
 			}
-		}else if($arr[4]=='addDevices'){
-			$this->load->view('addDevices/addDevices');
-		}else if($arr[4]=='manDevices'){
-			$this->load->view('manDevices/manDevices');
-		}else if($arr[4]=='checkDevices'){
-			$this->load->view('checkDevices/checkDevices');
-		}else if($arr[4]=='logMan'){
-			$this->load->view('logMan/logMan');
-		}else if($arr[4]=='userMan'){
-			$this->load->view('userMan/userMan');
-		}
-		?>
+			?>
+		</div>
 	</div>
 </div>
 
