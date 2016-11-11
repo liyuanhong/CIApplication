@@ -27,6 +27,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('DevManageMod');
 		$this->load->model('GetDevInfoMod');
 		$this->load->model('CheckDevMod');
+		$this->load->model('ShowDevMod');
 	}
 	 
 	public function index(){

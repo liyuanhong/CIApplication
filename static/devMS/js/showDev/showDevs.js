@@ -59,3 +59,21 @@ function showDevInfo(e){
 	deviceId = id.substring(5);
 	window.location.href="http://" + host + "/ci/index.php/Welcome/searchDevices/" + deviceId;
 }
+
+function searchDevs(e){
+	e = e || window.event;
+	id = e.target.id;
+	
+	dev_plateform = $("#dev_plateform").val();
+	dev_brand = $("#dev_brand").val();
+	dev_version = $("#dev_version").val();
+	dev_status = $("#dev_status").val();
+	dev_category = $("#dev_category").val();
+	borrower = $("#borrower").val();
+	
+	var url = host + "/ci/index.php/Welcome/searchDevices";
+	//window.location.href="http://" + url;
+	data = {plateform:dev_plateform,brand:dev_brand,version:dev_version,status:dev_status,category:dev_category,borrower:borrower};
+	post("http://" + url,data);
+	
+}
