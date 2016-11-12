@@ -14,7 +14,9 @@ function changeMenu(e){
 		}else if(e.target.id == "manDevices"){
 			var host = window.location.host;
 			var url = host + "/ci/index.php/Welcome/manDevices";
-			window.location.href="http://" + url;
+			//window.location.href="http://" + url;
+			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:''};
+			post("http://" + url,data);
 		}else if(e.target.id == "checkDevices"){
 			var host = window.location.host;
 			var url = host + "/ci/index.php/Welcome/checkDevices";
