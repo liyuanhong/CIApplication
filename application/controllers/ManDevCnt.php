@@ -17,6 +17,38 @@ class ManDevCnt extends CI_Controller {
 		
 		echo json_encode($this->ManDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower));
 	}
+	
+	
+	//借出设备或确认申请设备
+	function confirmBorrowed($id,$borrower){
+		$id = $_GET['id'];
+		$borrower = $_GET['borrower'];
+		$this->ShowDevMod->confirmBorrowed($id,$borrower);
+	}
+	
+	//归还设备
+	function confirmReturned($id){
+		$id = $_GET['id'];
+		echo $this->ShowDevMod->confirmReturned($id,$borrower);
+	}
+	
+	//删除设备
+	function deleteDev($id){
+		$id = $_GET['id'];
+		echo $this->ShowDevMod->deleteDev($id,$borrower);
+	}
+	
+	//修改设备
+	function changeDevInfo(){
+		echo $this->ShowDevMod->changeDevInfo($id,$borrower);
+	}
+	
+	//修改签借人
+	function changeBorrower($id,$borrower){
+		$id = $_GET['id'];
+		$borrower = $_GET['borrower'];
+		echo $this->ShowDevMod->changeBorrower($id,$borrower);
+	}
 }
 
 ?>

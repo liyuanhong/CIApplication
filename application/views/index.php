@@ -5,6 +5,7 @@ $arr = explode("/",$url);
 ?>
 
 <link href="<?php echo base_url();?>static/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="<?php echo base_url();?>static/devMS/css/index.css" rel="stylesheet">
 
 <script src="<?php echo base_url();?>static/devMS/js/index.js"></script>
@@ -14,7 +15,7 @@ $arr = explode("/",$url);
 	<div id="top_bar">
 		<label style="color:white;font-size:20px;margin-left:45px;margin-top:8px;">设备管理系统</label>
 		<div>
-			<label id="login_lagel" class="login_label">登录</label>
+			<label id="login_lagel" class="login_label" onclick="jumpToLoginPage()">登录</label>
 			<!--<label style="color:white;margin-left:20px;" class="login_label">|</label>-->
 			<label id="register_label" class="login_label">注册</label>
 		</div>
@@ -52,7 +53,12 @@ $arr = explode("/",$url);
 			}else if($arr[4]=='addDevices'){
 				$this->load->view('addDevices/addDevices');
 			}else if($arr[4]=='manDevices'){
-				$this->load->view('manDevices/manDevices');
+				if(count($arr) == 5){
+					$this->load->view('manDevices/manDevices');
+				}else if(count($arr) == 6){
+					$this->load->view('manDevices/changeDevInfo');
+				}
+				//$this->load->view('manDevices/manDevices');
 			}else if($arr[4]=='checkDevices'){
 				if(count($arr) == 5){
 					$this->load->view('checkDevices/checkDevices');

@@ -74,6 +74,10 @@ class Welcome extends CI_Controller {
 	public function userMan(){	
 		$this->load->view('index');
 	}
+	
+	public function login(){
+		$this->load->view('login');
+	}
 
     //上传文件和删除文件
 	public function server(){	

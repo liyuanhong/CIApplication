@@ -13,6 +13,25 @@ $doThings = "访问了用户管理页面";
 writeToLog($theTime,$who,$where,$doThings);
 
 ?>
-
-userMan
+<div style="width:100%;margin-top:5px;text-align:right">
+	<button type="button" class="btn btn-success" style="margin-right: 100px;margin-bottom:10px;">添 加 用 户</button>
+</div>
+<div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>icon</th>
+				<th>用户名</th>
+				<th>登录名</th>
+				<th>密码</th>
+				<th>角色</th>
+				<th>删除</th>
+				<th>修改</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
 

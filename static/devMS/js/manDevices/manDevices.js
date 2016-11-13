@@ -53,11 +53,11 @@ function cancleApplyFor(e){
 }
 
 //进入单个设备信息页面
-function showDevInfo(e){
+function toChangeDevInfo(e){
 	e = e || window.event;
 	id = e.target.id;
 	deviceId = id.substring(5);
-	window.location.href="http://" + host + "/ci/index.php/Welcome/searchDevices/" + deviceId;
+	window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
 }
 
 function searchDevs(e){
@@ -78,6 +78,7 @@ function searchDevs(e){
 	
 }
 
+//修改签借人
 function modifyBorrower(e){
 	e = e || window.event;
 	id = e.target.id;
@@ -86,7 +87,156 @@ function modifyBorrower(e){
 	//alert(inputId);
 	if(typeof($(inputId).attr("disabled"))=="undefined"){
 		$(inputId).attr("disabled","disabled");
+		/**
+		deviceName = $("#label_" + e.target.id).text();
+		$.ajax({
+	        type: "get",
+	        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+	        data: {"id":deviceId},
+	        success: function (result) {
+	          if(result == "scuess"){
+	            	//alert(result);
+	            	location.reload(); 
+	            }else{
+	           		alert("删除失败！");
+	           	}
+	      	  }
+	       });
+	       */
 	}else if($(inputId).attr("disabled") == "disabled"){
 		$(inputId).removeAttr("disabled");
 	}
 }
+
+//删除设备
+function deleteDev(e){
+	e = e || window.event;
+	//获取被点击元素的id
+	deviceId = e.target.id;
+	id = deviceId.substring(7);
+	alert(id);
+	/**
+	deviceName = $("#label_" + e.target.id).text();
+	$.ajax({
+        type: "get",
+        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+        data: {"id":deviceId},
+        success: function (result) {
+          if(result == "scuess"){
+            	//alert(result);
+            	location.reload(); 
+            }else{
+           		alert("删除失败！");
+           	}
+      	  }
+       });
+       */
+}
+
+//修改设备
+function changeDevInfo(e){
+	e = e || window.event;
+	//获取被点击元素的id
+	deviceId = e.target.id;
+	id = deviceId.substring(7);
+	alert(id);
+	/**
+	deviceName = $("#label_" + e.target.id).text();
+	$.ajax({
+        type: "get",
+        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+        data: {"id":deviceId},
+        success: function (result) {
+          if(result == "scuess"){
+            	//alert(result);
+            	location.reload(); 
+            }else{
+           		alert("删除失败！");
+           	}
+      	  }
+       });
+       */
+}
+
+//确认归还
+function confirmReturned(e){
+	e = e || window.event;
+	//获取被点击元素的id
+	deviceId = e.target.id;
+	id = deviceId.substring(7);
+	alert(id);
+	/**
+	deviceName = $("#label_" + e.target.id).text();
+	$.ajax({
+        type: "get",
+        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+        data: {"id":deviceId},
+        success: function (result) {
+          if(result == "scuess"){
+            	//alert(result);
+            	location.reload(); 
+            }else{
+           		alert("删除失败！");
+           	}
+      	  }
+       });
+       */
+}
+
+//确认借出
+function confirmBorrowed(e){
+	e = e || window.event;
+	//获取被点击元素的id
+	deviceId = e.target.id;
+	id = deviceId.substring(8);
+	alert(id);
+	/**
+	deviceName = $("#label_" + e.target.id).text();
+	$.ajax({
+        type: "get",
+        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+        data: {"id":deviceId},
+        success: function (result) {
+          if(result == "scuess"){
+            	//alert(result);
+            	location.reload(); 
+            }else{
+           		alert("删除失败！");
+           	}
+      	  }
+       });
+       */
+}
+
+//拒绝借出
+function refuseBorrowed(e){
+	e = e || window.event;
+	//获取被点击元素的id
+	deviceId = e.target.id;
+	id = deviceId.substring(7);
+	alert(id);
+	/**
+	deviceName = $("#label_" + e.target.id).text();
+	$.ajax({
+        type: "get",
+        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+        data: {"id":deviceId},
+        success: function (result) {
+          if(result == "scuess"){
+            	//alert(result);
+            	location.reload(); 
+            }else{
+           		alert("删除失败！");
+           	}
+      	  }
+       });
+       */
+	
+}
+
+
+
+
+
+
+

@@ -49,3 +49,9 @@ function post(URL, PARAMS) {
   temp.submit();
   return temp;
 }
+
+function jumpToLoginPage(e){
+	var host = window.location.host;
+	var url = host + "/ci/index.php/Welcome/login";
+	window.location.href="http://" + url;
+}

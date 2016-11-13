@@ -68,8 +68,14 @@ writeToLog($theTime,$who,$where,$doThings);
 					<label class="label_style">系统版本：</label>
 					<select id="dev_version" class="select_style form-control">
 						<option value="all">all</option>
-						<option value="android">4.4.4</option>
-						<option value="ios">4.4.2</option>
+						<option value="7">7</option>
+						<option value="6">6</option>
+						<option value="5.1">5.1</option>
+						<option value="5.0">5.0</option>
+						<option value="4.4">4.4</option>
+						<option value="4.3">4.3</option>
+						<option value="4.2">4.2</option>
+						<option value="4.1">4.1</option>
 					</select>
 				</td>
 			</tr>
@@ -123,24 +129,25 @@ writeToLog($theTime,$who,$where,$doThings);
 			<?php 
 				$i = 1;
 				foreach ($datas as $row){
-					echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img>';
+					echo '<tr><td>'.$i.'</td><td><img onclick="toChangeDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img>';
 					echo '</td><td id="label_'.$row->id.'">'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
 					if($row->status == 0){
 						echo '<td><input type="text" class="form-control" style="width:120px;" id="input_'.$row->id.'"></td>';
-						echo '<td><button class="btn btn-sm btn-success" onclick="applyFor()" id="'.$row->id.'">借 出</button></td>';
-						echo '<td><button type="button" class="btn btn-sm btn-danger">删除</button></td>';
-						echo '<td><button type="button" class="btn btn-sm btn-warning">修改</button></td>';
+						echo '<td><button class="btn btn-sm btn-success" onclick="confirmBorrowed()" id="confirm_'.$row->id.'">借 出</button></td>';
+						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';
+						echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="changeDevInfo()">修改</button></td>';
 					}else if($row->status == 1){
 						echo '<td>'.$row->borrower.'</td>';
-						echo '<td><button class="btn btn-sm btn-info" onclick="cancleApplyFor()" id="'.$row->id.'">通 过</button></td>';
-						echo '<td><button type="button" class="btn btn-sm btn-danger">删除</button></td>';
-						echo '<td><button type="button" class="btn btn-sm btn-warning">修改</button></td>';
+						echo '<td><button class="btn btn-sm btn-info" onclick="confirmBorrowed()" id="confirm_'.$row->id.'">通 过</button>
+								</br><button style="margin-top:5px;" class="btn btn-sm btn-info" onclick="refuseBorrowed()" id="refuse_'.$row->id.'">拒 绝</button></td>';
+						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';
+						echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="changeDevInfo()">修改</button></td>';
 					}else if($row->status == 2){
 						echo '<td><input type="text" disabled="disabled" class="form-control" style="width:120px;" value="'.$row->borrower.'" id="input_'.$row->id.'">
 								<button type="button" class="btn btn-sm btn-warning" style="margin-top:5px;" id="modify_'.$row->id.'" onclick="modifyBorrower()">修改</button></td>';
-						echo '<td><button class="btn btn-sm btn-danger" onclick="cancleApplyFor()" id="'.$row->id.'">归 还</button></td>';
-						echo '<td><button type="button" class="btn btn-sm btn-danger">删除</button></td>';
-						echo '<td><button type="button" class="btn btn-sm btn-warning">修改</button></td>';
+						echo '<td><button class="btn btn-sm btn-danger" onclick="confirmReturned()" id="return_'.$row->id.'">归 还</button></td>';
+						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';
+						echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="changeDevInfo()">修改</button></td>';
 					}
 					
 					echo '<td style="color:red;">'.$row->owner.'</td>

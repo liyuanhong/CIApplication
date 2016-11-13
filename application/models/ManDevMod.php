@@ -52,28 +52,48 @@ class ManDevMod extends CI_Model {
 	
 
 	//借出设备或确认申请设备
-	function confirmBorrowed($id){
-		
+	function confirmBorrowed($id,$borrower){
+		$data = array(
+				"status" => "2",
+				"borrower" => $borrower
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
 	}
 	
 	//归还设备
 	function confirmReturned($id){
-		
+		$data = array(
+				"status" => "0"
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
+		return "sucess";
 	}
 	
 	//删除设备
 	function deleteDev($id){
+		$this->db->where('id',$id);
+		$this->db->delete('devices');
 		
+		return "sucess";
 	}
 	
 	//修改设备
 	function changeDevInfo(){
 		
+		return "sucess";
 	}
 	
 	//修改签借人
 	function changeBorrower($id,$borrower){
+		$data = array(
+				"borrower" => $borrower
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
 		
+		return "sucess";
 	}
 	
 	
