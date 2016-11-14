@@ -17,6 +17,7 @@ class ShowDevCnt extends CI_Controller {
 		
 		echo json_encode($this->ShowDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower));
 	}
+	
 }
 
 ?>

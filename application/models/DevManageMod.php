@@ -94,6 +94,13 @@ class DevManageMod extends CI_Model {
 		return json_encode(array('result'=>$arr));
 	}
 	
+	public function test3(){
+		$queryString = "select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,path from devices left join dev_imgs on devices.id=dev_imgs.device_id";
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		return $arr;
+	}
+	
 	//改变设备的状态为申请中
 	public function changeDevStatusToApplying($id,$borrower){
 		$data = array(

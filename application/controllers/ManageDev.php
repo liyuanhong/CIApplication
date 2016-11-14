@@ -107,6 +107,10 @@ class ManageDev extends CI_Controller {
 		
 		echo "scuess";
 	}
+	
+	function test3(){
+		echo json_encode($this->DevManageMod->test3());
+	}
 }
 
 

@@ -17,7 +17,7 @@
         <input  class="form-control" placeholder="登 录 名" required autofocus>
         <input type="password" class="form-control" placeholder="密 码" required>
         <input type="password" class="form-control" placeholder="确 认 密 码" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登 录</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注 册</button>
         <button class="btn btn-lg btn-default btn-block" type="submit" onclick="javascript:history.back(-1);">取 消</button>
       </form>
 

@@ -50,8 +50,16 @@ function post(URL, PARAMS) {
   return temp;
 }
 
+//跳转到登录界面
 function jumpToLoginPage(e){
 	var host = window.location.host;
 	var url = host + "/ci/index.php/Welcome/login";
+	window.location.href="http://" + url;
+}
+
+//跳转到注册页面
+function jumpToRegisterPage(e){
+	var host = window.location.host;
+	var url = host + "/ci/index.php/Welcome/register";
 	window.location.href="http://" + url;
 }

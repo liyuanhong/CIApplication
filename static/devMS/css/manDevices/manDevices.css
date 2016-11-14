@@ -20,7 +20,7 @@
 #search_area table:nth-child(1){
 	_background-color:red;
 	margin-top:20px;
-	margin-left:20px;
+	_margin-left:20px;
 }
 .select_style{
 	width:50%;

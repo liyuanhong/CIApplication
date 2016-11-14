@@ -45,7 +45,7 @@ writeToLog($theTime,$who,$where,$doThings);
 
 <div id="search_area">
 	<div>
-		<table _border="1" style="width:100%;height:100px">
+		<table _border="1" style="width:100%;height:100px;margin-left:20px;">
 			<tr>
 				<td style="width:33%;">
 					<label class="label_style">平台：</label>

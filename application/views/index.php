@@ -17,7 +17,7 @@ $arr = explode("/",$url);
 		<div>
 			<label id="login_lagel" class="login_label" onclick="jumpToLoginPage()">登录</label>
 			<!--<label style="color:white;margin-left:20px;" class="login_label">|</label>-->
-			<label id="register_label" class="login_label">注册</label>
+			<label id="register_label" class="login_label" onclick="jumpToRegisterPage()">注册</label>
 		</div>
 	</div>
 	
