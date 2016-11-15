@@ -52,19 +52,23 @@ class ManDevMod extends CI_Model {
 	
 
 	//借出设备或确认申请设备
-	function confirmBorrowed($id,$borrower){
+	function confirmBorrowed($id,$borrower,$borrow_time){
 		$data = array(
 				"status" => "2",
-				"borrower" => $borrower
+				"borrower" => $borrower,
+				"borrow_time"=>$borrow_time
 		);
 		$this->db->where("id",$id);
 		$this->db->update("devices",$data);
+		return "sucess";
 	}
 	
 	//归还设备
 	function confirmReturned($id){
 		$data = array(
-				"status" => "0"
+				"status" => "0",
+				"borrower"=>"",
+				"borrow_time"=>""
 		);
 		$this->db->where("id",$id);
 		$this->db->update("devices",$data);
@@ -96,6 +100,13 @@ class ManDevMod extends CI_Model {
 		return "sucess";
 	}
 	
+	function getDevNum($id){
+		$queryString = "select theNum,device_name,borrower from devices where id = ".$id;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$jresult = json_encode($arr);
+		return $arr;
+	}
 	
 	
 	
