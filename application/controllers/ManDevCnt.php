@@ -26,7 +26,43 @@ class ManDevCnt extends CI_Controller {
 		$id = $_GET['id'];
 		$borrower = $_GET['borrower'];
 		$borrow_time = date('Y-m-d H:i:s',time());
+		
+		$data = $this->ManDevMod->getDevNum($id);
+		$jd = json_encode($data);
+		$devNum = json_decode($jd)[0]->theNum;
+		$devName = json_decode($jd)[0]->device_name;
+		//$borrower = json_decode($jd)[0]->borrower;
+		
+		
+		//写入操作日志
+		$theTime = date('y-m-d h:i:s',time());
+		$who = "李明";
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "将设备'.$devName.'--编号：'.$devNum.'借给了：".$borrower;
+		writeToLog($theTime,$who,$where,$doThings);
+		
 		echo $this->ManDevMod->confirmBorrowed($id,$borrower,$borrow_time);
+	}
+	
+	//拒绝申请设备
+	function refuseBorrowed(){
+		$id = $_GET['id'];
+		$borrower = $_GET['borrower'];
+		$borrow_time = "";
+		
+		$data = $this->ManDevMod->getDevNum($id);
+		$jd = json_encode($data);
+		$devNum = json_decode($jd)[0]->theNum;
+		$devName = json_decode($jd)[0]->device_name;
+		
+		//写入操作日志
+		$theTime = date('y-m-d h:i:s',time());
+		$who = "李明";
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "拒绝将设备'.$devName.'--编号：'.$devNum.'借给：".$borrower;
+		writeToLog($theTime,$who,$where,$doThings);
+		
+		echo $this->ManDevMod->refuseBorrowed($id,$borrow_time);
 	}
 	
 	//归还设备

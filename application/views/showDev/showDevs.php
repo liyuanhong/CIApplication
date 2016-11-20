@@ -69,8 +69,14 @@ writeToLog($theTime,$who,$where,$doThings);
 					<label class="label_style">系统版本：</label>
 					<select id="dev_version" class="select_style form-control">
 						<option value="all">all</option>
-						<option value="android">4.4.4</option>
-						<option value="ios">4.4.2</option>
+						<option value="7">7</option>
+						<option value="6">6</option>
+						<option value="5.1">5.1</option>
+						<option value="5.0">5.0</option>
+						<option value="4.4">4.4</option>
+						<option value="4.3">4.3</option>
+						<option value="4.2">4.2</option>
+						<option value="4.1">4.1</option>
 					</select>
 				</td>
 			</tr>

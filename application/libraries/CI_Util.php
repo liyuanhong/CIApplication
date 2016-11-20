@@ -16,7 +16,15 @@ function getMemberFromIP() {
 	
 	
 	return "honghong~";
-	
 }
 
+
+function getSessionStr(){
+	//已登录的时间戳来作为session
+	return time();
+}
+
+function toLogin(){
+	
+}
 ?>

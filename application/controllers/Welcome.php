@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('GetDevInfoMod');
 		$this->load->model('CheckDevMod');
 		$this->load->model('ShowDevMod');
+		$this->load->model('ManUserMod');
 	}
 	 
 	public function index(){
@@ -112,5 +113,18 @@ class Welcome extends CI_Controller {
 				}
 			}
 		}
+	}
+	
+	public function getAllPics(){
+		$upload_handler = new UploadHandler();
+	}
+	
+	public function test(){
+		$this->load->view('test');
+	}
+	
+	public function getPics(){
+		require('UploadHandler.php');
+		$upload_handler = json_decode(json_encode(new UploadHandler()));
 	}
 }

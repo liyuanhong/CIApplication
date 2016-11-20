@@ -137,7 +137,7 @@ writeToLog($theTime,$who,$where,$doThings);
 						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';
 						echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="changeDevInfo()">修改</button></td>';
 					}else if($row->status == 1){
-						echo '<td>'.$row->borrower.'</td>';
+						echo '<td id="input_'.$row->id.'" value="'.$row->borrower.'">'.$row->borrower.'</td>';
 						echo '<td><button class="btn btn-sm btn-info" onclick="confirmBorrowed()" id="confirm_'.$row->id.'">通 过</button>
 								</br><button style="margin-top:5px;" class="btn btn-sm btn-info" onclick="refuseBorrowed()" id="refuse_'.$row->id.'">拒 绝</button></td>';
 						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';

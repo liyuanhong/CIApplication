@@ -3,8 +3,9 @@ require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+//主机地址
+$host = $_SERVER['HTTP_HOST'];
 
-		
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
 $who = getMemberFromIP();
@@ -12,7 +13,13 @@ $where = "从".$_SERVER["REMOTE_ADDR"];
 $doThings = "访问了用户管理页面";
 writeToLog($theTime,$who,$where,$doThings);
 
+$users = $this->ManUserMod->getUsersInfo();
+
 ?>
+
+<link href="<?php echo base_url();?>static/devMS/css/userMan/userMan.css" rel="stylesheet">
+<script src="<?php echo base_url();?>static/devMS/js/userMan/userMan.js"></script>
+
 <div style="width:100%;margin-top:5px;text-align:right">
 	<button type="button" class="btn btn-success" style="margin-right: 100px;margin-bottom:10px;">添 加 用 户</button>
 </div>
@@ -31,6 +38,18 @@ writeToLog($theTime,$who,$where,$doThings);
 			</tr>
 		</thead>
 		<tbody>
+		<?php 
+			$i = 1;
+			foreach ($users as $row){
+				echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.
+				'"src="http://'.$host.'/ci/imgs/portrait/'.trim($row->icon).'"></img>';
+				echo '</td><td id="label_'.$row->id.'">'.$row->user_name.'</td><td>'.$row->login_name.'</td><td>'.$row->password.'</td>';
+				echo '</td><td id="label_'.$row->id.'">'.$row->role.'</td>';
+				echo '<td><button type="button" class="btn btn-sm btn-danger" id="del_'.$row->id.'" onclick="delAnUser()">删 除</button></td>';
+				echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'">修 改</button></td>';	
+				$i++;
+			}
+		?>
 		</tbody>
 	</table>
 </div>

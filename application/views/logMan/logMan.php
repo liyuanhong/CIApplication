@@ -37,6 +37,16 @@ writeToLog($theTime,$who,$where,$doThings);
 	<input value="<?php if($requestMethod == "GET"){echo date('Y-m-d');}else if($requestMethod == "POST"){echo $_POST['date_input'];} ?>" id="date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
 	<button type="button" class="btn btn-primary" id="search_log">查看日志</button>
 </div>
+
+<div style="width:100%;margin-top: 5px;">
+    <label style="display:inline;">开始日期：</label>
+	<input value="<?php if($requestMethod == "GET"){echo date('Y-m-d');}else if($requestMethod == "POST"){echo $_POST['date_input'];} ?>" id="date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
+	<label style="display:inline;">结束日期：</label>
+	<input value="<?php if($requestMethod == "GET"){echo date('Y-m-d');}else if($requestMethod == "POST"){echo $_POST['date_input'];} ?>" id="date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
+	<label style="display:inline;">搜索词：</label>
+	<input class="form-control input_style" style="height:35px;width:200px;display:inline;"/>
+	<button type="button" class="btn btn-primary" id="search_log">查看日志</button>
+</div>
 	
 	
 	

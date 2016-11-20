@@ -58,7 +58,6 @@ $arr = explode("/",$url);
 				}else if(count($arr) == 6){
 					$this->load->view('manDevices/changeDevInfo');
 				}
-				//$this->load->view('manDevices/manDevices');
 			}else if($arr[4]=='checkDevices'){
 				if(count($arr) == 5){
 					$this->load->view('checkDevices/checkDevices');
@@ -68,9 +67,7 @@ $arr = explode("/",$url);
 					}else{
 						$this->load->view('checkDevices/showDevInfoPage');
 					}
-					//$this->load->view('checkDevices/showDevInfoPage');
 				}
-				//$this->load->view('checkDevices/checkDevices');
 			}else if($arr[4]=='logMan'){
 				$this->load->view('logMan/logMan');
 			}else if($arr[4]=='userMan'){

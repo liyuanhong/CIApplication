@@ -83,7 +83,7 @@ class ManageDev extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		$who = $borrower;
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "申请了设备设备：".$device_name;
 		writeToLog($theTime,$who,$where,$doThings);

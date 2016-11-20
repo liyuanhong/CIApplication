@@ -142,26 +142,9 @@ function deleteDev(e){
 //修改设备
 function changeDevInfo(e){
 	e = e || window.event;
-	//获取被点击元素的id
-	deviceId = e.target.id;
-	id = deviceId.substring(7);
-	alert(id);
-	/**
-	deviceName = $("#label_" + e.target.id).text();
-	$.ajax({
-        type: "get",
-        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
-        data: {"id":deviceId},
-        success: function (result) {
-          if(result == "sucess"){
-            	//alert(result);
-            	location.reload(); 
-            }else{
-           		alert("删除失败！");
-           	}
-      	  }
-       });
-       */
+	id = e.target.id;
+	deviceId = id.substring(7);
+	window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
 }
 
 //确认归还
@@ -198,7 +181,11 @@ function confirmBorrowed(e){
 	deviceId = e.target.id;
 	id = deviceId.substring(8);
 	inputId = "#input_" + id;
-	borrower = $(inputId).val();
+	borrowerL = $(inputId).attr("value");
+	borrower = borrowerL;
+	if(borrowerL == undefined){
+		borrower = $(inputId).val();
+	}
 	if(borrower == ""){
 		alert("签借人不能为空！");
 	}else{
@@ -226,23 +213,24 @@ function refuseBorrowed(e){
 	//获取被点击元素的id
 	deviceId = e.target.id;
 	id = deviceId.substring(7);
-	alert(id);
-	/**
+	inputId = "#input_" + id;
+	borrower = $(inputId).val();
+	
+	
 	deviceName = $("#label_" + e.target.id).text();
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
-        data: {"id":deviceId},
+        url: "http://" + host + "/ci/index.php/ManDevCnt/refuseBorrowed",
+        data: {"id":id,"borrower":borrower},
         success: function (result) {
           if(result == "sucess"){
-            	//alert(result);
             	location.reload(); 
             }else{
-           		alert("删除失败！");
+           		alert("拒绝失败！");
            	}
       	  }
        });
-       */
+       
 	
 }
 

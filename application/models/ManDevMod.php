@@ -63,6 +63,18 @@ class ManDevMod extends CI_Model {
 		return "sucess";
 	}
 	
+	//拒绝申请设备
+	function refuseBorrowed($id,$borrow_time){
+		$data = array(
+				"status" => "0",
+				"borrower" => "",
+				"borrow_time"=>$borrow_time
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
+		return "sucess";
+	}
+	
 	//归还设备
 	function confirmReturned($id){
 		$data = array(
