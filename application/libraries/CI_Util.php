@@ -24,7 +24,4 @@ function getSessionStr(){
 	return time();
 }
 
-function toLogin(){
-	
-}
 ?>

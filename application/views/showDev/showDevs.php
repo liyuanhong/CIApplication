@@ -128,7 +128,7 @@ writeToLog($theTime,$who,$where,$doThings);
 			<?php 
 				$i = 1;
 				foreach ($datas as $row){
-					echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img>';
+					echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path[0]).'"></img>';
 					echo '</td><td id="label_'.$row->id.'">'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
 					if($row->status == 0){
 						echo '<td><input type="text" class="form-control" style="width:80px;" id="input_'.$row->id.'"></td>';

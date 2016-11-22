@@ -13,10 +13,23 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="0"';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="0"';
+				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="0"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
-		return $arr;
+		//return $arr;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
 	}
 	
 	//获取已经盘点过的设备
@@ -24,10 +37,23 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="1"';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="1"';
+				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="1"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
-		return $arr;
+		//return $arr;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
 	}
 	
 	//获取所有设备
@@ -35,10 +61,23 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path from devices left join dev_imgs on devices.id=dev_imgs.device_id';
+				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
-		return $arr;
+		//return $arr;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
 	}
 	
 	//获取丢失的设备
@@ -46,10 +85,23 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="2"';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="2"';
+				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="2"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
-		return $arr;
+		//return $arr;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
 	}
 	
 	//重置设备状态

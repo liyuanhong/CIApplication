@@ -21,7 +21,7 @@ $users = $this->ManUserMod->getUsersInfo();
 <script src="<?php echo base_url();?>static/devMS/js/userMan/userMan.js"></script>
 
 <div style="width:100%;margin-top:5px;text-align:right">
-	<button type="button" class="btn btn-success" style="margin-right: 100px;margin-bottom:10px;">添 加 用 户</button>
+	<button type="button" class="btn btn-success" style="margin-right: 100px;margin-bottom:10px;" onclick="toAddUserPage()">添 加 用 户</button>
 </div>
 <div>
 	<table class="table table-striped">
@@ -41,12 +41,14 @@ $users = $this->ManUserMod->getUsersInfo();
 		<?php 
 			$i = 1;
 			foreach ($users as $row){
-				echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.
+				echo '<tr><td>'.$i.'</td><td><img onclick="toChangeUserInfoPage()" class="dev_icon" id="icon___'.$row->id.
 				'"src="http://'.$host.'/ci/imgs/portrait/'.trim($row->icon).'"></img>';
 				echo '</td><td id="label_'.$row->id.'">'.$row->user_name.'</td><td>'.$row->login_name.'</td><td>'.$row->password.'</td>';
-				echo '</td><td id="label_'.$row->id.'">'.$row->role.'</td>';
+				echo '</td><td id="label_'.$row->id.'">';
+				if($row->role == 0){echo "超级管理员";}else if($row->role == 1){echo "管理员";}else if($row->role == 2){echo "访客";}
+				echo '</td>';
 				echo '<td><button type="button" class="btn btn-sm btn-danger" id="del_'.$row->id.'" onclick="delAnUser()">删 除</button></td>';
-				echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'">修 改</button></td>';	
+				echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="toChangeUserInfoPage()">修 改</button></td>';	
 				$i++;
 			}
 		?>

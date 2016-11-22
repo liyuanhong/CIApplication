@@ -6,17 +6,37 @@ function delAnUser(e){
 	butId = e.target.id;
 	id = butId.substring(4);
 	
-	$.ajax({
-        type: "post",
-        url: "http://" + host + "/ci/index.php/ManUserCnt/delAnUser",
-        data: {"id":id},
-        success: function (result) {
-          if(result == "sucess"){
-            	alert("删除成功！");
-            	location.reload(); 
-            }else{
-           		alert("删除失败");
-           	}
-      	  }
-       });
+	con=confirm("确定删除该设备么?");
+	if(con == true){
+		$.ajax({
+	        type: "post",
+	        url: "http://" + host + "/ci/index.php/ManUserCnt/delAnUser",
+	        data: {"id":id},
+	        success: function (result) {
+	          if(result == "sucess"){
+	            	alert("删除成功！");
+	            	location.reload(); 
+	            }else{
+	           		alert("删除失败");
+	           	}
+	      	  }
+	       });
+	}else{
+		
+	}
+}
+
+//跳转到添加用户页面
+function toAddUserPage(e){
+	var url = host + "/ci/index.php/Welcome/userMan/addUserPage";
+	window.location.href="http://" + url;
+}
+
+//跳转到修改用户信息页面
+function toChangeUserInfoPage(e){
+	e = e || window.event;
+	tarId = e.target.id;
+	id = tarId.substring(7);
+	var url = host + "/ci/index.php/Welcome/userMan/" + id;
+	window.location.href="http://" + url;
 }

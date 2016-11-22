@@ -71,7 +71,17 @@ $arr = explode("/",$url);
 			}else if($arr[4]=='logMan'){
 				$this->load->view('logMan/logMan');
 			}else if($arr[4]=='userMan'){
-				$this->load->view('userMan/userMan');
+				if(count($arr) == 5){
+					$this->load->view('userMan/userMan');
+				}else if(count($arr) == 6){
+					if($arr[5] == "addUserPage"){
+						$this->load->view('userMan/addUserPage');
+					}else{
+						$this->load->view('userMan/changeUserInfoPage');
+					}
+				}
+				
+				
 			}
 			?>
 		</div>

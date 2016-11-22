@@ -82,7 +82,7 @@ if($id == "no_checked"){
 			$i = 1;
 			foreach ($datas as $row){
 				echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.
-				'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path).'"></img></td>';
+				'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path[0]).'"></img></td>';
 				echo '<td>'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
 				echo '<td>'.$row->borrower.'</td><td>'.$row->owner.'</td><td>'.$row->borrow_time.'</td>';
 				echo '<td><button type="button" class="btn btn-sm btn-success" onclick="confirmIsAt()" id="confirm1_'.$row->id.'">确定</button></td>';

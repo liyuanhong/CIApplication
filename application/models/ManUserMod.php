@@ -16,6 +16,14 @@ class ManUserMod extends CI_Model {
 		return $arr;
 	}
 	
+	//获取某个用户的所有信息
+	public function getUserAllInfoFromId($id){
+		$queryString = 'select * from users where id='.$id;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		return $arr;
+	}
+	
 	//注册一个用户
 	public function registerAnUser($user_name,$login_name,$password,$registe_time){
 		$data = array(
@@ -60,6 +68,34 @@ class ManUserMod extends CI_Model {
 	public function delAnUser($id){
 		$this->db->where('id',$id);
 		$this->db->delete('users');
+	}
+	
+	//添加一个用户
+	public function addAnUser($user_name,$login_name,$password,$role,$icon,$registe_time){
+		$data = array(
+				"user_name" => $user_name,
+				"login_name"=>$login_name,
+				"password"=>$password,
+				"registe_time"=>$registe_time,
+				"role"=>$role,
+				"icon"=>$icon
+		);
+		$this->db->insert('users', $data);
+	}
+	
+	//修改用户的个人信息
+	function changeUserInfo($id,$user_name,$login_name,$password,$role,$login_time,$registe_time,$session){
+		$this->db->where("id",$id);
+		$data = array(
+				"user_name" => $user_name,
+				"login_name"=>$login_name,
+				"password"=>$password,
+				"registe_time"=>$registe_time,
+				"login_time"=>$login_time,
+				"role"=>$role,
+				"session"=>$session
+		);
+		$this->db->update('users', $data);
 	}
 }
 ?>

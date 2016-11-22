@@ -97,6 +97,48 @@ class ManUserCnt extends CI_Controller {
 		
 		echo "sucess";
 	}
+	
+	//添加一个用户
+	function addAnUser(){
+		$login_name = $_POST['login_name'];
+		$user_name = $_POST['user_name'];
+		$password = $_POST['password'];
+		$role = $_POST['role'];
+		$icon = "default.jpg";
+		$registe_time = date('Y-m-d H:i:s',time());
+		
+		$this->ManUserMod->addAnUser($user_name,$login_name,$password,$role,$icon,$registe_time);
+		
+		$theTime = date('y-m-d h:i:s',time());
+		$who = "李明";
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "添加了一个用户".$login_name;
+		writeToLog($theTime,$who,$where,$doThings);
+		
+		echo "sucess";
+	}
+	
+	//修改用户信息
+	function changeUserInfo(){
+		$id = $_POST['id'];
+		$login_name = $_POST['login_name'];
+		$user_name = $_POST['user_name'];
+		$password = $_POST['password'];
+		$role = $_POST['role'];
+		$registe_time = $_POST['registe_time'];
+		$login_time = $_POST['login_time'];
+		$session = $_POST['session'];
+		
+		$this->ManUserMod->changeUserInfo($id,$user_name,$login_name,$password,$role,$login_time,$registe_time,$session);
+		
+		$theTime = date('y-m-d h:i:s',time());
+		$who = "李明";
+		$where = "从".$_SERVER['HTTP_HOST'];
+		$doThings = "修改了".$login_name."的用户信息";
+		writeToLog($theTime,$who,$where,$doThings);
+		
+		echo "sucess";
+	}
 }
 
 ?>
