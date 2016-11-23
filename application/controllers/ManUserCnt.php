@@ -139,6 +139,15 @@ class ManUserCnt extends CI_Controller {
 		
 		echo "sucess";
 	}
+	
+	//修改用户头像
+	function changeUserIcon(){
+		$id = $_POST['id'];
+		$icon = $_POST['icon'];
+		$this->ManUserMod->changeUserIcon($id,$icon);
+		
+		echo "sucess";
+	}
 }
 
 ?>

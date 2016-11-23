@@ -108,7 +108,21 @@ class ManDevCnt extends CI_Controller {
 	
 	//修改设备
 	function changeDevInfo(){
-		echo $this->ManDevMod->changeDevInfo($id,$borrower);
+		$id = $_POST['id'];
+		$device_name = $_POST['dev_name'];
+		$model = $_POST['dev_model'];
+		$theNum = $_POST['dev_num'];
+		$owner = $_POST['dev_owner'];
+		$plateform = $_POST['dev_plateform'];
+		$brand = $_POST['dev_brand'];
+		$version = $_POST['dev_version'];
+		$category = $_POST['dev_category'];
+		$other = $_POST['dev_other'];
+		$comments = $_POST['dev_comments'];
+		
+		$this->ManDevMod->changeDevInfo($id,$device_name,$model,$theNum,$owner,$brand,$plateform,$version,$category,$other,$comments);
+		
+		echo "sucess";
 	}
 	
 	//修改签借人
@@ -130,6 +144,13 @@ class ManDevCnt extends CI_Controller {
 		writeToLog($theTime,$who,$where,$doThings);
 		
 		echo $this->ManDevMod->changeBorrower($id,$borrower);
+	}
+	
+	//获取某个设备的所有信息
+	function getDevAllInfo(){
+		$id = $_GET['id'];
+		$data = $this->ManDevMod->getDevAllInfo($id);
+		echo json_encode($data);
 	}
 }
 

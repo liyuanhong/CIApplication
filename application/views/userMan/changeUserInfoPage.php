@@ -2,6 +2,8 @@
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 
+//主机地址
+$host = $_SERVER['HTTP_HOST'];
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
 $who = getMemberFromIP();
@@ -61,6 +63,20 @@ $data = $this->ManUserMod->getUserAllInfoFromId($userId);
 			</td>
 			<td>
 				<button type="button" id="btn_modify_<?php echo $userId?>" style="width:180px;float:right;" class="btn btn-primary btn-primary" onclick="changeUserInfo()">修 改</button>
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="3">
+				<laebl>设置头像：</laebl>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/default.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="default.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/cat1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="cat1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/baozhi1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="baozhi1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/lufei1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="lufei1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/nvhai1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="nvhai1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/shishang1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="shishang1.png" onclick="modifyIcon()"></img>
+				
+				<laebl style="margin-left:100px;">当前头像：</laebl>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/<?php echo $data[0]->icon;?>" id="icon" style="width:70px;height:70px;margin-left:10px;"></img>
 			</td>
 		</tr>
 	</table>

@@ -95,10 +95,34 @@ class ManDevMod extends CI_Model {
 		return "sucess";
 	}
 	
-	//修改设备
-	function changeDevInfo(){
+	//修改设备基本信息
+	function changeDevInfo($id,$device_name,$model,$theNum,$owner,$brand,$plateform,$version,$category,$other,$comments){
+		$id = $_POST['id'];
+		$device_name = $_POST['dev_name'];
+		$model = $_POST['dev_model'];
+		$theNum = $_POST['dev_num'];
+		$owner = $_POST['dev_owner'];
+		$plateform = $_POST['dev_plateform'];
+		$brand = $_POST['dev_brand'];
+		$version = $_POST['dev_version'];
+		$category = $_POST['dev_category'];
+		$other = $_POST['dev_other'];
+		$comments = $_POST['dev_comments'];
 		
-		return "sucess";
+		$data = array(
+				"device_name"=>$device_name,
+				"model"=>$model,
+				"theNum"=>$theNum,
+				"owner"=>$owner,
+				"plateform"=>$plateform,
+				"brand"=>$brand,
+				"version"=>$version,
+				"category"=>$category,
+				"other"=>$other,
+				"comments"=>$comments
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
 	}
 	
 	//修改签借人
@@ -120,7 +144,13 @@ class ManDevMod extends CI_Model {
 		return $arr;
 	}
 	
-	
-	
+	//获取某个设备的所有信息
+	function getDevAllInfo($id){
+		$queryString = "select * from devices where id=".$id;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$jresult = json_encode($arr);
+		return $arr;
+	}
 }
 ?>

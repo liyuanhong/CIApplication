@@ -36,3 +36,25 @@ function changeUserInfo(e){
 	}
 	
 }
+
+function modifyIcon(e){
+	e = e || window.event;
+	imgId = e.target.id;
+	id = $(e.target).attr("id_val");
+	val = $(e.target).attr("val");
+	
+	$("#icon").attr("src","http://" + host + "/ci/imgs/portrait/" + val);
+	
+	$.ajax({
+    	type: "post",
+        url: "http://" + host + "/ci/index.php/ManUserCnt/changeUserIcon",
+        data: {"id":id,"icon":val},
+        success: function (result) {
+        	if(result == "sucess"){
+        		
+        	}else{
+        		
+        	}
+        }
+   });
+}

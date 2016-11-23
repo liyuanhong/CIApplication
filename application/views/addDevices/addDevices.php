@@ -55,7 +55,6 @@ writeToLog($theTime,$who,$where,$doThings);
 				<td>
 					<label>分类：</label>
 					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;">
-						<option value="手机和平板" selected="selected">手机和平板</option>
 						<option value="手机">手机</option>
 						<option value="平板">平板</option>
 						<option value="其他">其他</option>

@@ -21,49 +21,49 @@ writeToLog($theTime,$who,$where,$doThings);
 
 <button type="button" class="btn btn-sm btn-success btn-back" onclick="javascript:history.back(-1);">《返回</button>
 <link href="<?php echo base_url();?>static/devMS/css/manDevices/changeDevInfo.css" rel="stylesheet"/>
+<script src="<?php echo base_url();?>static/devMS/js/manDevices/changeDevInfo.js"></script>
 <div id="add_devices">
 	<div>
 	<table>
 			<tr>
 				<td>
 					<label>设备名：</label>
-					<input id="dev_name" class="form-control input_style"></input>
+					<input id="dev_name" class="form-control input_style" disabled="disabled" value="<?php echo $data[0]->device_name;?>"></input>
 				</td>
 				<td>
 					<label>型号：</label>
-					<input id="dev_model" class="input_style form-control"></input>
+					<input id="dev_model" class="input_style form-control" disabled="disabled" value="<?php echo $data[0]->model;?>"></input>
 				</td>
 				<td>
 					<label>编号：</label>
-					<input id="dev_num" class="input_style form-control"></input>
+					<input id="dev_num" class="input_style form-control" disabled="disabled" value="<?php echo $data[0]->theNum;?>"></input>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<label>平台：</label>
-					<select id="dev_plateform"  class="input_style form-control" style="margin-left:15px;">
+					<select id="dev_plateform"  class="input_style form-control" style="margin-left:15px;" disabled="disabled">
 						<option value="android">android</option>
 						<option value="ios">ios</option>
 					</select>
 				</td>
 				<td>
 					<label>所属：</label>
-					<input id="dev_owner" class="input_style form-control"></input>
+					<input id="dev_owner" class="input_style form-control" disabled="disabled" value="<?php echo $data[0]->owner;?>"></input>
 				</td>
 				<td>
 					<label>品牌：</label>
-					<input id="dev_brand" class="input_style form-control"></input>
+					<input id="dev_brand" class="input_style form-control" disabled="disabled" value="<?php echo $data[0]->brand;?>"></input>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<label class="label_style">系版本：</label>
-					<input id="dev_version" class="form-control input_style"></input>
+					<input id="dev_version" class="form-control input_style" disabled="disabled" value="<?php echo $data[0]->version;?>"></input>
 				</td>
 				<td>
 					<label>分类：</label>
-					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;">
-						<option value="手机和平板" selected="selected">手机和平板</option>
+					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;" disabled="disabled">
 						<option value="手机">手机</option>
 						<option value="平板">平板</option>
 						<option value="其他">其他</option>
@@ -73,13 +73,13 @@ writeToLog($theTime,$who,$where,$doThings);
 			<tr>
 				<td colSpan="2">
 					<label>其他：</label>
-					<input id="dev_other" class="input_style form-control" style="margin-left:15px;width:400px;"></input>
+					<input id="dev_other" class="input_style form-control" style="margin-left:15px;width:400px;" disabled="disabled"  value="<?php echo $data[0]->other;?>"></input>
 				</td>
 			</tr>
 			<tr>
 				<td colSpan="3">
 					<label style=";float:left;">备注：</label>
-					<textArea id="dev_comments" class="input_style form-control" style="margin-left:20px;width:400px;height:150px;"></textArea>
+					<textArea id="dev_comments" class="input_style form-control" style="margin-left:20px;width:400px;height:150px;" disabled="disabled" value="<?php echo $data[0]->comments;?>"></textArea>
 				</td>
 			</tr>
 			<tr>
@@ -89,8 +89,8 @@ writeToLog($theTime,$who,$where,$doThings);
 			</tr>
 			<tr>
 				<td colSpan="3" _style="background-color:#cccccc;padding:0px;">				
-					<button id="dev_add_but" type="button" class="btn btn-primary">编 辑</button>
-					<button id="test" type="button" class="btn btn-primary">提 交</button>
+					<button id="change_<?php echo $id;?>" type="button" class="btn btn-primary" onclick="changeDevInfo()">编 辑</button>
+<!-- 					<button id="test" type="button" class="btn btn-primary">提 交</button> -->
 				</td>
 			</tr>
 		</table>	

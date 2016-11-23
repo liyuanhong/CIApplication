@@ -97,5 +97,14 @@ class ManUserMod extends CI_Model {
 		);
 		$this->db->update('users', $data);
 	}
+	
+	//修改用户头像
+	function changeUserIcon($id,$icon){
+		$this->db->where("id",$id);
+		$data = array(
+				"icon" => $icon,
+		);
+		$this->db->update('users', $data);
+	}
 }
 ?>
