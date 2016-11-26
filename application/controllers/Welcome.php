@@ -29,6 +29,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('CheckDevMod');
 		$this->load->model('ShowDevMod');
 		$this->load->model('ManUserMod');
+		$this->load->model('ManPicMod');
 	}
 	 
 	public function index(){
@@ -55,8 +56,48 @@ class Welcome extends CI_Controller {
 	}
 	
 	public function manDevices(){	
-		$this->load->view('index');
+
+		$par = $this->uri->segment(3);
+		$ref_url = $_SERVER['HTTP_REFERER'];
+		$arr = explode("/",$ref_url);
+		$id = $arr[count($arr) - 1];
+		
+		//print_r($param);
+		//exit;
+		
+		if($par == "server"){
+			error_reporting(E_ALL | E_STRICT);
+			require('UploadHandler.php');
+			//$param = $this->uri->segment(4);
+			$requestMethod = $_SERVER['REQUEST_METHOD'];
+			
+			if(empty($param)){
+				$param = $this->uri->segment(4);
+				if(empty($param)){
+					$img = $_GET["file"]; //获取上传的文件名
+					$upload_handler = new UploadHandler();    //上传某张图片
+				}else{
+					if($requestMethod == "GET"){
+						//$upload_handler = new UploadHandler();   //返回所有的图片
+					}else if($requestMethod == "POST"){
+						
+						$upload_handler = new UploadHandler();
+						$img_url = array_keys($upload_handler->image_objects)[0];
+						$img_arr = explode("/",$img_url);
+						$img = $img_arr[count($img_arr) - 1];
+						
+						$this->ManPicMod->addPicToDev($id,$img);
+					}else if($requestMethod == "DELETE"){       //删除特定图片
+						$upload_handler = new UploadHandler();
+					}
+				}
+			}
+		}else{
+			$this->load->view('index');
+		}
 	}
+	
+	
 	
 	public function checkDevices(){	
 		$this->load->view('index');
@@ -103,6 +144,10 @@ class Welcome extends CI_Controller {
 				fclose($myfile);
 				*/
 				$upload_handler = new UploadHandler();    //上传某张图片
+				if($requestMethod == "DELETE"){
+					$file = $_GET['file'];
+					$this->ManPicMod->delTheDevPic($file);
+				}
 			}else{
 				if($requestMethod == "GET"){
 					//$upload_handler = new UploadHandler();   //返回所有的图片
@@ -110,6 +155,7 @@ class Welcome extends CI_Controller {
 					$upload_handler = new UploadHandler();
 				}else if($requestMethod == "DELETE"){       //删除特定图片
 					$upload_handler = new UploadHandler();
+						
 				}
 			}
 		}

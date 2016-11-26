@@ -50,6 +50,27 @@ class ManPicCnt extends CI_Controller {
 		}
 	}
 	
+	
+	//获取数据库中有，但是file文件夹里面没有的图片,并打印
+	function getExtImgsEcho(){
+		//$allPics = $this->getAllPics();
+		$dir = getcwd().'/files/thumbnail';
+		$dbPics = json_encode($this->ManPicMod->getAllPics());
+		$AdbPics = json_decode($dbPics);
+		$dirPics = json_encode($this->getDirFiles($dir, $level=-1));
+		$dirPics = json_decode($dirPics);
+	
+		$extraArr = array();
+		for($j = 0;$j < count($dirPics);$j++){
+			$picName = $dirPics[$j];
+			if($this->thumbPicIsInDB($picName, $AdbPics)){
+	
+			}else{
+				$extraArr[] = $picName;
+			}
+		}
+		echo json_encode($extraArr);
+	}
 	//获取数据库中有，但是file文件夹里面没有的图片
 	function getExtImgs(){
 		//$allPics = $this->getAllPics();
@@ -85,7 +106,25 @@ class ManPicCnt extends CI_Controller {
 				$extraArr[] = $picName;
 			}	
 		}
-		echo json_encode($extraArr);
+		//echo json_encode($extraArr);
+		return json_encode($extraArr);
+	}
+	
+	//删除多余的图片
+	function delExtImgs(){
+		$host = $_SERVER['HTTP_HOST'];
+		$arr = $this->getExtImgs();
+		$arr = json_decode($arr);
+		echo getcwd();
+		for($i=0;$i < count($arr);$i++){
+			//$url = "http://".$host."/ci/index.php/Welcome/server/?file=".$arr[$i];
+			//$this->callInterfaceCommon($url, "DELETE", "", "")."<br>";
+			$img = "./files/".$arr[$i];
+			$thumImg = "./files/thumbnail/".$arr[$i];
+			unlink($img);
+			unlink($thumImg);
+		}
+		echo "sucess";
 	}
 	
 	//判断thumbnail中的图片是否在数据库中也有
@@ -93,7 +132,7 @@ class ManPicCnt extends CI_Controller {
 		for($i = 0;$i < count($arr);$i++){
 			$picName1 = $arr[$i]->path;
 			if(str_replace(" ","",$picName) == str_replace(" ","",$picName1)){
-				echo "----------------".'<br>';
+				//echo "----------------".'<br>';
 				return true;
 			}
 		}
@@ -127,5 +166,37 @@ class ManPicCnt extends CI_Controller {
 			closedir($dir_p);
 		}
 		return $files;
+	}
+	
+	//删除某个设备的图片
+	function delTheDevPic(){
+		$file = $_POST['pic'];
+		$this->ManPicMod->delTheDevPic($file);
+		echo "sucess";
+	}
+	
+	function callInterfaceCommon($URL,$type,$params,$headers){
+		$ch = curl_init();
+		$timeout = 5;
+		curl_setopt ($ch, CURLOPT_URL, $URL); //发贴地址
+		if($headers!=""){
+			curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
+		}else {
+			curl_setopt ($ch, CURLOPT_HTTPHEADER, array('Content-type: text/json'));
+		}
+		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		switch ($type){
+			case "GET" : curl_setopt($ch, CURLOPT_HTTPGET, true);break;
+			case "POST": curl_setopt($ch, CURLOPT_POST,true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$params);break;
+			case "PUT" : curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$params);break;
+			case "DELETE":curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$params);break;
+		}
+		$file_contents = curl_exec($ch);//获得返回值
+		return $file_contents;
+		curl_close($ch);
 	}
 }

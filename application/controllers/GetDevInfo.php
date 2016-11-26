@@ -6,7 +6,9 @@ class GetDevInfo extends CI_Controller {
 		$this->load->model('GetDevInfoMod');
 	}
 	
-	public function getDevInfoFromId($id){
+	public function getDevInfoFromId(){
+		$id = $_GET['id'];
+		
 		echo json_encode($this->GetDevInfoMod->getDevInfoFromId($id));
 	}
 }

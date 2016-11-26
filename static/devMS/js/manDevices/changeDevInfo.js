@@ -44,3 +44,26 @@ function changeDevInfo(e){
 	}
 	
 }
+
+function deleteDevImg(e){
+	e = e || window.event;
+	butId = e.target.id;
+	pic = butId.substring(7);
+	con=confirm("确定删除该图片么?");
+	if(con == true){
+		$.ajax({
+	    	type: "post",
+	        url: "http://" + host + "/ci/index.php/ManPicCnt/delTheDevPic",
+	        data: {"pic":pic},
+	        success: function (result) {
+	        	if(result == "sucess"){
+	        		location.reload(); 
+	        	}else{
+	        		alert("删除失败");
+	        	}
+	        }
+	   });
+	}else{
+		
+	}
+}

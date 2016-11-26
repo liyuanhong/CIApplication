@@ -32,7 +32,7 @@ class ManUserMod extends CI_Model {
 				"password"=>$password,
 				"registe_time"=>$registe_time,
 				"role"=>2,
-				"icon"=>"default.jpg",
+				"icon"=>"default.png",
 				"comments"=>"访客"
 		);
 		$this->db->insert('users', $data);

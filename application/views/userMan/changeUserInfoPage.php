@@ -74,8 +74,9 @@ $data = $this->ManUserMod->getUserAllInfoFromId($userId);
 				<img src="http://<?php echo $host?>/ci/imgs/portrait/lufei1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="lufei1.png" onclick="modifyIcon()"></img>
 				<img src="http://<?php echo $host?>/ci/imgs/portrait/nvhai1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="nvhai1.png" onclick="modifyIcon()"></img>
 				<img src="http://<?php echo $host?>/ci/imgs/portrait/shishang1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="shishang1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/ci/imgs/portrait/meinv2.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="meinv2.png" onclick="modifyIcon()"></img>
 				
-				<laebl style="margin-left:100px;">当前头像：</laebl>
+				<laebl style="margin-left:30px;">当前头像：</laebl>
 				<img src="http://<?php echo $host?>/ci/imgs/portrait/<?php echo $data[0]->icon;?>" id="icon" style="width:70px;height:70px;margin-left:10px;"></img>
 			</td>
 		</tr>

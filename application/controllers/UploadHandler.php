@@ -38,7 +38,7 @@ class UploadHandler
         'image_resize' => 'Failed to resize image'
     );
 
-    protected $image_objects = array();
+    public $image_objects = array();
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
         $this->options = array(

@@ -104,7 +104,7 @@ class ManUserCnt extends CI_Controller {
 		$user_name = $_POST['user_name'];
 		$password = $_POST['password'];
 		$role = $_POST['role'];
-		$icon = "default.jpg";
+		$icon = "default.png";
 		$registe_time = date('Y-m-d H:i:s',time());
 		
 		$this->ManUserMod->addAnUser($user_name,$login_name,$password,$role,$icon,$registe_time);

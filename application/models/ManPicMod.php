@@ -26,4 +26,35 @@ class ManPicMod extends CI_Model {
 		return $arr;
 	}
 	
+	//更具id获取设备图片
+	public function getPicsFromId($id){
+		$queryString = 'select path from dev_imgs where device_id='.$id;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$jresult = json_encode($arr);
+		return $arr;
+	}
+	
+	//给某个设备添加图片
+	function addPicToDev($id,$pic){
+		$data = array(
+				'device_id' => $id,
+				'path' => $pic
+		);
+		$this->db->where('device_id', $id);
+		$this->db->insert('dev_imgs', $data);
+	}
+	
+	//删除某个设备的图片
+	/**
+	function delTheDevPic($id){
+		$this->db->where('device_id', $id);
+		$this->db->delete('dev_imgs');
+	}
+	*/
+	//删除某个设备的图片
+	function delTheDevPic($file){
+		$this->db->where('path', $file);
+		$this->db->delete('dev_imgs');
+	}
 }
