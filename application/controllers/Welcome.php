@@ -39,7 +39,48 @@ class Welcome extends CI_Controller {
 	}
 	 
 	public function searchDevices(){	
-		$this->load->view('index');
+		$par = $this->uri->segment(3);
+		$ref_url = $_SERVER['HTTP_REFERER'];
+		$arr = explode("/",$ref_url);
+		$id = $arr[count($arr) - 1];
+		$picCon = "";
+		if(is_numeric($id)){
+			$picCon = count($this->ManPicMod->getPicsFromId($id));
+		}
+		
+		if($picCon >= 2){
+			echo "fail";
+			echo $picCon;
+		}else{
+			if($par == "server"){
+				error_reporting(E_ALL | E_STRICT);
+				require('UploadHandler.php');
+				$requestMethod = $_SERVER['REQUEST_METHOD'];
+			
+				if(empty($param)){
+					$param = $this->uri->segment(4);
+					if(empty($param)){
+						$img = $_GET["file"]; //获取上传的文件名
+						$upload_handler = new UploadHandler();    //上传某张图片
+					}else{
+						if($requestMethod == "GET"){
+						}else if($requestMethod == "POST"){
+			
+							$upload_handler = new UploadHandler();
+							$img_url = array_keys($upload_handler->image_objects)[0];
+							$img_arr = explode("/",$img_url);
+							$img = $img_arr[count($img_arr) - 1];
+			
+							$this->ManPicMod->addPicToDev($id,$img);
+						}else if($requestMethod == "DELETE"){       //删除特定图片
+							$upload_handler = new UploadHandler();
+						}
+					}
+				}
+			}else{
+				$this->load->view('index');
+			}
+		}
 	}
 	
 	public function addDevices(){	
@@ -123,6 +164,18 @@ class Welcome extends CI_Controller {
 	
 	public function register(){
 		$this->load->view('register');
+	}
+	
+	public function myPage(){
+		$this->load->view('index');
+	}
+	
+	public function otherToolsPage(){
+		$this->load->view('index');
+	}
+	
+	public function aboutPage(){
+		$this->load->view('index');
 	}
 
     //上传文件和删除文件

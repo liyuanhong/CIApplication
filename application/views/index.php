@@ -41,6 +41,15 @@ $arr = explode("/",$url);
 			<div class="setting_item">
 				<label id = "userMan" class="setting_label <?php if($arr[4]=='userMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">用 户 管 理</label>
 			</div>
+			<div class="setting_item">
+				<label id = "myPage" class="setting_label <?php if($arr[4]=='userMan'){echo 'myPage';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
+			</div>
+			<div class="setting_item">
+				<label id = "otherToolsPage" class="setting_label <?php if($arr[4]=='otherToolsPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">附 加 功 能</label>
+			</div>
+			<div class="setting_item">
+				<label id = "aboutPage" class="setting_label <?php if($arr[4]=='aboutPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">关 于 系 统</label>
+			</div>
 		</div>
 		<div id="right_content">
 			<?php 
@@ -81,6 +90,12 @@ $arr = explode("/",$url);
 					}
 				}
 				
+				
+			}else if($arr[4]=='myPage'){
+				
+			}else if($arr[4]=='otherToolsPage'){
+				
+			}else if($arr[4]=='aboutPage'){
 				
 			}
 			?>

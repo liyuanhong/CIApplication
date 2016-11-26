@@ -115,7 +115,7 @@ class ManPicCnt extends CI_Controller {
 		$host = $_SERVER['HTTP_HOST'];
 		$arr = $this->getExtImgs();
 		$arr = json_decode($arr);
-		echo getcwd();
+		//echo getcwd();
 		for($i=0;$i < count($arr);$i++){
 			//$url = "http://".$host."/ci/index.php/Welcome/server/?file=".$arr[$i];
 			//$this->callInterfaceCommon($url, "DELETE", "", "")."<br>";
@@ -172,6 +172,10 @@ class ManPicCnt extends CI_Controller {
 	function delTheDevPic(){
 		$file = $_POST['pic'];
 		$this->ManPicMod->delTheDevPic($file);
+		$img = "./files/".$file;
+		$thumImg = "./files/thumbnail/".$file;
+		unlink($img);
+		unlink($thumImg);
 		echo "sucess";
 	}
 	

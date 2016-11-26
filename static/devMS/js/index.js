@@ -29,6 +29,18 @@ function changeMenu(e){
 			var host = window.location.host;
 			var url = host + "/ci/index.php/Welcome/userMan";
 			window.location.href="http://" + url;
+		}else if(e.target.id == "userMan"){
+			var host = window.location.host;
+			var url = host + "/ci/index.php/Welcome/userMan";
+			window.location.href="http://" + url;
+		}else if(e.target.id == "userMan"){
+			var host = window.location.host;
+			var url = host + "/ci/index.php/Welcome/userMan";
+			window.location.href="http://" + url;
+		}else if(e.target.id == "userMan"){
+			var host = window.location.host;
+			var url = host + "/ci/index.php/Welcome/userMan";
+			window.location.href="http://" + url;
 		}
 }
 
