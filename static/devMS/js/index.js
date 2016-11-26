@@ -29,17 +29,17 @@ function changeMenu(e){
 			var host = window.location.host;
 			var url = host + "/ci/index.php/Welcome/userMan";
 			window.location.href="http://" + url;
-		}else if(e.target.id == "userMan"){
+		}else if(e.target.id == "myPage"){
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/userMan";
+			var url = host + "/ci/index.php/Welcome/myPage";
 			window.location.href="http://" + url;
-		}else if(e.target.id == "userMan"){
+		}else if(e.target.id == "otherToolsPage"){
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/userMan";
+			var url = host + "/ci/index.php/Welcome/otherToolsPage";
 			window.location.href="http://" + url;
-		}else if(e.target.id == "userMan"){
+		}else if(e.target.id == "aboutPage"){
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/userMan";
+			var url = host + "/ci/index.php/Welcome/aboutPage";
 			window.location.href="http://" + url;
 		}
 }

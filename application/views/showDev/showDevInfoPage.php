@@ -100,7 +100,7 @@ writeToLog($theTime,$who,$where,$doThings);
 
 <div id="upload_img_div" style="margin-bottom: 100px;">
 
-<div class="container" style="background-color:#cccccc;padding:10px;width:1000px;">
+<div class="container" style="background-color:#cccccc;padding:10px;width:1000px;color:red;">
 <h2 style="margin-bottom: 10px;">快来上传图片吧，最多可以上传两张图片哦，建议正面和反面各一张~</h2>
 					<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" >
 					<!-- Redirect browsers with JavaScript disabled to the origin page -->

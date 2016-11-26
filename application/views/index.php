@@ -92,11 +92,11 @@ $arr = explode("/",$url);
 				
 				
 			}else if($arr[4]=='myPage'){
-				
+				$this->load->view('myPage/myPage');
 			}else if($arr[4]=='otherToolsPage'){
-				
+				$this->load->view('otherToolsPage/otherToolsPage');
 			}else if($arr[4]=='aboutPage'){
-				
+				$this->load->view('aboutPage/aboutPage');
 			}
 			?>
 		</div>
