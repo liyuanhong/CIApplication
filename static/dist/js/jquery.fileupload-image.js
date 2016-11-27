@@ -112,7 +112,8 @@
             // matched against the file type:
             loadImageFileTypes: /^image\/(gif|jpeg|png|svg\+xml)$/,
             // The maximum file size of images to load:
-            loadImageMaxFileSize: 10000000, // 10MB
+            //loadImageMaxFileSize: 10000000, // 10MB
+          //loadImageMaxFileSize: 20000000, // 2MB
             // The maximum width of resized images:
             imageMaxWidth: 1920,
             // The maximum height of resized images:
