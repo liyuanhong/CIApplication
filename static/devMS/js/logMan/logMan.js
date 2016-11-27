@@ -16,6 +16,7 @@ function post(URL, PARAMS) {
   return temp;
 }
 
+/**
 //查询日志按钮事件
 $("#search_log").click(function(event){
 	date_input = $("#date_input").val();
@@ -23,4 +24,50 @@ $("#search_log").click(function(event){
 	url = host + "/ci/index.php/Welcome/logMan/"
 	//location.href = "http://" + url + date_input;
 	post("http://" + url,{date_input:date_input})
+})
+
+//查询日志按钮事件
+$("#search_log2").click(function(event){
+	from_date_input = $("#from_date_input").val();
+	to_date_input = $("#to_date_input").val();
+	key_word = $("#key_word").val();
+	alert(from_date_input + "****" +  to_date_input + "****" + key_word);
+	
+	var host = window.location.host;
+	url = host + "/ci/index.php/Welcome/logMan/";
+	post("http://" + url,{from_date_input:from_date_input,to_date_input:to_date_input,key_word:key_word});
+})
+*/
+
+function searchLog(e){
+	date_input = $("#date_input").val();
+	var host = window.location.host;
+	url = host + "/ci/index.php/Welcome/logMan/";
+	//location.href = "http://" + url + date_input;
+	post("http://" + url,{date_input:date_input});
+}
+
+
+
+function searchLog2(e){
+	from_date_input = $("#from_date_input").val();
+	to_date_input = $("#to_date_input").val();
+	key_word = $("#key_word").val();
+	//alert(from_date_input + "****" +  to_date_input + "****" + key_word);
+	
+	var host = window.location.host;
+	url = host + "/ci/index.php/Welcome/logMan/";
+	post("http://" + url,{from_date_input:from_date_input,to_date_input:to_date_input,key_word:key_word});
+}
+
+//查询日志按钮事件
+$("#search_log2").click(function(event){
+	from_date_input = $("#from_date_input").val();
+	to_date_input = $("#to_date_input").val();
+	key_word = $("#key_word").val();
+	alert(from_date_input + "****" +  to_date_input + "****" + key_word);
+	
+	var host = window.location.host;
+	url = host + "/ci/index.php/Welcome/logMan/";
+	post("http://" + url,{from_date_input:from_date_input,to_date_input:to_date_input,key_word:key_word});
 })
