@@ -74,5 +74,23 @@ class ShowDevMod extends CI_Model {
 		
 		
 	}
+	
+	//根据签借人获取设备
+	function getDevByBorrower($borrower){
+		$queryString = "select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where borrower='".$borrower."'";
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
+	}
 }
 ?>

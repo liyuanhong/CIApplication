@@ -42,7 +42,7 @@ $arr = explode("/",$url);
 				<label id = "userMan" class="setting_label <?php if($arr[4]=='userMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">用 户 管 理</label>
 			</div>
 			<div class="setting_item">
-				<label id = "myPage" class="setting_label <?php if($arr[4]=='userMan'){echo 'myPage';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
+				<label id = "myPage" class="setting_label <?php if($arr[4]=='myPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
 			</div>
 			<div class="setting_item">
 				<label id = "otherToolsPage" class="setting_label <?php if($arr[4]=='otherToolsPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">附 加 功 能</label>

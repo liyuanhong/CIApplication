@@ -152,5 +152,6 @@ class ManDevMod extends CI_Model {
 		$jresult = json_encode($arr);
 		return $arr;
 	}
+	
 }
 ?>

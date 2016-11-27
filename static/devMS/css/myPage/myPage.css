@@ -1,0 +1,21 @@
+.select_style{
+	width:50%;
+	height:35px;
+	margin-bottom:20px;
+	display:inherit;
+}
+
+.label_style{
+	margin-bottom:20px;
+	_margin-left:20px;
+}
+
+
+.dev_icon{
+	height:70px;
+	cursor:pointer;
+}
+
+
+
+

@@ -15,7 +15,7 @@ function getMemberFromIP() {
 	*/
 	
 	
-	return "honghong~";
+	return "远洪";
 }
 
 
