@@ -1,23 +1,38 @@
 <?php
+$ses = isset($_POST['session'])?$_POST['session']:'';
+$session = "";
+if($ses != ""){
+	$session = $_POST['session'];
+}
+
 $url =  $_SERVER['PHP_SELF'];
 //php中以/分割字符串
 $arr = explode("/",$url);
+
+$isLogin = $this->ManUserMod->isLogin($session);
+
 ?>
 
-<link href="<?php echo base_url();?>static/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="<?php echo base_url();?>static/devMS/css/index.css" rel="stylesheet">
-
-<script src="<?php echo base_url();?>static/devMS/js/index.js"></script>
 <script src="<?php echo base_url();?>static/devMS/js/jquery-3.1.1.min.js"></script>
+<script src="<?php echo base_url();?>static/devMS/js/jquery.cookie.js"></script>
+<link href="<?php echo base_url();?>static/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo base_url();?>static/devMS/css/index.css" rel="stylesheet">
+<script src="<?php echo base_url();?>static/devMS/js/index.js"></script>
+
 
 <div id="main">
 	<div id="top_bar">
 		<label style="color:white;font-size:20px;margin-left:45px;margin-top:8px;">设备管理系统</label>
 		<div>
-			<label id="login_lagel" class="login_label" onclick="jumpToLoginPage()">登录</label>
-			<!--<label style="color:white;margin-left:20px;" class="login_label">|</label>-->
-			<label id="register_label" class="login_label" onclick="jumpToRegisterPage()">注册</label>
+			<?php if($isLogin == 1){
+				echo '<label id="logout_lagel" class="login_label" onclick="logout()">退出</label>';
+				echo '<label style="font-size: 14px;padding-top: 10px;color: #31B0F4;margin-left: 0px;height: 100%;width: 110px;background-color: #1A4FA3;text-align: center;" >welcome~</label>';
+			}else{
+				echo '<label id="login_lagel" class="login_label" onclick="jumpToLoginPage()">登录</label>';
+				echo '<label id="register_label" class="login_label" onclick="jumpToRegisterPage()">注册</label>';
+			}
+			
+			?>
 		</div>
 	</div>
 	
@@ -26,29 +41,42 @@ $arr = explode("/",$url);
 			<div class="setting_item">
 				<label id = "searchDevices" class="setting_label <?php if($arr[4]=='searchDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">设 备 查 询</label>
 			</div>
+			<?php if($isLogin == 1){
+				echo '<div class="setting_item">';
+				echo '<label id = "addDevices" class="setting_label';if($arr[4]=="addDevices"){echo ' menu_selected';} echo '" onclick="changeMenu(event)">添 加 设 备</label>';
+				echo '</div>';
+			}
+			?>
+			<?php if($isLogin == 1){
+				echo '<div class="setting_item">';
+				echo '<label id = "manDevices" class="setting_label';if($arr[4]=="manDevices"){echo ' menu_selected';}echo '" onclick="changeMenu(event)" >管 理 设 备</label>';
+				echo '</div>';
+			}
+			
+			?>
+			<?php if($isLogin == 1){
+				echo '<div class="setting_item">';
+				echo '<label id = "checkDevices" class="setting_label';if($arr[4]=="checkDevices"){echo " menu_selected";} echo '" onclick="changeMenu(event)">设 备 盘 点</label>';
+				echo '</div>';
+			}
+			?>
 			<div class="setting_item">
-				<label id = "addDevices" class="setting_label <?php if($arr[4]=='addDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">添 加 设 备</label>
+				<label id = "logMan"class="setting_label <?php if($arr[4]=='logMan'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">日 志 管 理</label>
+			</div>
+			<?php if($isLogin == 1){
+				echo '<div class="setting_item">';
+				echo '<label id = "userMan" class="setting_label'; if($arr[4]=='userMan'){echo ' menu_selected';} echo '" onclick="changeMenu(event)">用 户 管 理</label>';
+				echo '</div>';
+			}
+			?>
+			<div class="setting_item">
+				<label id = "myPage" class="setting_label <?php if($arr[4]=='myPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
 			</div>
 			<div class="setting_item">
-				<label id = "manDevices" class="setting_label <?php if($arr[4]=='manDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)" >管 理 设 备</label>
+				<label id = "otherToolsPage" class="setting_label <?php if($arr[4]=='otherToolsPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">附 加 功 能</label>
 			</div>
 			<div class="setting_item">
-				<label id = "checkDevices" class="setting_label <?php if($arr[4]=='checkDevices'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">设 备 盘 点</label>
-			</div>
-			<div class="setting_item">
-				<label id = "logMan"class="setting_label <?php if($arr[4]=='logMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">日 志 管 理</label>
-			</div>
-			<div class="setting_item">
-				<label id = "userMan" class="setting_label <?php if($arr[4]=='userMan'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">用 户 管 理</label>
-			</div>
-			<div class="setting_item">
-				<label id = "myPage" class="setting_label <?php if($arr[4]=='myPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
-			</div>
-			<div class="setting_item">
-				<label id = "otherToolsPage" class="setting_label <?php if($arr[4]=='otherToolsPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">附 加 功 能</label>
-			</div>
-			<div class="setting_item">
-				<label id = "aboutPage" class="setting_label <?php if($arr[4]=='aboutPage'){echo 'menu_selected';} ?>" onclick="changeMenu(event)">关 于 系 统</label>
+				<label id = "aboutPage" class="setting_label <?php if($arr[4]=='aboutPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">关 于 系 统</label>
 			</div>
 		</div>
 		<div id="right_content">

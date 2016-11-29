@@ -1,7 +1,6 @@
 <?php
-
 function getMemberFromIP() {
-	/**
+	
 	$json = file_get_contents("http://check.yixia.com/check/index.php?fn=fetchuserlist");
 	$members = json_decode($json,true);
 	$ip = $_SERVER['REMOTE_ADDR'];
@@ -12,10 +11,10 @@ function getMemberFromIP() {
 	}
 	return '';
 	
-	*/
 	
 	
-	return "远洪";
+	
+	//return "远洪";
 }
 
 

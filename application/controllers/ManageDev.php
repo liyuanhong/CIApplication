@@ -1,5 +1,6 @@
 <?php
 require dirname(__FILE__)."/../libraries/CI_Log.php";
+require dirname(__FILE__)."/../libraries/CI_Util.php";
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ManageDev extends CI_Controller {
@@ -83,7 +84,8 @@ class ManageDev extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = $borrower;
+		//$who = $borrower;
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "申请了设备设备：".$device_name;
 		writeToLog($theTime,$who,$where,$doThings);
@@ -100,7 +102,8 @@ class ManageDev extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "取消申请了设备设备：".$device_name;
 		writeToLog($theTime,$who,$where,$doThings);

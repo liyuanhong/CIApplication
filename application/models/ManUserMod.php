@@ -106,5 +106,23 @@ class ManUserMod extends CI_Model {
 		);
 		$this->db->update('users', $data);
 	}
+	
+	//根据session获取用户信息
+	function getUserInfoFromSession($session){
+		$queryString = 'select user_name,login_name,session from users where session="'.$session.'"';
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		return $arr;
+	}
+	
+	//判断是否登录
+	function isLogin($session){
+		$result = $this::getUserInfoFromSession($session);
+		if(count($result) == 1){
+			return 1;   //表示登录
+		}else if(count($result) == 0){
+			return 0;   //表示未登陆
+		}
+	}
 }
 ?>

@@ -205,7 +205,6 @@ writeToLog($theTime,$who,$where,$doThings);
 <script src="<?php echo base_url();?>static/devMS/js/addDevices/addDevices.js"></script>
 
 
-<script src="<?php echo base_url();?>static/devMS/js/jquery-3.1.1.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="<?php echo base_url();?>static/dist/js/vendor/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->

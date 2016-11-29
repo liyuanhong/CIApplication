@@ -17,9 +17,32 @@ function login(e){
             		alert("用户名或密码错误！");
             	}else{
             		$.cookie('session', result); 
-            		window.history.go(-1);
+            		session = $.cookie('session');
+            		var host = window.location.host;
+        			var url = host + "/ci/index.php/Welcome/searchDevices";
+        			//window.location.href="http://" + url;
+        			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
+        			post("http://" + url,data);
             	}
             }
        });
 	}
+}
+
+//以post方式请求页面
+function post(URL, PARAMS) {
+  var temp = document.createElement("form");
+  temp.action = URL;
+  temp.method = "post";
+  temp.style.display = "none";
+  for (var x in PARAMS) {
+    var opt = document.createElement("textarea");
+    opt.name = x;
+    opt.value = PARAMS[x];
+    // alert(opt.name)
+    temp.appendChild(opt);
+  }
+  document.body.appendChild(temp);
+  temp.submit();
+  return temp;
 }

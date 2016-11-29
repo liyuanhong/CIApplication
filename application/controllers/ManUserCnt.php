@@ -148,6 +148,17 @@ class ManUserCnt extends CI_Controller {
 		
 		echo "sucess";
 	}
+	
+	//判断是否登录
+	function isLogin(){
+		$session = $_POST['session'];
+		$result = $this->ManUserMod->getUserInfoFromSession($session);
+		if(count($result) == 1){
+			echo 1;   //表示登录
+		}else if(count($result) == 0){
+			echo 0;   //表示未登陆
+		}
+	}
 }
 
 ?>

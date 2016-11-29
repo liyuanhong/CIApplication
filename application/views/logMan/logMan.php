@@ -38,20 +38,23 @@ $thed = isset($_POST['date_input'])?$_POST['date_input']:'';
 $thetd = isset($_POST['to_date_input'])?$_POST['to_date_input']:'';
 $theKeyIsExist = isset($_POST['key_word'])?$_POST['key_word']:'';
 
+$isEmpty = isset($_POST['date_input'])?$_POST['date_input']:'';
+$from_date_input = isset($_POST['from_date_input'])?$_POST['from_date_input']:'';
+
 ?>
 
 <div id="logManCtrl">
 <div style="width:100%;">
     <label style="display:inline;">选择日期：</label>
-	<input value="<?php if($requestMethod == "GET"){echo date('Y-m-d');}else if($requestMethod == "POST" && $thed != ""){echo $_POST['date_input'];}else if($requestMethod == "POST" && $thetd != ""){echo date('Y-m-d');} ?>" id="date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
+	<input value="<?php if($isEmpty == '' && $from_date_input == ''){echo date('Y-m-d');}else if($requestMethod == "POST" && $thed != ""){echo $_POST['date_input'];}else if($requestMethod == "POST" && $thetd != ""){echo date('Y-m-d');} ?>" id="date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
 	<button type="button" class="btn btn-primary" id="search_log" onclick="searchLog()">查看日志</button>
 </div>
 
 <div style="width:100%;margin-top: 5px;">
     <label style="display:inline;">开始日期：</label>
-	<input value="<?php if($requestMethod == "GET"){echo date('Y-m-d');}else if($requestMethod == "POST" && $thetd != ""){echo $_POST['from_date_input'];}else if($requestMethod == "POST" && $thed != ""){echo date('Y-m-d');} ?>" id="from_date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
+	<input value="<?php if($isEmpty == '' && $from_date_input == ''){echo date('Y-m-d');}else if($requestMethod == "POST" && $thetd != ""){echo $_POST['from_date_input'];}else if($requestMethod == "POST" && $thed != ""){echo date('Y-m-d');} ?>" id="from_date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
 	<label style="display:inline;">结束日期：</label>
-	<input value="<?php if($requestMethod == "GET"){echo date('Y-m-d');}else if($requestMethod == "POST" && $thetd != ""){echo $_POST['to_date_input'];}else if($requestMethod == "POST" && $thed != ""){echo date('Y-m-d');} ?>" id="to_date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
+	<input value="<?php if($isEmpty == '' && $from_date_input == ''){echo date('Y-m-d');}else if($requestMethod == "POST" && $thetd != ""){echo $_POST['to_date_input'];}else if($requestMethod == "POST" && $thed != ""){echo date('Y-m-d');} ?>" id="to_date_input" class="laydate-icon form-control input_style" style="height:35px;width:200px;display:inline;" onclick="laydate()"/>
 	<label style="display:inline;">搜索词：</label>
 	<input class="form-control input_style" style="height:35px;width:200px;display:inline;" id="key_word" value="<?php if($theKeyIsExist != ""){echo $_POST["key_word"];}else{echo "";}?>" />
 	<button type="button" class="btn btn-primary" id="search_log2" onclick="searchLog2()">搜索日志</button>
@@ -92,8 +95,10 @@ function getLine($file, $line, $length = 4096){
     return $returnTxt;
 }
 
+
 //返回指定日志文件的内容
-if($requestMethod == 'GET'){
+if($isEmpty == '' && $from_date_input == ''){
+//if($requestMethod == 'GET'){
 	$da = date('Y-m-d');
 	$logfile = './logs/'.$da.'.txt';
 	if(file_exists($logfile)){
