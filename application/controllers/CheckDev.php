@@ -50,5 +50,17 @@ class CheckDev extends CI_Controller {
 		$id = $_GET['id'];
 		echo $this->CheckDevMod->setDevStatusToInitial($id);
 	}
+	
+	//修改设备状态为报废
+	function setDevStatusToOld(){
+		$id = $_GET['id'];
+		echo $this->CheckDevMod->setDevStatusToOld($id);
+	}
+	
+	//修改设备状态为非报废状态
+	function setDevStatusToAvilable(){
+		$id = $_GET['id'];
+		echo $this->CheckDevMod->setDevStatusToAvilable($id);
+	}
 }
 ?>

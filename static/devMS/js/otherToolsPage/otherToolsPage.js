@@ -8,7 +8,11 @@ function showExtPics(e){
         url: "http://" + host + "/ci/index.php/manPicCnt/getExtImgsEcho",
         data: {},
         success: function (result) {
-          window.location.href="http://" + host + "/ci/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
+          //window.location.href="http://" + host + "/ci/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
+          var url = "http://" + host + "/ci/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
+      	  session = $.cookie('session');
+      	  data = {session:session};
+      	  post(url,data);
       	  }
        });
 }

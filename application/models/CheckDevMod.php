@@ -13,7 +13,7 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="0"';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="0"';
+				path,device_id,old_dev from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="0"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		//return $arr;
@@ -37,7 +37,7 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="1"';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="1"';
+				path,device_id,old_dev from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="1"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		//return $arr;
@@ -61,7 +61,7 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id';
+				path,device_id,old_dev from devices left join dev_imgs on devices.id=dev_imgs.device_id';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		//return $arr;
@@ -85,7 +85,51 @@ class CheckDevMod extends CI_Model {
 		//$queryString = 'select a.id,a.device_name,a.model,a.theNum,a.borrower,a.owner,a.borrow_time,
 		//		b.path from devices a,dev_imgs b where a.id=b.device_id and check_dev="2"';
 		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
-				path,device_id from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="2"';
+				path,device_id,old_dev from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.check_dev="2"';
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		//return $arr;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
+	}
+	
+	//获取已报废的设备
+	function getDevStatusToOld(){
+		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
+				path,device_id,old_dev from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.old_dev="1"';
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		//return $arr;
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		$retu = array();
+		foreach($arr as $va){
+			if(isset($retu[$va->device_id])){
+				$retu[$va->device_id]->path[] = $va->path;
+				continue;
+			}else{
+				$va->path = array($va->path);
+				$retu[$va->id] = $va;
+			}
+		}
+		return $retu;
+	}
+	
+	//获取未报废的设备
+	function getDevStatusToAvilable(){
+		$queryString = 'select devices.id,device_name,model,theNum,owner,status,borrower,borrow_time,
+				path,device_id,old_dev from devices left join dev_imgs on devices.id=dev_imgs.device_id where devices.old_dev="0"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		//return $arr;
@@ -146,6 +190,26 @@ class CheckDevMod extends CI_Model {
 	function setDevStatusToInitial($id){
 		$data = array(
 				"check_dev" => "0"
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
+		return "scuess";
+	}
+	
+	//修改设备状态为报废
+	function setDevStatusToOld($id){
+		$data = array(
+				"old_dev" => "1"
+		);
+		$this->db->where("id",$id);
+		$this->db->update("devices",$data);
+		return "scuess";
+	}
+	
+	//修改设备状态为非报废状态
+	function setDevStatusToAvilable($id){
+		$data = array(
+				"old_dev" => "0"
 		);
 		$this->db->where("id",$id);
 		$this->db->update("devices",$data);

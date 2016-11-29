@@ -28,8 +28,12 @@ function delAnUser(e){
 
 //跳转到添加用户页面
 function toAddUserPage(e){
-	var url = host + "/ci/index.php/Welcome/userMan/addUserPage";
-	window.location.href="http://" + url;
+	session = $.cookie('session');
+	var url = "http://" + host + "/ci/index.php/Welcome/userMan/addUserPage";
+	data = {session:session};
+	post(url,data);
+	
+	//window.location.href="http://" + url;
 }
 
 //跳转到修改用户信息页面
@@ -37,6 +41,9 @@ function toChangeUserInfoPage(e){
 	e = e || window.event;
 	tarId = e.target.id;
 	id = tarId.substring(7);
-	var url = host + "/ci/index.php/Welcome/userMan/" + id;
-	window.location.href="http://" + url;
+	var url = "http://" + host + "/ci/index.php/Welcome/userMan/" + id;
+	session = $.cookie('session');
+	data = {session:session};
+	post(url,data);
+	//window.location.href="http://" + url;
 }

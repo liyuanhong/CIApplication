@@ -6,6 +6,7 @@ class ManDevCnt extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ManDevMod');
+		$this->load->model('ManPicMod');
 	}
 	
 	//条件查询符合要求的设备
@@ -102,6 +103,15 @@ class ManDevCnt extends CI_Controller {
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "删除了设备：".$devName.'--编号：'.$devNum;
 		writeToLog($theTime,$who,$where,$doThings);
+		
+		$arr = $this->ManPicMod->getDevPics($id);
+		for($i=0;$i < count($arr);$i++){
+			$img = "./files/".trim($arr[$i]->path);
+			$thumImg = "./files/thumbnail/".trim($arr[$i]->path);
+			unlink($img);
+			unlink($thumImg);
+		}
+		
 		
 		echo $this->ManDevMod->deleteDev($id);
 	}

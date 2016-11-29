@@ -72,9 +72,12 @@ $isLogin = $this->ManUserMod->isLogin($session);
 			<div class="setting_item">
 				<label id = "myPage" class="setting_label <?php if($arr[4]=='myPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
 			</div>
-			<div class="setting_item">
-				<label id = "otherToolsPage" class="setting_label <?php if($arr[4]=='otherToolsPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">附 加 功 能</label>
-			</div>
+			<?php if($isLogin == 1){
+				echo '<div class="setting_item">';
+				echo '<label id = "otherToolsPage" class="setting_label';if($arr[4]=='otherToolsPage'){echo ' menu_selected';} echo '" onclick="changeMenu(event)">附 加 功 能</label>';
+				echo '</div>';
+			}
+			?>
 			<div class="setting_item">
 				<label id = "aboutPage" class="setting_label <?php if($arr[4]=='aboutPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">关 于 系 统</label>
 			</div>
@@ -99,7 +102,7 @@ $isLogin = $this->ManUserMod->isLogin($session);
 				if(count($arr) == 5){
 					$this->load->view('checkDevices/checkDevices');
 				}else if(count($arr) == 6){
-					if($arr[5] == "checkeded" || $arr[5] == "no_checked" || $arr[5] == "all_devs" || $arr[5] == "lost_devs" || $arr[5] == "initaillize"){
+					if($arr[5] == "checkeded" || $arr[5] == "no_checked" || $arr[5] == "all_devs" || $arr[5] == "lost_devs" || $arr[5] == "initaillize" || $arr[5] == "old_devs" || $arr[5] == "available_devs"){
 						$this->load->view('checkDevices/checkDevices');
 					}else{
 						$this->load->view('checkDevices/showDevInfoPage');

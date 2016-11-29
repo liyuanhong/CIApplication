@@ -15,6 +15,7 @@ if($requestMethod == "POST"){
 	$status = $_POST['status'];
 	$category = $_POST['category'];
 	$borrower = $_POST['borrower'];
+	$old_dev = $_POST['old_dev'];
 }else if($requestMethod == "GET"){
 	$datas = $this->DevManageMod->getDevInfo();
 	$plateform = 'all';
@@ -23,10 +24,11 @@ if($requestMethod == "POST"){
 	$status = 'all';
 	$category = 'all';
 	$borrower = '';
+	$old_dev = 'all';
 }
 
 
-$datas = $this->ShowDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower);
+$datas = $this->ShowDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower,$old_dev);
 
 
 
@@ -46,7 +48,7 @@ writeToLog($theTime,$who,$where,$doThings);
 	<div>
 		<table _border="1" style="width:100%;height:100px;margin-left:20px;">
 			<tr>
-				<td style="width:33%;">
+				<td style="width:25%;">
 					<label class="label_style">平台：</label>
 					<select id="dev_plateform" class="select_style form-control">
 						<option value="all">all</option>
@@ -54,7 +56,7 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="ios">ios</option>
 					</select>
 				</td>
-				<td style="width:33%;">
+				<td style="width:25%;">
 					<label class="label_style">品牌：</label>
 					<select id="dev_brand" class="select_style form-control">
 						<option value="all">all</option>
@@ -64,7 +66,7 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="魅族">魅族</option>
 					</select>
 				</td>
-				<td style="width:33%;">
+				<td style="width:25%;">
 					<label class="label_style">系统版本：</label>
 					<select id="dev_version" class="select_style form-control">
 						<option value="all">all</option>
@@ -78,9 +80,7 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="4.1">4.1</option>
 					</select>
 				</td>
-			</tr>
-			<tr>
-				<td>
+				<td style="width:25%;">
 					<label class="label_style" class="label_style">状态：</label>
 					<select id="dev_status" class="select_style form-control">
 						<option value="all">all</option>
@@ -89,6 +89,8 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="1">申请中</option>
 					</select>
 				</td>
+			</tr>
+			<tr>
 				<td>
 					<label>分类：</label>
 					<select id="dev_category"  class="select_style form-control" style="margin-left:0px;">
@@ -96,6 +98,14 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="手机">手机</option>
 						<option value="平板">平板</option>
 						<option value="其他">其他</option>
+					</select>
+				</td>
+				<td>
+					<label>可用：</label>
+					<select id="old_dev"  class="select_style form-control" style="margin-left:0px;">
+						<option value="all" >all</option>
+						<option value="0">未报废</option>
+						<option value="1">已报废</option>
 					</select>
 				</td>
 				<td>
@@ -173,5 +183,6 @@ $(document).ready(function(){
 	$("#dev_status").val("<?php echo $status;?>");
 	$("#dev_category").val("<?php echo $category;?>");
 	$("#borrower").val("<?php echo $borrower;?>");
+	$("#old_dev").val("<?php echo $old_dev;?>");
 }); 
 </script> 

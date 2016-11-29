@@ -57,12 +57,17 @@ function showDevInfo(e){
 	e = e || window.event;
 	id = e.target.id;
 	deviceId = id.substring(5);
-	window.location.href="http://" + host + "/ci/index.php/Welcome/searchDevices/" + deviceId;
+	session = $.cookie('session');
+	var url = "http://" + host + "/ci/index.php/Welcome/searchDevices/" + deviceId;
+	data = {session:session};
+	post(url,data);
+	//window.location.href="http://" + host + "/ci/index.php/Welcome/searchDevices/" + deviceId;
 }
 
 function searchDevs(e){
 	e = e || window.event;
 	id = e.target.id;
+	session = $.cookie('session');
 	
 	dev_plateform = $("#dev_plateform").val();
 	dev_brand = $("#dev_brand").val();
@@ -73,7 +78,25 @@ function searchDevs(e){
 	
 	var url = host + "/ci/index.php/Welcome/searchDevices";
 	//window.location.href="http://" + url;
-	data = {plateform:dev_plateform,brand:dev_brand,version:dev_version,status:dev_status,category:dev_category,borrower:borrower};
+	data = {plateform:dev_plateform,brand:dev_brand,version:dev_version,status:dev_status,category:dev_category,borrower:borrower,session:session};
 	post("http://" + url,data);
 	
+}
+
+//以post方式请求页面
+function post(URL, PARAMS) {
+  var temp = document.createElement("form");
+  temp.action = URL;
+  temp.method = "post";
+  temp.style.display = "none";
+  for (var x in PARAMS) {
+    var opt = document.createElement("textarea");
+    opt.name = x;
+    opt.value = PARAMS[x];
+    // alert(opt.name)
+    temp.appendChild(opt);
+  }
+  document.body.appendChild(temp);
+  temp.submit();
+  return temp;
 }

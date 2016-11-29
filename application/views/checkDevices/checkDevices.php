@@ -4,6 +4,8 @@ require dirname(__FILE__)."/../../libraries/CI_Log.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $id = $this->uri->segment(3, 0);
 
+
+
 //主机地址
 $host = $_SERVER['HTTP_HOST'];
 
@@ -43,10 +45,18 @@ if($id == "no_checked"){
 	$datas = $this->CheckDevMod->initializeDevs();
 	$doThings = "点击了初始化设备按钮";
 	writeToLog($theTime,$who,$where,$doThings);
+}else if($id == "old_devs"){
+	//获取已报废的设备
+	$datas = $this->CheckDevMod->getDevStatusToOld();
+	$doThings = "点击已报废设备按钮";
+	writeToLog($theTime,$who,$where,$doThings);
+}else if($id == "available_devs"){
+	//获取未报废的设备
+	$datas = $this->CheckDevMod->getDevStatusToAvilable();
+	$doThings = "点击了未报废设备按钮";
+	writeToLog($theTime,$who,$where,$doThings);
 }
 	
-
-
 
 ?>
 
@@ -59,6 +69,8 @@ if($id == "no_checked"){
 	<button type="button" class="btn btn-sm btn-info" style="margin-right: 20px;" id="all_devs" onclick="getAllDevs()">所有</button>
 	<button type="button" class="btn btn-sm btn-warning" style="margin-right: 20px;" id="lost_devs" onclick="getLostDevs()">丢失</button>
 	<button type="button" class="btn btn-sm btn-danger" style="margin-right: 20px;" id="initaillize" onclick="initaillizeDevsStatus()">重置</button>
+	<button type="button" class="btn btn-sm btn-warning" style="margin-right: 20px;" id="old_devs" onclick="getOldtDevs()">已报废</button>
+	<button type="button" class="btn btn-sm btn-info" style="margin-right: 20px;" id="available_devs" onclick="getAvailableDevs()">未报废</button>
 </div>
 <div style="margin-top: 20px;">
 	<table class="table table-striped">
@@ -75,6 +87,7 @@ if($id == "no_checked"){
 					<th>确定</th>
 					<th>丢失</th>
 					<th>重置</th>
+					<th>报废</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -88,7 +101,7 @@ if($id == "no_checked"){
 				echo '<td><button type="button" class="btn btn-sm btn-success" onclick="confirmIsAt()" id="confirm1_'.$row->id.'">确定</button></td>';
 				echo '<td><button type="button" class="btn btn-sm btn-warning" onclick="confirmLost()" id="confirm2_'.$row->id.'">丢失</button></td>';
 				echo '<td><button type="button" class="btn btn-sm btn-danger" onclick="initaillizeTheDev()" id="confirm0_'.$row->id.'">重置</button></td>';
-				
+				echo '<td><button type="button"';if($row->old_dev == 0){echo ' onclick="setDevStatusToOld()" id="old_'.$row->id.'"  class="btn btn-sm btn-warning">报废</button></td>';}else if($row->old_dev == 1){echo ' onclick="setDevStatusToAvilable()" id="available_'.$row->id.'"  class="btn btn-sm btn-success">回归</button></td>';}
 				$i++;
 				
 			}

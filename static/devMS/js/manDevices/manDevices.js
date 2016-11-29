@@ -57,12 +57,17 @@ function toChangeDevInfo(e){
 	e = e || window.event;
 	id = e.target.id;
 	deviceId = id.substring(5);
-	window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	session = $.cookie('session');
+	var url = "http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	data = {session:session};
+	post(url,data);
+	//window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
 }
 
 function searchDevs(e){
 	e = e || window.event;
 	id = e.target.id;
+	session = $.cookie('session');
 	
 	dev_plateform = $("#dev_plateform").val();
 	dev_brand = $("#dev_brand").val();
@@ -70,10 +75,11 @@ function searchDevs(e){
 	dev_status = $("#dev_status").val();
 	dev_category = $("#dev_category").val();
 	borrower = $("#borrower").val();
+	old_dev = $("#old_dev").val();
 	
 	var url = host + "/ci/index.php/Welcome/manDevices";
 	//window.location.href="http://" + url;
-	data = {plateform:dev_plateform,brand:dev_brand,version:dev_version,status:dev_status,category:dev_category,borrower:borrower};
+	data = {plateform:dev_plateform,brand:dev_brand,version:dev_version,status:dev_status,category:dev_category,borrower:borrower,old_dev:old_dev,session:session};
 	post("http://" + url,data);
 	
 }
@@ -144,7 +150,11 @@ function changeDevInfo(e){
 	e = e || window.event;
 	id = e.target.id;
 	deviceId = id.substring(7);
-	window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	session = $.cookie('session');
+	var url = "http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	data = {session:session};
+	post(url,data);
+	//window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
 }
 
 //确认归还

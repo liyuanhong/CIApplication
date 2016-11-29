@@ -92,6 +92,10 @@ class ManDevMod extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->delete('devices');
 		
+		$this->db->where("device_id",$id);
+		$this->db->delete('dev_imgs');
+		
+		
 		return "sucess";
 	}
 	

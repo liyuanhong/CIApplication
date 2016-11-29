@@ -16,6 +16,7 @@ if($requestMethod == "POST"){
 	$status = $_POST['status'];
 	$category = $_POST['category'];
 	$borrower = $_POST['borrower'];
+	$old_dev = "all";
 }else if($requestMethod == "GET"){
 	$datas = $this->DevManageMod->getDevInfo();
 	$plateform = 'all';
@@ -24,10 +25,11 @@ if($requestMethod == "POST"){
 	$status = 'all';
 	$category = 'all';
 	$borrower = '';
+	$old_dev = "all";
 }
 
 
-$datas = $this->ShowDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower);
+$datas = $this->ShowDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower,$old_dev);
 //echo json_encode($datas);
 
 	

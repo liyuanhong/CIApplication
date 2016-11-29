@@ -20,7 +20,7 @@ function changeMenu(e){
 			var host = window.location.host;
 			var url = host + "/ci/index.php/Welcome/manDevices";
 			//window.location.href="http://" + url;
-			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
+			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session,old_dev:'all'};
 			post("http://" + url,data);
 		}else if(e.target.id == "checkDevices"){
 			session = $.cookie('session');
