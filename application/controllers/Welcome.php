@@ -185,6 +185,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('index');
 	}
 	
+	public function showManager(){
+		$this->load->view('index');
+	}
+	
 	public function otherToolsPage(){
 		$this->load->view('index');
 	}

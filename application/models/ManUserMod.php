@@ -16,6 +16,14 @@ class ManUserMod extends CI_Model {
 		return $arr;
 	}
 	
+	//获取普通管理员的某些信息
+	public function getManagerInfo(){
+		$queryString = 'select id,user_name,role,icon from users where role=1';
+		$query = $this->db->query($queryString);
+		$arr = $query->result();
+		return $arr;
+	}
+	
 	//获取某个用户的所有信息
 	public function getUserAllInfoFromId($id){
 		$queryString = 'select * from users where id='.$id;

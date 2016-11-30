@@ -142,7 +142,7 @@ writeToLog($theTime,$who,$where,$doThings);
 					echo '<tr><td>'.$i.'</td><td><img onclick="toChangeDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path[0]).'"></img>';
 					echo '</td><td id="label_'.$row->id.'">'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
 					if($row->status == 0){
-						echo '<td><input type="text" class="form-control" style="width:120px;" id="input_'.$row->id.'"></td>';
+						echo '<td><input type="text" class="form-control" style="width:130px;" id="input_'.$row->id.'"></td>';
 						echo '<td><button class="btn btn-sm btn-success" onclick="confirmBorrowed()" id="confirm_'.$row->id.'">借 出</button></td>';
 						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';
 						echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="changeDevInfo()">修改</button></td>';
@@ -153,7 +153,7 @@ writeToLog($theTime,$who,$where,$doThings);
 						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';
 						echo '<td><button type="button" class="btn btn-sm btn-warning" id="change_'.$row->id.'" onclick="changeDevInfo()">修改</button></td>';
 					}else if($row->status == 2){
-						echo '<td><input type="text" disabled="disabled" class="form-control" style="width:120px;" value="'.$row->borrower.'" id="input_'.$row->id.'">
+						echo '<td><input type="text" disabled="disabled" class="form-control" style="width:130px;" value="'.$row->borrower.'" id="input_'.$row->id.'">
 								<button type="button" class="btn btn-sm btn-warning" style="margin-top:5px;" id="modify_'.$row->id.'" onclick="modifyBorrower()">修改</button></td>';
 						echo '<td><button class="btn btn-sm btn-danger" onclick="confirmReturned()" id="return_'.$row->id.'">归 还</button></td>';
 						echo '<td><button type="button" class="btn btn-sm btn-danger"id="delete_'.$row->id.'" onclick="deleteDev()">删除</button></td>';

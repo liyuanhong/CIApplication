@@ -64,6 +64,13 @@ function changeMenu(e){
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
+		}else if(e.target.id == "showManager"){
+			session = $.cookie('session');
+			var host = window.location.host;
+			var url = host + "/ci/index.php/Welcome/showManager";
+			//window.location.href="http://" + url;
+			data = {session:session};
+			post("http://" + url,data);
 		}
 }
 

@@ -69,6 +69,12 @@ $isLogin = $this->ManUserMod->isLogin($session);
 				echo '</div>';
 			}
 			?>
+			<?php if($isLogin == 0){
+				echo '<div class="setting_item">';
+				echo '<label id = "showManager" class="setting_label'; if($arr[4]=='showManager'){echo ' menu_selected';} echo '" onclick="changeMenu(event)">查 看 管 理 员</label>';
+				echo '</div>';
+			}
+			?>
 			<div class="setting_item">
 				<label id = "myPage" class="setting_label <?php if($arr[4]=='myPage'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">我 的 页 面</label>
 			</div>
@@ -128,6 +134,8 @@ $isLogin = $this->ManUserMod->isLogin($session);
 				$this->load->view('otherToolsPage/otherToolsPage');
 			}else if($arr[4]=='aboutPage'){
 				$this->load->view('aboutPage/aboutPage');
+			}else if($arr[4]=='showManager'){
+				$this->load->view('userMan/showManager');
 			}
 			?>
 		</div>
