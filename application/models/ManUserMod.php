@@ -8,12 +8,31 @@ class ManUserMod extends CI_Model {
 		$this->load->database();
 	}
 	
-	//获取所有用户的某些信息
+	/**获取所有用户的某些信息
 	public function getUsersInfo(){
 		$queryString = 'select id,user_name,login_name,password,role,icon from users';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		return $arr;
+	}
+	*/
+	
+	//获取所有用户的某些信息
+	public function getUsersInfo($role,$login_name){
+		if($role == 0){
+			$queryString = 'select id,user_name,login_name,password,role,icon from users';
+			$query = $this->db->query($queryString);
+			$arr = $query->result();
+			return $arr;
+		}else if($role == 1){
+			$queryString = 'select id,user_name,login_name,password,role,icon from users where login_name="'.$login_name.'"';
+			$query = $this->db->query($queryString);
+			$arr = $query->result();
+			return $arr;
+		}else{
+			return array();
+		}
+		
 	}
 	
 	//获取普通管理员的某些信息
@@ -117,7 +136,7 @@ class ManUserMod extends CI_Model {
 	
 	//根据session获取用户信息
 	function getUserInfoFromSession($session){
-		$queryString = 'select user_name,login_name,session from users where session="'.$session.'"';
+		$queryString = 'select user_name,login_name,role,session from users where session="'.$session.'"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		return $arr;

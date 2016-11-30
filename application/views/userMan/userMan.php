@@ -13,7 +13,18 @@ $where = "从".$_SERVER["REMOTE_ADDR"];
 $doThings = "访问了用户管理页面";
 writeToLog($theTime,$who,$where,$doThings);
 
-$users = $this->ManUserMod->getUsersInfo();
+$ses = isset($_POST['session'])?$_POST['session']:'';
+$session = "aa";
+if($ses != ""){
+	$session = $_POST['session'];
+}
+
+$userInfo = $this->ManUserMod->getUserInfoFromSession($session);
+$login_name = $userInfo[0]->login_name;
+$role = $userInfo[0]->role;
+
+
+$users = $this->ManUserMod->getUsersInfo($role,$login_name);
 
 ?>
 

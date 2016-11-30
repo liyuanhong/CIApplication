@@ -19,6 +19,11 @@ class ManPicCnt extends CI_Controller {
 		echo json_encode($this->ManPicMod->getAllPics());
 	}
 	
+	//获取数据库中的所有图片
+	public function getrAllPics(){
+		return json_encode($this->ManPicMod->getAllPics());
+	}
+	
 	//处理设备的图片（包括上传，删除，获取）
 	public function dealDevPic(){
 		error_reporting(E_ALL | E_STRICT);
@@ -202,5 +207,14 @@ class ManPicCnt extends CI_Controller {
 		$file_contents = curl_exec($ch);//获得返回值
 		return $file_contents;
 		curl_close($ch);
+	}
+	
+	//显示数据库图片数和实际图片总数
+	function showDbAndDriPicsCount(){
+		$dir = getcwd().'/files/thumbnail';
+		$dirPics = $this->getDirFiles($dir, $level=-1);
+		$dbPicCnt = count(json_decode($this->getrAllPics()));
+		$dirPicCnt = count($dirPics);
+		echo "数据库图片数：".$dbPicCnt."   实际图片数：".$dirPicCnt;
 	}
 }

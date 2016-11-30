@@ -9,6 +9,7 @@
 <div style="width:100%;height:60px;background-color:#EEEEFF;">
 	<button type="button" class="btn btn-success" id="showExtPics" onclick="showExtPics()" style="margin: 10px;">显示垃圾图片</button>
 	<button type="button" class="btn btn-danger" id="delExtPics" onclick="delExtPics()" style="margin: 10px;">删除垃圾图片</button>
+	<button type="button" class="btn btn-success" id="delExtPics" onclick="showPicCnt()" style="margin: 10px;">图片数量对比</button>
 </div>
 
 <div>
@@ -22,6 +23,40 @@ if($this->uri->segment(3) == "getExtImgsEcho"){
 			echo $arr[$i]."<br>";
 		}
 	}
+}else if($this->uri->segment(3) == "showPicCnt"){
+		$dir = getcwd().'/files/thumbnail';
+		$dirPics = getDirFiles($dir, $level=-1);
+		$dbPicCnt = count($this->ManPicMod->getAllPics());
+		$dirPicCnt = count($dirPics);
+		echo "数据库图片数：".$dbPicCnt."   实际图片数：".$dirPicCnt;
+}
+
+//获取thumbnail目录下的所有图片文件
+function getDirFiles($dir, $level=-1)
+{
+	if ($level == 0) {
+		return array();
+	}
+	if (is_file($dir)) {
+		return array($dir);
+	}
+	$files = array();
+	if (is_dir($dir) && ($dir_p = opendir($dir))) {
+		$ds = DIRECTORY_SEPARATOR;
+		while (($filename = readdir($dir_p)) !== false) {
+			if ($filename=='.' || $filename=='..') { continue; }
+			$filetype = filetype($dir.$ds.$filename);
+			if ($filetype == 'dir') {
+				//$files = array_merge($files, getDirFiles($dir.$ds.$filename, $level==-1?-1:$level-1));
+				$files = array_merge($files, getDirFiles($filename, $level==-1?-1:$level-1));
+			} elseif ($filetype == 'file') {
+				//$files[] = $dir.$ds.$filename;
+				$files[] = $filename;
+			}
+		}
+		closedir($dir_p);
+	}
+	return $files;
 }
 ?>
 </div>
