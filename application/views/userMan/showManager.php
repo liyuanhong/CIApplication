@@ -1,6 +1,16 @@
 <?php
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
+
+$theTime = date('y-m-d h:i:s',time());
+//$who = "李明";
+$who = getMemberFromIP();
+$where = "从".$_SERVER["REMOTE_ADDR"];
+$doThings = "访问了查看管理员页面";
+writeToLog($theTime,$who,$where,$doThings);
+
+
+
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 //主机地址
@@ -12,7 +22,6 @@ $who = getMemberFromIP();
 $where = "从".$_SERVER["REMOTE_ADDR"];
 $doThings = "访问了查看管理员页面";
 writeToLog($theTime,$who,$where,$doThings);
-
 $users = $this->ManUserMod->getManagerInfo();
 
 ?>

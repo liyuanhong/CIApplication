@@ -4,15 +4,16 @@ require dirname(__FILE__)."/../../libraries/CI_Log.php";
 
 //主机地址
 $host = $_SERVER['HTTP_HOST'];
+
+$userId = $this->uri->segment(3);
+$data = $this->ManUserMod->getUserAllInfoFromId($userId);
+
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
 $who = getMemberFromIP();
 $where = "从".$_SERVER["REMOTE_ADDR"];
-$doThings = "访问了修改用户界面";
+$doThings = "访问了：".$data[0]->login_name."的修改用户界面";
 writeToLog($theTime,$who,$where,$doThings);
-
-$userId = $this->uri->segment(3);
-$data = $this->ManUserMod->getUserAllInfoFromId($userId);
 
 ?>
 

@@ -68,6 +68,7 @@ class Welcome extends CI_Controller {
 							if(empty($param)){
 								$img = $_GET["file"]; //获取上传的文件名
 								$upload_handler = new UploadHandler();    //上传某张图片
+								
 							}else{
 								if($requestMethod == "GET"){
 								}else if($requestMethod == "POST"){
@@ -244,5 +245,19 @@ class Welcome extends CI_Controller {
 	public function getPics(){
 		require('UploadHandler.php');
 		$upload_handler = json_decode(json_encode(new UploadHandler()));
+	}
+	
+	public function likeDev(){
+		require dirname(__FILE__)."/../libraries/CI_Log.php";
+		require dirname(__FILE__)."/../libraries/CI_Util.php";
+		//主机地址
+		$host = $_SERVER['HTTP_HOST'];
+		
+		$theTime = date('y-m-d h:i:s',time());
+		//$who = "李明";
+		$who = getMemberFromIP();
+		$where = "从".$_SERVER["REMOTE_ADDR"];
+		$doThings = "喜欢了^_^设备管理系统~~~~~~~~";
+		writeToLog($theTime,$who,$where,$doThings);
 	}
 }

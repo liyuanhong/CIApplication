@@ -2,6 +2,13 @@
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 
+$theTime = date('y-m-d h:i:s',time());
+//$who = "李明";
+$who = getMemberFromIP();
+$where = "从".$_SERVER["REMOTE_ADDR"];
+$doThings = "访问了我的页面";
+writeToLog($theTime,$who,$where,$doThings);
+
 //主机地址
 $host = $_SERVER['HTTP_HOST'];
 

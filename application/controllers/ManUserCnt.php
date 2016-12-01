@@ -22,7 +22,8 @@ class ManUserCnt extends CI_Controller {
 		
 		if($isExist){
 			$id = $Adata[0]->id;
-			$who = $Adata[0]->login_name;
+			//$who = $Adata[0]->login_name;
+			$who = getMemberFromIP();
 				
 			$theTime = date('y-m-d h:i:s',time());
 			$where = "从".$_SERVER["REMOTE_ADDR"];
@@ -45,7 +46,8 @@ class ManUserCnt extends CI_Controller {
 		
 		$this->ManUserMod->registerAnUser($user_name,$login_name,$password,$registe_time);
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "注册了一个用户：".$login_name;
 		writeToLog($theTime,$who,$where,$doThings);
