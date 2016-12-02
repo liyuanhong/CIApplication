@@ -64,12 +64,19 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="小米">小米</option>
 						<option value="华为">华为</option>
 						<option value="魅族">魅族</option>
+						<option value="oppo">oppo</option>
+						<option value="vivo">vivo</option>
+						<option value="联想">联想</option>
+						<option value="中兴">中兴</option>
+						<option value="nexus">nexus</option>
+						<option value="其他">其他</option>
 					</select>
 				</td>
 				<td style="width:25%;">
 					<label class="label_style">系统版本：</label>
 					<select id="dev_version" class="select_style form-control">
 						<option value="all">all</option>
+						<option value="8">8</option>
 						<option value="7">7</option>
 						<option value="6">6</option>
 						<option value="5.1">5.1</option>
@@ -78,6 +85,10 @@ writeToLog($theTime,$who,$where,$doThings);
 						<option value="4.3">4.3</option>
 						<option value="4.2">4.2</option>
 						<option value="4.1">4.1</option>
+						<option value="ios7">ios7</option>
+						<option value="ios8">ios8</option>
+						<option value="ios9">ios9</option>
+						<option value="ios10">ios10</option>
 					</select>
 				</td>
 				<td style="width:25%;">

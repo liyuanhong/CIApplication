@@ -53,8 +53,8 @@ writeToLog($theTime,$who,$where,$doThings);
 				<td>
 					<label>平台：</label>
 					<select id="dev_plateform"  class="input_style form-control" style="margin-left:15px;" disabled="disabled">
-						<option value="android">android</option>
-						<option value="ios">ios</option>
+						<option value="android" <?php if($data->plateform == "android"){echo " selected='selected' ";}?>>android</option>
+						<option value="ios" <?php if($data->plateform == "ios"){echo " selected='selected' ";}?>>ios</option>
 					</select>
 				</td>
 				<td>
@@ -74,9 +74,9 @@ writeToLog($theTime,$who,$where,$doThings);
 				<td>
 					<label>分类：</label>
 					<select id="dev_category"  class="input_style form-control" style="margin-left:0px;" disabled="disabled">
-						<option value="手机">手机</option>
-						<option value="平板">平板</option>
-						<option value="其他">其他</option>
+						<option value="手机" <?php if($data->category == "手机"){echo " selected='selected' ";}?>>手机</option>
+						<option value="平板" <?php if($data->category == "平板"){echo " selected='selected' ";}?>>平板</option>
+						<option value="其他" <?php if($data->category == "其他"){echo " selected='selected' ";}?>>其他</option>
 					</select>
 				</td>
 			</tr>
