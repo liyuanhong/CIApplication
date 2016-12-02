@@ -130,9 +130,10 @@ class ManDevMod extends CI_Model {
 	}
 	
 	//修改签借人
-	function changeBorrower($id,$borrower){
+	function changeBorrower($id,$borrower,$borrow_time){
 		$data = array(
-				"borrower" => $borrower
+				"borrower" => $borrower,
+				"borrow_time" => $borrow_time
 		);
 		$this->db->where("id",$id);
 		$this->db->update("devices",$data);

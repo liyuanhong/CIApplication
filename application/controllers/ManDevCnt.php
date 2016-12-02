@@ -1,5 +1,6 @@
 <?php 
 require dirname(__FILE__)."/../libraries/CI_Log.php";
+require dirname(__FILE__)."/../libraries/CI_Util.php";
 defined('BASEPATH') OR exit('No direct script access allowed');
 class ManDevCnt extends CI_Controller {
 	
@@ -37,7 +38,8 @@ class ManDevCnt extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "将设备'.$devName.'--编号：'.$devNum.'借给了：".$borrower;
 		writeToLog($theTime,$who,$where,$doThings);
@@ -58,7 +60,8 @@ class ManDevCnt extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "拒绝将设备'.$devName.'--编号：'.$devNum.'借给：".$borrower;
 		writeToLog($theTime,$who,$where,$doThings);
@@ -79,7 +82,8 @@ class ManDevCnt extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "确认 ".$borrower." 归还了设备：".$devName.'--编号：'.$devNum;
 		writeToLog($theTime,$who,$where,$doThings);
@@ -99,7 +103,8 @@ class ManDevCnt extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "删除了设备：".$devName.'--编号：'.$devNum;
 		writeToLog($theTime,$who,$where,$doThings);
@@ -139,6 +144,7 @@ class ManDevCnt extends CI_Controller {
 	function changeBorrower(){
 		$id = $_GET['id'];
 		$borrower = $_GET['borrower'];
+		$borrow_time = date('Y-m-d H:i:s',time());
 		
 		$data = $this->ManDevMod->getDevNum($id);
 		$jd = json_encode($data);
@@ -148,12 +154,13 @@ class ManDevCnt extends CI_Controller {
 		
 		//写入操作日志
 		$theTime = date('y-m-d h:i:s',time());
-		$who = "李明";
+		//$who = "李明";
+		$who = getMemberFromIP();
 		$where = "从".$_SERVER['HTTP_HOST'];
 		$doThings = "将签借人由: ".$borrowerOld." 改为：".$borrower."  ---".$devName.'--编号：'.$devNum;
 		writeToLog($theTime,$who,$where,$doThings);
 		
-		echo $this->ManDevMod->changeBorrower($id,$borrower);
+		echo $this->ManDevMod->changeBorrower($id,$borrower,$borrow_time);
 	}
 	
 	//获取某个设备的所有信息

@@ -60,9 +60,12 @@ $isLogin = $this->ManUserMod->isLogin($session);
 				echo '</div>';
 			}
 			?>
-			<div class="setting_item">
-				<label id = "logMan"class="setting_label <?php if($arr[4]=='logMan'){echo ' menu_selected';} ?>" onclick="changeMenu(event)">日 志 管 理</label>
-			</div>
+			<?php if($isLogin == 1){
+				echo '<div class="setting_item">';
+				echo '<label id = "logMan"class="setting_label';if($arr[4]=='logMan'){echo ' menu_selected';}echo '" onclick="changeMenu(event)">日 志 管 理</label>';
+				echo '</div>';
+			}
+			?>
 			<?php if($isLogin == 1){
 				echo '<div class="setting_item">';
 				echo '<label id = "userMan" class="setting_label'; if($arr[4]=='userMan'){echo ' menu_selected';} echo '" onclick="changeMenu(event)">用 户 管 理</label>';
