@@ -68,6 +68,8 @@ function post(URL, PARAMS) {
 $('#install').click(function(){
 	var host = window.location.host;
 
+	path = window.location.pathname;
+	var arr = path.split("/");
 	
 	host = $('#host').val();
 	dbName = $('#dbName').val();
@@ -77,7 +79,7 @@ $('#install').click(function(){
 	if(host == "" || dbName == "" || host == "" || password == ""){
 		alert("亲，请补全信息~");
 	}else{
-		var url = "http://" + host + "/ci/install/createDatabase.php";
+		var url = "http://" + host + "/" + arr[1] + "/install/createDatabase.php";
 		data = {"host":host,"dbName":dbName,"userName":userName,"password":password};
 		post( url,data);
 	}

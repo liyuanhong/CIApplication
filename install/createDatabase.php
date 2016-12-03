@@ -144,9 +144,11 @@ function setCoding(){
 function showHelp(){
 	//主机地址
 	$host = $_SERVER['HTTP_HOST'];
+	$str = $_SERVER['PHP_SELF'];
+	$arr = explode("/",$str);
 	
 	echo "<p>安装成功~</p><br>";
-	echo "<p>请打开/ci/application/config/database.php</p><br>";
+	echo "<p>请打开/".$arr[1]."/application/config/database.php</p><br>";
 	echo "<p>并修改数据库配置，(username,password,database)完成安装：</p><br>";
 	echo "
 	'dsn'	=> '',<br>
@@ -172,7 +174,7 @@ function showHelp(){
 	$arr = explode("/",$str);
 	
 	
-	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."/".$arr[1]."'>http://$host/$arr[1]</a><br>";
+	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."/".$arr[1]."'>http://".$host."/".$arr[1]."</a><br>";
 }
 	
 
