@@ -144,6 +144,9 @@ class ManUserMod extends CI_Model {
 	
 	//判断是否登录
 	function isLogin($session){
+		if($session == ""){
+			$session = "3$^$^4^";
+		}
 		$result = $this::getUserInfoFromSession($session);
 		if(count($result) == 1){
 			return 1;   //表示登录
