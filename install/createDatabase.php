@@ -167,7 +167,12 @@ function showHelp(){
     'compress' => FALSE,<br>
     'stricton' => FALSE,<br>
     'failover' => array()<br>";
-	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."/ci'>http://$host/ci</a><br>";
+	
+	$str = $_SERVER['PHP_SELF'];
+	$arr = explode("/",$str);
+	
+	
+	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."/".$arr[1]."'>http://$host/$arr[1]</a><br>";
 }
 	
 
