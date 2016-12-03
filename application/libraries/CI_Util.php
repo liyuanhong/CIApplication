@@ -13,8 +13,9 @@ function getMemberFromIP() {
 	*/
 	
 	
-	
-	return "远洪";
+	//客户地址
+	$host = $_SERVER['HTTP_HOST'];
+	return $host;
 }
 
 
