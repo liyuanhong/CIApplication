@@ -13,9 +13,8 @@ function getMemberFromIP() {
 	*/
 	
 	
-	//客户地址
-	$host = $_SERVER['HTTP_HOST'];
-	return $host;
+	
+	return "该功能请自行配置...";
 }
 
 
