@@ -11,6 +11,7 @@ $arr = explode("/",$url);
 
 $isLogin = $this->ManUserMod->isLogin($session);
 
+
 ?>
 
 <script src="<?php echo base_url();?>static/devMS/js/jquery-3.1.1.min.js"></script>
