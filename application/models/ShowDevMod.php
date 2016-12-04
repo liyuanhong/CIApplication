@@ -50,10 +50,10 @@ class ShowDevMod extends CI_Model {
 			$queryString = $queryString.' and old_dev="'.$old_dev.'"';
 		}
 		if($borrower == ""){
-			
+			$queryString = $queryString.' ORDER BY add_time DESC';
 		}else{
 			//$queryString = $queryString.' and a.borrower like "%'.$borrower.'%"';
-			$queryString = $queryString.' and borrower like "%'.$borrower.'%"';
+			$queryString = $queryString.' and borrower like "%'.$borrower.'%" ORDER BY add_time DESC';
 		}
 		
 		
