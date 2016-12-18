@@ -146,7 +146,7 @@ function showHelp(){
 	$host = $_SERVER['HTTP_HOST'];
 	
 	echo "<p>安装成功~</p><br>";
-	echo "<p>请打开/ci/application/config/database.php</p><br>";
+	echo "<p>请打开/application/config/database.php</p><br>";
 	echo "<p>并修改数据库配置，(username,password,database)完成安装：</p><br>";
 	echo "
 	'dsn'	=> '',<br>
@@ -167,7 +167,7 @@ function showHelp(){
     'compress' => FALSE,<br>
     'stricton' => FALSE,<br>
     'failover' => array()<br>";
-	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."/ci'>http://$host/ci</a><br>";
+	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."'>http://$host</a><br>";
 }
 	
 

@@ -10,9 +10,9 @@ $host = $_SERVER['HTTP_HOST'];
 
 
 ?>
-<script src="http://<?php echo $host;?>/ci/static/devMS/js/jquery-3.1.1.min.js"></script>
-<script src="http://<?php echo $host;?>/ci/static/devMS/js/jquery.cookie.js"></script>
-<link href="http://<?php echo $host;?>/ci/static/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://<?php echo $host;?>/static/devMS/js/jquery-3.1.1.min.js"></script>
+<script src="http://<?php echo $host;?>/static/devMS/js/jquery.cookie.js"></script>
+<link href="http://<?php echo $host;?>/static/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style type="text/css">
 tr{
@@ -77,7 +77,7 @@ $('#install').click(function(){
 	if(host == "" || dbName == "" || host == "" || password == ""){
 		alert("亲，请补全信息~");
 	}else{
-		var url = "http://" + host + "/ci/install/createDatabase.php";
+		var url = "http://" + host + "/install/createDatabase.php";
 		data = {"host":host,"dbName":dbName,"userName":userName,"password":password};
 		post( url,data);
 	}
