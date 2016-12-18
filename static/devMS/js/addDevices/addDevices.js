@@ -19,7 +19,7 @@ $("#dev_add_but").click(function(event){
 	}else{
 		host = window.location.host;
 		//url = host + "/ci/index.php/AddDevices/addDevices";
-		url = host + "/ci/index.php/ManageDev/addDevices";
+		url = host + "/index.php/ManageDev/addDevices";
 		$.get("http://" + url,{devName:devName,devModel:devModel,devNum:devNum,devPlateform:devPlateform,devOwner:devOwner,devBrand:devBrand,devVersion:devVersion,devCategory:devCategory,devOther:devOther,devComments:devComments,uploadPics:uploadPics},
 			function(data){
 				if(data == "sucess"){

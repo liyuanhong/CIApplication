@@ -16,7 +16,7 @@ function changeUserInfo(e){
 	if(typeof($(".input_style").attr("disabled"))=="undefined"){
 		$.ajax({
         	type: "post",
-            url: "http://" + host + "/ci/index.php/ManUserCnt/changeUserInfo",
+            url: "http://" + host + "/index.php/ManUserCnt/changeUserInfo",
             data: {"id":id,"user_name":user_name,"password":password,"login_name":login_name,"role":role,"login_time":login_time,"registe_time":registe_time,"session":session},
             success: function (result) {
             	if(result == "sucess"){
@@ -43,11 +43,11 @@ function modifyIcon(e){
 	id = $(e.target).attr("id_val");
 	val = $(e.target).attr("val");
 	
-	$("#icon").attr("src","http://" + host + "/ci/imgs/portrait/" + val);
+	$("#icon").attr("src","http://" + host + "/imgs/portrait/" + val);
 	
 	$.ajax({
     	type: "post",
-        url: "http://" + host + "/ci/index.php/ManUserCnt/changeUserIcon",
+        url: "http://" + host + "/index.php/ManUserCnt/changeUserIcon",
         data: {"id":id,"icon":val},
         success: function (result) {
         	if(result == "sucess"){

@@ -53,7 +53,7 @@ $users = $this->ManUserMod->getUsersInfo($role,$login_name);
 			$i = 1;
 			foreach ($users as $row){
 				echo '<tr><td>'.$i.'</td><td><img onclick="toChangeUserInfoPage()" class="dev_icon" id="icon___'.$row->id.
-				'"src="http://'.$host.'/ci/imgs/portrait/'.trim($row->icon).'"></img>';
+				'"src="http://'.$host.'/imgs/portrait/'.trim($row->icon).'"></img>';
 				echo '</td><td id="label_'.$row->id.'">'.$row->user_name.'</td><td>'.$row->login_name.'</td><td>'.$row->password.'</td>';
 				echo '</td><td id="label_'.$row->id.'">';
 				if($row->role == 0){echo "超级管理员";}else if($row->role == 1){echo "管理员";}else if($row->role == 2){echo "访客";}

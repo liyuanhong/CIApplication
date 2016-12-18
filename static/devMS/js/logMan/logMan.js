@@ -21,7 +21,7 @@ function post(URL, PARAMS) {
 $("#search_log").click(function(event){
 	date_input = $("#date_input").val();
 	var host = window.location.host;
-	url = host + "/ci/index.php/Welcome/logMan/"
+	url = host + "/index.php/Welcome/logMan/"
 	//location.href = "http://" + url + date_input;
 	post("http://" + url,{date_input:date_input})
 })
@@ -34,7 +34,7 @@ $("#search_log2").click(function(event){
 	alert(from_date_input + "****" +  to_date_input + "****" + key_word);
 	
 	var host = window.location.host;
-	url = host + "/ci/index.php/Welcome/logMan/";
+	url = host + "/index.php/Welcome/logMan/";
 	post("http://" + url,{from_date_input:from_date_input,to_date_input:to_date_input,key_word:key_word});
 })
 */
@@ -43,7 +43,7 @@ function searchLog(e){
 	date_input = $("#date_input").val();
 	session = $.cookie('session');
 	var host = window.location.host;
-	url = host + "/ci/index.php/Welcome/logMan/";
+	url = host + "/index.php/Welcome/logMan/";
 	//location.href = "http://" + url + date_input;
 	post("http://" + url,{date_input:date_input,session:session});
 }
@@ -58,7 +58,7 @@ function searchLog2(e){
 	//alert(from_date_input + "****" +  to_date_input + "****" + key_word);
 	
 	var host = window.location.host;
-	url = host + "/ci/index.php/Welcome/logMan/";
+	url = host + "/index.php/Welcome/logMan/";
 	post("http://" + url,{from_date_input:from_date_input,to_date_input:to_date_input,key_word:key_word,session:session});
 }
 
@@ -70,6 +70,6 @@ $("#search_log2").click(function(event){
 	alert(from_date_input + "****" +  to_date_input + "****" + key_word);
 	
 	var host = window.location.host;
-	url = host + "/ci/index.php/Welcome/logMan/";
+	url = host + "/index.php/Welcome/logMan/";
 	post("http://" + url,{from_date_input:from_date_input,to_date_input:to_date_input,key_word:key_word});
 })

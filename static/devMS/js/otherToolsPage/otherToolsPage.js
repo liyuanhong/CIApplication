@@ -6,11 +6,11 @@ function showExtPics(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/manPicCnt/getExtImgsEcho",
+        url: "http://" + host + "/index.php/manPicCnt/getExtImgsEcho",
         data: {},
         success: function (result) {
-          //window.location.href="http://" + host + "/ci/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
-          var url = "http://" + host + "/ci/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
+          //window.location.href="http://" + host + "/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
+          var url = "http://" + host + "/index.php/Welcome/otherToolsPage/getExtImgsEcho"; 
       	  session = $.cookie('session');
       	  data = {session:session};
       	  post(url,data);
@@ -22,7 +22,7 @@ function showExtPics(e){
 function showPicCnt(e){
 	e = e || window.event;
 	
-	var url = "http://" + host + "/ci/index.php/Welcome/otherToolsPage/showPicCnt"; 
+	var url = "http://" + host + "/index.php/Welcome/otherToolsPage/showPicCnt"; 
  	session = $.cookie('session');
  	data = {session:session};
  	post(url,data);
@@ -34,7 +34,7 @@ function delExtPics(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/manPicCnt/delExtImgs",
+        url: "http://" + host + "/index.php/manPicCnt/delExtImgs",
         data: {},
         success: function (result) {
           if(result == "sucess"){

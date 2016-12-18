@@ -4,8 +4,8 @@ var host = window.location.host;
 function getNoCheckedDevs(e){
 	e = e || window.event;
 	id = e.target.id;
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + id;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
@@ -15,8 +15,8 @@ function getNoCheckedDevs(e){
 function getCheckedDevs(e){
 	e = e || window.event;
 	id = e.target.id;
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + id;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
@@ -26,8 +26,8 @@ function getCheckedDevs(e){
 function getAllDevs(e){
 	e = e || window.event;
 	id = e.target.id;
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + id;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
@@ -37,8 +37,8 @@ function getAllDevs(e){
 function getLostDevs(e){
 	e = e || window.event;
 	id = e.target.id;
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + id;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
@@ -48,8 +48,8 @@ function getLostDevs(e){
 function getOldtDevs(e){
 	e = e || window.event;
 	id = e.target.id;
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + id;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
@@ -59,8 +59,8 @@ function getOldtDevs(e){
 function getAvailableDevs(e){
 	e = e || window.event;
 	id = e.target.id;
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + id;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + id;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
@@ -72,13 +72,13 @@ function initaillizeDevsStatus(e){
 	id = e.target.id;
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/CheckDev/initializeDevs",
+        url: "http://" + host + "/index.php/CheckDev/initializeDevs",
         data: {},
         success: function (result) {
           if(result == "scuess"){
         	  alert("重置成功，页面将跳转！");
-        	  //window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices"; 
-        	  var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/no_checked";
+        	  //window.location.href="http://" + host + "/index.php/Welcome/checkDevices"; 
+        	  var url = "http://" + host + "/index.php/Welcome/checkDevices/no_checked";
     		  session = $.cookie('session');
     		  data = {session:session};
     		  post(url,data);
@@ -97,10 +97,10 @@ function showDevInfo(e){
 	id = e.target.id;
 	deviceId = id.substring(5);
 	session = $.cookie('session');
-	var url = "http://" + host + "/ci/index.php/Welcome/checkDevices/" + deviceId;
+	var url = "http://" + host + "/index.php/Welcome/checkDevices/" + deviceId;
 	data = {session:session};
 	post(url,data);
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/checkDevices/" + deviceId;
+	//window.location.href="http://" + host + "/index.php/Welcome/checkDevices/" + deviceId;
 }
 
 //确认盘点
@@ -111,7 +111,7 @@ function confirmIsAt(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/CheckDev/setDevStatusToAt",
+        url: "http://" + host + "/index.php/CheckDev/setDevStatusToAt",
         data: {"id":deviceId},
         success: function (result) {
           if(result == "scuess"){
@@ -132,7 +132,7 @@ function confirmLost(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/CheckDev/setDevStatusToLost",
+        url: "http://" + host + "/index.php/CheckDev/setDevStatusToLost",
         data: {"id":deviceId},
         success: function (result) {
           if(result == "scuess"){
@@ -152,7 +152,7 @@ function initaillizeTheDev(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/CheckDev/setDevStatusToInitial",
+        url: "http://" + host + "/index.php/CheckDev/setDevStatusToInitial",
         data: {"id":deviceId},
         success: function (result) {
           if(result == "scuess"){
@@ -172,7 +172,7 @@ function setDevStatusToOld(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/CheckDev/setDevStatusToOld",
+        url: "http://" + host + "/index.php/CheckDev/setDevStatusToOld",
         data: {"id":deviceId},
         success: function (result) {
           if(result == "scuess"){
@@ -192,7 +192,7 @@ function setDevStatusToAvilable(e){
 	
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/CheckDev/setDevStatusToAvilable",
+        url: "http://" + host + "/index.php/CheckDev/setDevStatusToAvilable",
         data: {"id":deviceId},
         success: function (result) {
           if(result == "scuess"){

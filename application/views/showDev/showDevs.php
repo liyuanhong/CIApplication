@@ -2,7 +2,6 @@
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
-
 //主机地址
 $host = $_SERVER['HTTP_HOST'];
 
@@ -31,7 +30,6 @@ if($requestMethod == "POST"){
 
 $datas = $this->ShowDevMod->searchDevs($plateform,$brand,$version,$status,$category,$borrower,$old_dev);
 //echo json_encode($datas);
-
 	
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
@@ -141,7 +139,7 @@ writeToLog($theTime,$who,$where,$doThings);
 			<?php 
 				$i = 1;
 				foreach ($datas as $row){
-					echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/ci/files/thumbnail/'.trim($row->path[0]).'"></img>';
+					echo '<tr><td>'.$i.'</td><td><img onclick="showDevInfo()" class="dev_icon" id="icon_'.$row->id.'"src="http://'.$host.'/files/thumbnail/'.trim($row->path[0]).'"></img>';
 					echo '</td><td id="label_'.$row->id.'">'.$row->device_name.'</td><td>'.$row->model.'</td><td>'.$row->theNum.'</td>';
 					if($row->status == 0){
 						echo '<td><input type="text" class="form-control" style="width:80px;" id="input_'.$row->id.'"></td>';

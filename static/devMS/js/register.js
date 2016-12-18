@@ -13,7 +13,7 @@ function register(e){
 		if(password == repassword){
 			$.ajax({
 	        	type: "post",
-	            url: "http://" + host + "/ci/index.php/ManUserCnt/toRegister",
+	            url: "http://" + host + "/index.php/ManUserCnt/toRegister",
 	            data: {"user_name":user_name,"login_name":login_name,"password":password},
 	            success: function (result) {
 	            	if(result == "sucess"){

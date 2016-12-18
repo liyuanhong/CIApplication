@@ -10,7 +10,7 @@ function login(e){
 	}else{
 		$.ajax({
         	type: "post",
-            url: "http://" + host + "/ci/index.php/ManUserCnt/toLogin",
+            url: "http://" + host + "/index.php/ManUserCnt/toLogin",
             data: {"user_name":user_name,"password":password},
             success: function (result) {
             	if(result == "fail"){
@@ -19,7 +19,7 @@ function login(e){
             		$.cookie('session', result); 
             		session = $.cookie('session');
             		var host = window.location.host;
-        			var url = host + "/ci/index.php/Welcome/searchDevices";
+        			var url = host + "/index.php/Welcome/searchDevices";
         			//window.location.href="http://" + url;
         			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
         			post("http://" + url,data);

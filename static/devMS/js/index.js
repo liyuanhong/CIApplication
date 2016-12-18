@@ -4,70 +4,70 @@ function changeMenu(e){
 		if(e.target.id == "searchDevices"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/searchDevices";
+			var url = host + "/index.php/Welcome/searchDevices";
 			//window.location.href="http://" + url;
 			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "addDevices"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/addDevices";
+			var url = host + "/index.php/Welcome/addDevices";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "manDevices"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/manDevices";
+			var url = host + "/index.php/Welcome/manDevices";
 			//window.location.href="http://" + url;
 			data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session,old_dev:'all'};
 			post("http://" + url,data);
 		}else if(e.target.id == "checkDevices"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/checkDevices";
+			var url = host + "/index.php/Welcome/checkDevices";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "logMan"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/logMan";
+			var url = host + "/index.php/Welcome/logMan";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "userMan"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/userMan";
+			var url = host + "/index.php/Welcome/userMan";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "myPage"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/myPage";
+			var url = host + "/index.php/Welcome/myPage";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "otherToolsPage"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/otherToolsPage";
+			var url = host + "/index.php/Welcome/otherToolsPage";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "aboutPage"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/aboutPage";
+			var url = host + "/index.php/Welcome/aboutPage";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
 		}else if(e.target.id == "showManager"){
 			session = $.cookie('session');
 			var host = window.location.host;
-			var url = host + "/ci/index.php/Welcome/showManager";
+			var url = host + "/index.php/Welcome/showManager";
 			//window.location.href="http://" + url;
 			data = {session:session};
 			post("http://" + url,data);
@@ -95,7 +95,7 @@ function post(URL, PARAMS) {
 //跳转到登录界面
 function jumpToLoginPage(e){
 	var host = window.location.host;
-	var url = host + "/ci/index.php/Welcome/login";
+	var url = host + "/index.php/Welcome/login";
 	window.location.href="http://" + url;
 }
 
@@ -106,7 +106,7 @@ function logout(e){
 	$.cookie('session', null); 
 	session = $.cookie('session');
 	var host = window.location.host;
-	var url = host + "/ci/index.php/Welcome/searchDevices";
+	var url = host + "/index.php/Welcome/searchDevices";
 	data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
 	post("http://" + url,data);
 }
@@ -114,6 +114,6 @@ function logout(e){
 //跳转到注册页面
 function jumpToRegisterPage(e){
 	var host = window.location.host;
-	var url = host + "/ci/index.php/Welcome/register";
+	var url = host + "/index.php/Welcome/register";
 	window.location.href="http://" + url;
 }

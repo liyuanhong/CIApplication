@@ -26,8 +26,8 @@ writeToLog($theTime,$who,$where,$doThings);
 </div>
 <div style="width: 100%;height:200px;background-color:#EEEEFF;text-align:center;">
 <h3 style="margin-top:0px;margin-bottom:20px;color:">亲，喜欢就点个赞吧~</h3>
-<img id="like-btn" style="width:150px;height:150px;"src="<?php echo "http://".$host."/ci/imgs/click_on.png";?>"></img>
-<img style="width:1px;height:1px;"src="<?php echo "http://".$host."/ci/imgs/click_down.png";?>"></img>
+<img id="like-btn" style="width:150px;height:150px;"src="<?php echo "http://".$host."/imgs/click_on.png";?>"></img>
+<img style="width:1px;height:1px;"src="<?php echo "http://".$host."/imgs/click_down.png";?>"></img>
 </div>
 <div>
 <h4 id="like" style="text-align:center;margin-top:30px;" hidden>O(∩_∩)O   Thanks you ~</h4>
@@ -39,12 +39,12 @@ writeToLog($theTime,$who,$where,$doThings);
 
 <script type="text/javascript">
 $('#like-btn').mousedown(function(){
-	$("#like-btn").attr("src",'<?php echo "http://".$host."/ci/imgs/click_down.png"; ?>');
+	$("#like-btn").attr("src",'<?php echo "http://".$host."/imgs/click_down.png"; ?>');
 	$("#like").show();
 	var host = window.location.host;
 	$.ajax({
     	type: "get",
-        url: "http://" + host + "/ci/index.php/welcome/likeDev",
+        url: "http://" + host + "/index.php/welcome/likeDev",
         data: {},
         success: function (result) {
             
@@ -53,6 +53,6 @@ $('#like-btn').mousedown(function(){
 });
 
 $('#like-btn').mouseup(function(){
-	//$("#like-btn").attr("src",'<?php echo "http://".$host."/ci/imgs/click_on.png"; ?>');
+	//$("#like-btn").attr("src",'<?php echo "http://".$host."/imgs/click_on.png"; ?>');
 });
 </script>

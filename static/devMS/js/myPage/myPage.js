@@ -8,7 +8,7 @@ function cancleApplyFor(e){
 	deviceName = $("#label_" + e.target.id).text();
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/ManageDev/cancleApplyForDev",
+        url: "http://" + host + "/index.php/ManageDev/cancleApplyForDev",
         data: {"id":deviceId,"device_name":deviceName},
         success: function (result) {
           if(result == "scuess"){

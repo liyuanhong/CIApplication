@@ -13,7 +13,7 @@ function addUser(e){
 	}else{
 		$.ajax({
         	type: "post",
-            url: "http://" + host + "/ci/index.php/ManUserCnt/addAnUser",
+            url: "http://" + host + "/index.php/ManUserCnt/addAnUser",
             data: {"user_name":user_name,"password":password,"login_name":login_name,"role":role},
             success: function (result) {
             	if(result == "sucess"){

@@ -69,16 +69,16 @@ writeToLog($theTime,$who,$where,$doThings);
 		<tr>
 			<td colSpan="3">
 				<laebl>设置头像：</laebl>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/default.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="default.png" onclick="modifyIcon()"></img>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/cat1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="cat1.png" onclick="modifyIcon()"></img>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/baozhi1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="baozhi1.png" onclick="modifyIcon()"></img>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/lufei1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="lufei1.png" onclick="modifyIcon()"></img>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/nvhai1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="nvhai1.png" onclick="modifyIcon()"></img>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/shishang1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="shishang1.png" onclick="modifyIcon()"></img>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/meinv2.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="meinv2.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/default.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="default.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/cat1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="cat1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/baozhi1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="baozhi1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/lufei1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="lufei1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/nvhai1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="nvhai1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/shishang1.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="shishang1.png" onclick="modifyIcon()"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/meinv2.png" style="width:70px;height:70px;margin-left:10px;" class="user_img" id_val="<?php echo $data[0]->id;?>" val="meinv2.png" onclick="modifyIcon()"></img>
 				
 				<laebl style="margin-left:30px;">当前头像：</laebl>
-				<img src="http://<?php echo $host?>/ci/imgs/portrait/<?php echo $data[0]->icon;?>" id="icon" style="width:70px;height:70px;margin-left:10px;"></img>
+				<img src="http://<?php echo $host?>/imgs/portrait/<?php echo $data[0]->icon;?>" id="icon" style="width:70px;height:70px;margin-left:10px;"></img>
 			</td>
 		</tr>
 	</table>

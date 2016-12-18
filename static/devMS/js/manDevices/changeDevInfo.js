@@ -21,7 +21,7 @@ function changeDevInfo(e){
 		
 		$.ajax({
         	type: "post",
-            url: "http://" + host + "/ci/index.php/ManDevCnt/changeDevInfo",
+            url: "http://" + host + "/index.php/ManDevCnt/changeDevInfo",
             data: {"id":id,"dev_name":dev_name,"dev_model":dev_model,"dev_num":dev_num,"dev_owner":dev_owner,
             		"dev_plateform":dev_plateform,"dev_brand":dev_brand,"dev_version":dev_version,
             		"dev_category":dev_category,"dev_other":dev_other,"dev_comments":dev_comments},
@@ -53,7 +53,7 @@ function deleteDevImg(e){
 	if(con == true){
 		$.ajax({
 	    	type: "post",
-	        url: "http://" + host + "/ci/index.php/ManPicCnt/delTheDevPic",
+	        url: "http://" + host + "/index.php/ManPicCnt/delTheDevPic",
 	        data: {"pic":pic},
 	        success: function (result) {
 	        	if(result == "sucess"){

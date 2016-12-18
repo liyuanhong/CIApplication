@@ -64,7 +64,7 @@ writeToLog($theTime,$who,$where,$doThings);
 		$imgs = $jdata->path;
 		for($i = 0;$i < count($imgs);$i++){
 			echo '<li style="width: 25%; float: left;"><div class="responsive" style="text-align:center;height:500px;"><img  style="height:500px;" src="';
-			echo 'http://'.$host.'/ci/files/'.trim($imgs[$i]).'"></div></li>';
+			echo 'http://'.$host.'/files/'.trim($imgs[$i]).'"></div></li>';
 		}
 		?>
 	</ul>

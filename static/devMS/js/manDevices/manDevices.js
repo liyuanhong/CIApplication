@@ -16,7 +16,7 @@ function applyFor(e){
 	 	var borrower = $(inputId).val();
 		$.ajax({
         	type: "get",
-            url: "http://" + host + "/ci/index.php/ManageDev/applyForDev",
+            url: "http://" + host + "/index.php/ManageDev/applyForDev",
             data: {"id":deviceId,"borrower":borrower,"device_name":deviceName},
             success: function (result) {
             	if(result == "scuess"){
@@ -39,7 +39,7 @@ function cancleApplyFor(e){
 	deviceName = $("#label_" + e.target.id).text();
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/ManageDev/cancleApplyForDev",
+        url: "http://" + host + "/index.php/ManageDev/cancleApplyForDev",
         data: {"id":deviceId,"device_name":deviceName},
         success: function (result) {
           if(result == "scuess"){
@@ -58,10 +58,10 @@ function toChangeDevInfo(e){
 	id = e.target.id;
 	deviceId = id.substring(5);
 	session = $.cookie('session');
-	var url = "http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	var url = "http://" + host + "/index.php/Welcome/manDevices/" + deviceId;
 	data = {session:session};
 	post(url,data);
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	//window.location.href="http://" + host + "/index.php/Welcome/manDevices/" + deviceId;
 }
 
 function searchDevs(e){
@@ -77,7 +77,7 @@ function searchDevs(e){
 	borrower = $("#borrower").val();
 	old_dev = $("#old_dev").val();
 	
-	var url = host + "/ci/index.php/Welcome/manDevices";
+	var url = host + "/index.php/Welcome/manDevices";
 	//window.location.href="http://" + url;
 	data = {plateform:dev_plateform,brand:dev_brand,version:dev_version,status:dev_status,category:dev_category,borrower:borrower,old_dev:old_dev,session:session};
 	post("http://" + url,data);
@@ -99,7 +99,7 @@ function modifyBorrower(e){
 		deviceName = $("#label_" + e.target.id).text();
 		$.ajax({
 	        type: "get",
-	        url: "http://" + host + "/ci/index.php/ManDevCnt/changeBorrower",
+	        url: "http://" + host + "/index.php/ManDevCnt/changeBorrower",
 	        data: {"id":idNum,"borrower":borrower},
 	        success: function (result) {
 	          if(result == "sucess"){
@@ -129,7 +129,7 @@ function deleteDev(e){
 	if(con == true){
 		$.ajax({
 	        type: "get",
-	        url: "http://" + host + "/ci/index.php/ManDevCnt/deleteDev",
+	        url: "http://" + host + "/index.php/ManDevCnt/deleteDev",
 	        data: {"id":id},
 	        success: function (result) {
 	          if(result == "sucess"){
@@ -151,10 +151,10 @@ function changeDevInfo(e){
 	id = e.target.id;
 	deviceId = id.substring(7);
 	session = $.cookie('session');
-	var url = "http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	var url = "http://" + host + "/index.php/Welcome/manDevices/" + deviceId;
 	data = {session:session};
 	post(url,data);
-	//window.location.href="http://" + host + "/ci/index.php/Welcome/manDevices/" + deviceId;
+	//window.location.href="http://" + host + "/index.php/Welcome/manDevices/" + deviceId;
 }
 
 //确认归还
@@ -170,7 +170,7 @@ function confirmReturned(e){
 	deviceName = $("#label_" + e.target.id).text();
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/ManDevCnt/confirmReturned",
+        url: "http://" + host + "/index.php/ManDevCnt/confirmReturned",
         data: {"id":id,"borrower":borrower},
         success: function (result) {
           if(result == "sucess"){
@@ -202,7 +202,7 @@ function confirmBorrowed(e){
 		deviceName = $("#label_" + e.target.id).text();
 		$.ajax({
 	        type: "get",
-	        url: "http://" + host + "/ci/index.php/ManDevCnt/confirmBorrowed",
+	        url: "http://" + host + "/index.php/ManDevCnt/confirmBorrowed",
 	        data: {"id":id,"borrower":borrower},
 	        success: function (result) {
 	          if(result == "sucess"){
@@ -230,7 +230,7 @@ function refuseBorrowed(e){
 	deviceName = $("#label_" + e.target.id).text();
 	$.ajax({
         type: "get",
-        url: "http://" + host + "/ci/index.php/ManDevCnt/refuseBorrowed",
+        url: "http://" + host + "/index.php/ManDevCnt/refuseBorrowed",
         data: {"id":id,"borrower":borrower},
         success: function (result) {
           if(result == "sucess"){

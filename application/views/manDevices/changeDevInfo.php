@@ -112,7 +112,7 @@ writeToLog($theTime,$who,$where,$doThings);
 			<?php 
 			for($i=0;$i < count($pics);$i++){
 				echo '<tr><td><img  style="float:left;margin-left:30px;" src="';
-				echo "http://".$host."/ci/files/thumbnail/".trim($pics[$i]->path);
+				echo "http://".$host."/files/thumbnail/".trim($pics[$i]->path);
 				echo '"><button type="button" class="btn btn-sm btn-danger"id="delete_'.trim($pics[$i]->path).'" onclick="deleteDevImg()" style="float:right;margin-right:500px;width:70px;margin-top:20px;">删除</button></td></tr>';
 			}
 			?>

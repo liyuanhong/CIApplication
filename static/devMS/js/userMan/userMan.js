@@ -10,7 +10,7 @@ function delAnUser(e){
 	if(con == true){
 		$.ajax({
 	        type: "post",
-	        url: "http://" + host + "/ci/index.php/ManUserCnt/delAnUser",
+	        url: "http://" + host + "/index.php/ManUserCnt/delAnUser",
 	        data: {"id":id},
 	        success: function (result) {
 	          if(result == "sucess"){
@@ -29,7 +29,7 @@ function delAnUser(e){
 //跳转到添加用户页面
 function toAddUserPage(e){
 	session = $.cookie('session');
-	var url = "http://" + host + "/ci/index.php/Welcome/userMan/addUserPage";
+	var url = "http://" + host + "/index.php/Welcome/userMan/addUserPage";
 	data = {session:session};
 	post(url,data);
 	
@@ -41,7 +41,7 @@ function toChangeUserInfoPage(e){
 	e = e || window.event;
 	tarId = e.target.id;
 	id = tarId.substring(7);
-	var url = "http://" + host + "/ci/index.php/Welcome/userMan/" + id;
+	var url = "http://" + host + "/index.php/Welcome/userMan/" + id;
 	session = $.cookie('session');
 	data = {session:session};
 	post(url,data);
