@@ -260,4 +260,8 @@ class Welcome extends CI_Controller {
 		$doThings = "喜欢了^_^设备管理系统~~~~~~~~";
 		writeToLog($theTime,$who,$where,$doThings);
 	}
+	
+	public function showQRcodeAdddevices(){
+		$this->load->view('addDevices/QRcodeAddDevices');
+	}
 }
