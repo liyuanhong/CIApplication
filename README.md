@@ -36,3 +36,5 @@ mysql 的配置放在根目录下的 `mysql.env` 中。可配置的环境变量�
 php 的配置放在了 `docker/php.ini` 中。修改后需要重启 docker 容器方可生效。
 
 网站使用的就是当前目录的代码，并没有打包到 docker 镜像中。因此需要调整网站配置直接参照 <https://github.com/liyuanhong/CIApplication> 进行配置即可。配置修改后不用重启 docker 容器，立即生效。
+
+查看 php 当前配置：打开 <http://127.0.0.1/php_info> 即可。
