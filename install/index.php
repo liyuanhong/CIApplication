@@ -77,7 +77,7 @@ $('#install').click(function(){
 	if(host == "" || dbName == "" || host == "" || password == ""){
 		alert("亲，请补全信息~");
 	}else{
-		var url = "http://" + host + "/install/createDatabase.php";
+		var url = "/install/createDatabase.php";
 		data = {"host":host,"dbName":dbName,"userName":userName,"password":password};
 		post( url,data);
 	}
