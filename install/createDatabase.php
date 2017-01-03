@@ -146,28 +146,7 @@ function showHelp(){
 	$host = $_SERVER['HTTP_HOST'];
 	
 	echo "<p>安装成功~</p><br>";
-	echo "<p>请打开/application/config/database.php</p><br>";
-	echo "<p>并修改数据库配置，(username,password,database)完成安装：</p><br>";
-	echo "
-	'dsn'	=> '',<br>
-	'hostname' => 'hostname',<br>
-	'username' => 'root',<br>
-	'password' => 'pass',<br>
-	'database' => 'devManageSYS_new',<br>
-	'dbdriver' => 'mysqli',<br>
-    'dbprefix' => '',<br>
-    'pconnect' => TRUE,<br>
-    'db_debug' => TRUE,<br>
-    'cache_on' => FALSE,<br>
-    'cachedir' => '',<br>
-    'char_set' => 'utf8',<br>
-    'dbcollat' => 'utf8_general_ci',<br>
-    'swap_pre' => '',<br>
-    'encrypt' => FALSE,<br>
-    'compress' => FALSE,<br>
-    'stricton' => FALSE,<br>
-    'failover' => array()<br>";
-	echo "<p style='color:red;'>安装完成，并且修改完配置之后请访问:</p><a href='http://".$host."'>http://$host</a><br>";
+	echo "<p style='color:red;'>安装完成，请访问:</p><a href='http://".$host."'>http://$host</a><br>";
 }
 	
 
