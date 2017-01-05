@@ -1,10 +1,11 @@
 # 一个基本功能稳定的主分支 
 <b>注意：目前还存在一些bug，部署到公司内部后，已经修复，但是在github上面的项目没有提交<b><br>
+<b>也乐意接受大家反馈的bug，后续有时间会优化相关的问题以及功能，也感谢网友们反馈的bug，后面有时间我会去修复的...<b><br>
 ## 设备管理系统安装配置方法：
 
 1. 配置好了apache + mysql + php的环境
 2. 下载devMan-branch-noip-install或者devMan-branch-noip-QRcode-install 分支代码
-3. 解压，并将其解压后的目录改为ci
+3. 解压，并将其解压后的目录改为ci（只针对master分支）
 4. 访问 host + install 目录
 5. 填写数据库地址、要创建的数据库，用户名、密码，更具步骤安装即可  <br>
 
