@@ -103,8 +103,8 @@ function jumpToLoginPage(e){
 function logout(e){
 	var host = window.location.host;
 	e = e || window.event;
-	$.cookie('session', null); 
-	session = $.cookie('session',{path:'\'});
+	$.cookie('session', null,{path:'/'}); 
+	session = $.cookie('session');
 	var host = window.location.host;
 	var url = host + "/ci/index.php/Welcome/searchDevices";
 	data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
