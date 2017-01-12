@@ -104,7 +104,7 @@ function logout(e){
 	var host = window.location.host;
 	e = e || window.event;
 	$.cookie('session', null); 
-	session = $.cookie('session');
+	session = $.cookie('session',{path:'/'});
 	var host = window.location.host;
 	var url = host + "/index.php/Welcome/searchDevices";
 	data = {plateform:'all',brand:'all',version:'all',status:'all',category:'all',borrower:'',session:session};
