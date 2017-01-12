@@ -16,7 +16,7 @@ function login(e){
             	if(result == "fail"){
             		alert("用户名或密码错误！");
             	}else{
-            		$.cookie('session', result); 
+            		$.cookie('session', result,{path:'\'}); 
             		session = $.cookie('session');
             		var host = window.location.host;
         			var url = host + "/ci/index.php/Welcome/searchDevices";
