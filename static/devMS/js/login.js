@@ -17,7 +17,7 @@ function login(e){
             		alert("用户名或密码错误！");
             	}else{
             		$.cookie('session', result); 
-            		session = $.cookie('session');
+            		session = $.cookie('session',{path:'\'});
             		var host = window.location.host;
         			var url = host + "/index.php/Welcome/searchDevices";
         			//window.location.href="http://" + url;
