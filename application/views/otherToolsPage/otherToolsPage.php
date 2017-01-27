@@ -2,6 +2,13 @@
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
 
+$ses = isset($_POST['session'])?$_POST['session']:'';
+$session = "";
+if($ses == ""){
+	echo "请登录...";
+	exit();
+}
+
 $theTime = date('y-m-d h:i:s',time());
 //$who = "李明";
 $who = getMemberFromIP();
