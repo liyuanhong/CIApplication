@@ -12,7 +12,6 @@ $arr = explode("/",$url);
 $isLogin = $this->ManUserMod->isLogin($session);
 
 
-
 // print_r($arr[3]);
 // exit();
 
