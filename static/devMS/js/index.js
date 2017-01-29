@@ -103,7 +103,7 @@ function jumpToLoginPage(e){
 function logout(e){
 	var host = window.location.host;
 	e = e || window.event;
-	$.cookie('session', null); 
+	$.cookie('session', null,{path:'/'}); 
 	session = $.cookie('session');
 	var host = window.location.host;
 	var url = host + "/index.php/Welcome/searchDevices";
