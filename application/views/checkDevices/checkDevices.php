@@ -1,6 +1,14 @@
 <?php
 require dirname(__FILE__)."/../../libraries/CI_Util.php";
 require dirname(__FILE__)."/../../libraries/CI_Log.php";
+
+$ses = isset($_POST['session'])?$_POST['session']:'';
+$session = "";
+if($ses == ""){
+	echo "请登录...";
+	exit();
+}
+
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $id = $this->uri->segment(3, 0);
 
