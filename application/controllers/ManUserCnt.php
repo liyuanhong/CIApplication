@@ -23,6 +23,12 @@ class ManUserCnt extends CI_Controller {
 		if($isExist){
 			$id = $Adata[0]->id;
 			//$who = $Adata[0]->login_name;
+			$role = $Adata[0]->role;
+			if($role == 2){
+				echo "refuse";
+				exit();
+			}
+			
 			$who = getMemberFromIP();
 				
 			$theTime = date('y-m-d h:i:s',time());
