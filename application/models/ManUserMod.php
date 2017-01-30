@@ -68,7 +68,7 @@ class ManUserMod extends CI_Model {
 	
 	//获取该用户名和密码对应的用户id
 	public function login($login_name,$password){
-		$queryString = 'select id,login_name from users where login_name="'.$login_name.'" and password="'.$password.'"';
+		$queryString = 'select id,login_name,role from users where login_name="'.$login_name.'" and password="'.$password.'"';
 		$query = $this->db->query($queryString);
 		$arr = $query->result();
 		return $arr;

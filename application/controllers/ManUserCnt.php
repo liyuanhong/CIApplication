@@ -24,6 +24,11 @@ class ManUserCnt extends CI_Controller {
 			$id = $Adata[0]->id;
 			//$who = $Adata[0]->login_name;
 			$who = getMemberFromIP();
+			$role = $Adata[0]->role;
+			if($role == 2){
+				echo "refuse";
+				exit();
+			}
 				
 			$theTime = date('y-m-d h:i:s',time());
 			$where = "从".$_SERVER["REMOTE_ADDR"];

@@ -15,7 +15,10 @@ function login(e){
             success: function (result) {
             	if(result == "fail"){
             		alert("用户名或密码错误！");
-            	}else{
+            	}else if(result == "refuse"){
+            		alert("请联系管理员授予权限！");
+            	}
+            	else{
             		$.cookie('session', result); 
             		session = $.cookie('session');
             		var host = window.location.host;
