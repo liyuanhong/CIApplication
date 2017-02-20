@@ -515,5 +515,5 @@ $config['proxy_ips'] = '';
 
 //pages url_suffix
 //$config['base_url'] = '';
-$config['base_url'] = 'http://lyh.devci.com/';
+$config['base_url'] = 'http://127.0.0.1';
 

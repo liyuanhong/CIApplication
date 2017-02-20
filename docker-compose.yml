@@ -1,0 +1,18 @@
+mysql:
+  image: mysql:latest
+  ports:
+    - '3306:3306'
+  env_file:
+    - mysql.env
+  volumes:
+    - ./mysql_data:/var/lib/mysql
+
+ci:
+  image: chenhengjie123/ci-application-base
+  links:
+    - mysql
+  ports:
+    - '80:80'
+  volumes:
+    - .:/var/www/html/
+    - ./docker/php.ini:/usr/local/etc/php/php.ini
