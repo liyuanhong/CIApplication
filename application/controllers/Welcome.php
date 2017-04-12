@@ -115,7 +115,7 @@ class Welcome extends CI_Controller {
 	public function manDevices(){	
 
 		$par = $this->uri->segment(3);
-		$ref_url = $_SERVER['HTTP_REFERER'];
+		$ref_url = empty($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER'];
 		$arr = explode("/",$ref_url);
 		$id = $arr[count($arr) - 1];
 		
