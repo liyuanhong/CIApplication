@@ -14,7 +14,7 @@
 安装后需要修改一些配置文件，如:<br>
 /application/config/database.php 文件，需要修改安装时填写的数据库地址，用户名和密码，来替换点默认的<br>
 /application/config/config.php 最后一行修改对应的域名 <br>
-安装遇到问题，请邮件联系：908963295@qq.com <br>
+
 ## 一、设备管理系统简单介绍
 <b>设备管理系统的原理，以及要解决的问题:</b><br>
 
